@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Malary — Suite Flow</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --or: #C9A84C;
+  --or2: #E8C97A;
+  --or3: #F5E4B0;
+  --noir: #080808;
+  --noir2: #111111;
+  --noir3: #1A1A1A;
+  --noir4: #242424;
+  --text: #F0EDE6;
+  --text2: #A09880;
+  --text3: #5C5448;
+  --border: rgba(201,168,76,0.15);
+  --border2: rgba(201,168,76,0.3);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Outfit', sans-serif; background: var(--noir); color: var(--text); overflow-x: hidden; }
+body::before { content: ''; position: fixed; inset: 0; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E"); pointer-events: none; z-index: 1000; opacity: 0.4; }
+
+nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 60px; background: rgba(8,8,8,0.85); backdrop-filter: blur(20px); border-bottom: 1px solid var(--border); }
+.nav-logo { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+.nav-logo-mark { width: 36px; height: 36px; border: 1px solid var(--or); border-radius: 8px; display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 18px; font-weight: 600; color: var(--or); }
+.nav-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 500; color: var(--text); letter-spacing: 0.05em; }
+.nav-links { display: flex; align-items: center; gap: 36px; list-style: none; }
+.nav-links a { font-size: 13px; color: var(--text2); text-decoration: none; letter-spacing: 0.08em; text-transform: uppercase; transition: color 0.2s; }
+.nav-links a:hover { color: var(--or); }
+.nav-cta { padding: 8px 20px; border: 1px solid var(--or); border-radius: 4px; font-size: 12px; font-weight: 500; color: var(--or) !important; letter-spacing: 0.1em; text-transform: uppercase; transition: all 0.2s !important; }
+.nav-cta:hover { background: var(--or) !important; color: var(--noir) !important; }
+
+.hero { min-height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 120px 60px 80px; position: relative; overflow: hidden; }
+.hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 60% 50% at 50% 60%, rgba(201,168,76,0.08) 0%, transparent 70%), radial-gradient(ellipse 40% 30% at 20% 80%, rgba(201,168,76,0.04) 0%, transparent 60%); }
+.hero-line { position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 120px; background: linear-gradient(to bottom, transparent, var(--or)); opacity: 0.4; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border: 1px solid var(--border2); border-radius: 99px; font-size: 11px; font-weight: 500; color: var(--or2); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 32px; animation: fadeUp 0.8s ease both; }
+.hero-badge-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--or); animation: pulse 2s infinite; }
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.hero-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(56px, 8vw, 110px); font-weight: 300; line-height: 0.95; letter-spacing: -0.02em; margin-bottom: 12px; animation: fadeUp 0.8s 0.1s ease both; }
+.hero-title em { font-style: italic; color: var(--or); }
+.hero-subtitle { font-family: 'Cormorant Garamond', serif; font-size: clamp(18px, 2.5vw, 28px); font-weight: 300; font-style: italic; color: var(--text2); margin-bottom: 48px; animation: fadeUp 0.8s 0.2s ease both; }
+.hero-desc { font-size: 15px; font-weight: 300; color: var(--text2); max-width: 520px; line-height: 1.8; margin: 0 auto 56px; animation: fadeUp 0.8s 0.3s ease both; }
+.hero-actions { display: flex; align-items: center; gap: 20px; animation: fadeUp 0.8s 0.4s ease both; }
+.btn-primary { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; background: var(--or); color: var(--noir); font-size: 13px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: all 0.2s; border: none; cursor: pointer; }
+.btn-primary:hover { background: var(--or2); transform: translateY(-1px); }
+.btn-secondary { display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px; border: 1px solid var(--border2); color: var(--text2); font-size: 13px; font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; border-radius: 4px; transition: all 0.2s; }
+.btn-secondary:hover { border-color: var(--or); color: var(--or); }
+.hero-stats { display: flex; align-items: center; gap: 48px; margin-top: 80px; padding-top: 48px; border-top: 1px solid var(--border); animation: fadeUp 0.8s 0.5s ease both; }
+.hero-stat-value { font-family: 'Cormorant Garamond', serif; font-size: 36px; font-weight: 500; color: var(--or); }
+.hero-stat-label { font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 2px; }
+.hero-stat-sep { width: 1px; height: 40px; background: var(--border); }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+
+section { padding: 100px 60px; position: relative; }
+.section-label { font-size: 11px; font-weight: 500; color: var(--or); text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 16px; display: flex; align-items: center; gap: 12px; }
+.section-label::before { content: ''; width: 32px; height: 1px; background: var(--or); }
+.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px, 5vw, 64px); font-weight: 300; line-height: 1.1; margin-bottom: 20px; }
+.section-title em { font-style: italic; color: var(--or); }
+
+.flowalert-section { background: var(--noir2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+.flowalert-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; max-width: 1200px; margin: 0 auto; }
+.flowalert-desc { font-size: 16px; font-weight: 300; color: var(--text2); line-height: 1.8; margin-bottom: 40px; }
+.features-list { display: flex; flex-direction: column; gap: 16px; margin-bottom: 40px; }
+.feature-item { display: flex; align-items: flex-start; gap: 14px; padding: 16px 20px; border: 1px solid var(--border); border-radius: 8px; background: var(--noir3); transition: border-color 0.2s; }
+.feature-item:hover { border-color: var(--border2); }
+.feature-icon { width: 36px; height: 36px; border-radius: 8px; background: rgba(201,168,76,0.1); border: 1px solid var(--border2); display: flex; align-items: center; justify-content: center; font-size: 16px; flex-shrink: 0; }
+.feature-title { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 3px; }
+.feature-desc { font-size: 12px; color: var(--text2); line-height: 1.5; }
+
+/* TARIFS */
+.pricing-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.pricing-card { padding: 28px 24px; border: 1px solid var(--border); border-radius: 12px; background: var(--noir3); position: relative; transition: all 0.2s; }
+.pricing-card:hover { border-color: var(--border2); transform: translateY(-2px); }
+.pricing-card.featured { border-color: var(--or); background: linear-gradient(135deg, rgba(201,168,76,0.08), var(--noir3)); }
+.pricing-featured-badge { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background: var(--or); color: var(--noir); font-size: 9px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 3px 10px; border-radius: 99px; white-space: nowrap; }
+.pricing-segment { font-size: 10px; color: var(--or); text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 8px; }
+.pricing-price { font-family: 'Cormorant Garamond', serif; font-size: 42px; font-weight: 500; color: var(--text); line-height: 1; margin-bottom: 2px; }
+.pricing-period { font-size: 12px; color: var(--text3); margin-bottom: 8px; }
+.pricing-licences { font-size: 11px; font-weight: 500; color: var(--or2); background: rgba(201,168,76,0.08); border: 1px solid var(--border); border-radius: 4px; padding: 5px 10px; margin-bottom: 16px; text-align: center; }
+.pricing-extra { font-size: 10px; color: var(--text3); margin-bottom: 16px; }
+.pricing-features { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.pricing-features li { font-size: 12px; color: var(--text2); display: flex; align-items: center; gap: 8px; }
+.pricing-features li::before { content: '◆'; font-size: 6px; color: var(--or); flex-shrink: 0; }
+
+.suite-section { background: var(--noir); }
+.suite-intro { max-width: 600px; margin-bottom: 64px; }
+.suite-intro p { font-size: 16px; font-weight: 300; color: var(--text2); line-height: 1.8; }
+.suite-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; max-width: 1200px; margin: 0 auto; }
+.suite-card { background: var(--noir2); padding: 36px 32px; position: relative; transition: background 0.2s; overflow: hidden; }
+.suite-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--or), transparent); opacity: 0; transition: opacity 0.3s; }
+.suite-card:hover { background: var(--noir3); }
+.suite-card:hover::before { opacity: 1; }
+.suite-card.active { background: linear-gradient(135deg, rgba(201,168,76,0.06), var(--noir2)); }
+.suite-card.active::before { opacity: 0.6; }
+.suite-card-status { display: inline-flex; align-items: center; gap: 5px; font-size: 9px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 20px; padding: 3px 8px; border-radius: 99px; }
+.suite-card-status.live { background: rgba(201,168,76,0.1); border: 1px solid var(--border2); color: var(--or); }
+.suite-card-status.soon { background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); color: var(--text3); }
+.suite-card-status-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
+.suite-card-status.live .suite-card-status-dot { animation: pulse 2s infinite; }
+.suite-number { font-family: 'Cormorant Garamond', serif; font-size: 11px; color: var(--text3); margin-bottom: 6px; letter-spacing: 0.1em; }
+.suite-card-name { font-family: 'Cormorant Garamond', serif; font-size: 32px; font-weight: 400; color: var(--text); margin-bottom: 4px; line-height: 1; }
+.suite-card-name span { color: var(--or); }
+.suite-card-domain { font-size: 11px; color: var(--text3); font-family: 'Outfit', monospace; margin-bottom: 16px; letter-spacing: 0.05em; }
+.suite-card-desc { font-size: 13px; color: var(--text2); line-height: 1.7; margin-bottom: 20px; }
+.suite-card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.suite-tag { font-size: 10px; padding: 3px 9px; border-radius: 99px; border: 1px solid var(--border); color: var(--text3); letter-spacing: 0.05em; }
+.suite-card.active .suite-tag { border-color: var(--border2); color: var(--text2); }
+
+.contact-section { background: var(--noir2); border-top: 1px solid var(--border); text-align: center; }
+.contact-inner { max-width: 600px; margin: 0 auto; }
+.contact-desc { font-size: 16px; font-weight: 300; color: var(--text2); line-height: 1.8; margin-bottom: 48px; }
+.contact-form { display: flex; flex-direction: column; gap: 14px; text-align: left; margin-bottom: 32px; }
+.contact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label { font-size: 11px; color: var(--text3); text-transform: uppercase; letter-spacing: 0.1em; }
+.form-input, .form-select, .form-textarea { background: var(--noir3); border: 1px solid var(--border); border-radius: 6px; padding: 12px 16px; font-size: 13px; font-family: 'Outfit', sans-serif; color: var(--text); outline: none; transition: border-color 0.2s; width: 100%; }
+.form-input:focus, .form-select:focus, .form-textarea:focus { border-color: var(--or); }
+.form-select { appearance: none; cursor: pointer; }
+.form-textarea { resize: vertical; min-height: 100px; }
+.form-input::placeholder, .form-textarea::placeholder { color: var(--text3); }
+
+footer { padding: 40px 60px; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; }
+.footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--or); letter-spacing: 0.05em; }
+.footer-text { font-size: 11px; color: var(--text3); letter-spacing: 0.05em; }
+.footer-suite { display: flex; align-items: center; gap: 20px; }
+.footer-suite a { font-size: 11px; color: var(--text3); text-decoration: none; transition: color 0.2s; }
+.footer-suite a:hover { color: var(--or); }
+.or-line { display: flex; align-items: center; gap: 20px; margin: 32px 0; }
+.or-line::before { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--border)); }
+.or-line::after { content: ''; flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent); }
+.or-diamond { width: 6px; height: 6px; background: var(--or); transform: rotate(45deg); opacity: 0.5; }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">M</div>
+    <div class="nav-logo-text">Malary</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#flowalert">FlowAlert</a></li>
+    <li><a href="#suite">Suite Flow</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#contact" class="nav-cta">Demander une démo</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-line"></div>
+  <div class="hero-badge"><div class="hero-badge-dot"></div>FlowAlert disponible maintenant</div>
+  <h1 class="hero-title">L'intelligence<br>au service de la <em>sérénité</em></h1>
+  <p class="hero-subtitle">Suite Flow par Malary</p>
+  <p class="hero-desc">Malary développe des solutions B2B de gestion intelligente des flux pour les professionnels de la sécurité, les collectivités et les organisateurs d'événements.</p>
+  <div class="hero-actions">
+    <a href="#flowalert" class="btn-primary">Découvrir FlowAlert →</a>
+    <a href="#suite" class="btn-secondary">Suite Flow</a>
+  </div>
+  <div class="hero-stats">
+    <div><div class="hero-stat-value">6</div><div class="hero-stat-label">Produits Flow</div></div>
+    <div class="hero-stat-sep"></div>
+    <div><div class="hero-stat-value">3</div><div class="hero-stat-label">Segments B2B</div></div>
+    <div class="hero-stat-sep"></div>
+    <div><div class="hero-stat-value">Temps réel</div><div class="hero-stat-label">Surveillance active</div></div>
+  </div>
+</section>
+
+<section class="flowalert-section" id="flowalert">
+  <div class="flowalert-grid">
+    <div class="flowalert-left">
+      <div class="section-label">Premier produit de la suite</div>
+      <h2 class="section-title"><em>Flow</em>Alert</h2>
+      <p class="flowalert-desc">Application B2B de surveillance des foules en temps réel. Carte interactive, signalement participatif style Waze et reporting instantané avec preuves — pour les professionnels qui ne peuvent pas se permettre d'être pris au dépourvu.</p>
+      <div class="features-list">
+        <div class="feature-item">
+          <div class="feature-icon">🗺️</div>
+          <div>
+            <div class="feature-title">Carte interactive temps réel</div>
+            <div class="feature-desc">Visualisation des flux de personnes et des zones sensibles en direct sur une carte géolocalisée.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📡</div>
+          <div>
+            <div class="feature-title">Signalement participatif</div>
+            <div class="feature-desc">Vos équipes terrain remontent les incidents instantanément — comme Waze pour la gestion des foules.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">📸</div>
+          <div>
+            <div class="feature-title">Reporting avec preuves en temps réel</div>
+            <div class="feature-desc">Photos, vidéos et documents horodatés remontés instantanément. Chaque incident est documenté, traçable et exportable.</div>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-icon">⚡</div>
+          <div>
+            <div class="feature-title">Alertes instantanées</div>
+            <div class="feature-desc">Notifications push dès qu'un seuil est franchi. Réaction immédiate, décision éclairée.</div>
+          </div>
+        </div>
+      </div>
+      <a href="#contact" class="btn-primary">Demander une démo →</a>
+    </div>
+
+    <div class="flowalert-right">
+      <div class="section-label">Tarifs FlowAlert</div>
+      <div class="pricing-grid">
+
+        <div class="pricing-card">
+          <div class="pricing-price">149<span style="font-size:18px;color:var(--text3)">€</span></div>
+          <div class="pricing-period">/ mois</div>
+          <div class="pricing-licences">✦ 5 licences incluses</div>
+          <div class="pricing-extra">+25€ / licence supplémentaire</div>
+        </div>
+
+        <div class="pricing-card featured">
+          <div class="pricing-featured-badge">Le plus choisi</div>
+          <div class="pricing-price">199<span style="font-size:18px;color:var(--text3)">€</span></div>
+          <div class="pricing-period">/ mois</div>
+          <div class="pricing-licences">✦ 10 licences incluses</div>
+          <div class="pricing-extra">+20€ / licence supplémentaire</div>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-price">299<span style="font-size:18px;color:var(--text3)">€</span></div>
+          <div class="pricing-period">/ mois</div>
+          <div class="pricing-licences">✦ 20 licences incluses</div>
+          <div class="pricing-extra">+15€ / licence supplémentaire</div>
+        </div>
+
+      </div>
+      <div class="or-line"><div class="or-diamond"></div></div>
+      <div style="padding:24px 28px;border:1px solid var(--border2);border-radius:10px;background:linear-gradient(135deg,rgba(201,168,76,0.05),var(--noir3));">
+        <div style="font-size:11px;color:var(--or);text-transform:uppercase;letter-spacing:.12em;margin-bottom:10px;font-weight:500;">Ce que FlowAlert change pour vous</div>
+        <div style="font-size:13px;color:var(--text2);line-height:1.8;">Visualisez vos foules en temps réel, coordonnez vos équipes terrain et documentez chaque incident avec preuves photo. Moins de stress, plus de maîtrise — quelle que soit la taille de votre événement ou de votre site.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="suite-section" id="suite">
+  <div class="section-label">L'écosystème Malary</div>
+  <h2 class="section-title">La <em>Suite Flow</em></h2>
+  <div class="suite-intro">
+    <p>Six applications spécialisées, une philosophie commune : mettre l'intelligence temps réel au service de chaque professionnel qui gère des flux, des espaces et des personnes.</p>
+  </div>
+  <div class="suite-grid">
+
+    <div class="suite-card active">
+      <div class="suite-card-status live"><div class="suite-card-status-dot"></div>Disponible</div>
+      <div class="suite-number">01</div>
+      <div class="suite-card-name"><span>Flow</span>Alert</div>
+      <div class="suite-card-domain">flowalert.malary.fr</div>
+      <div class="suite-card-desc">Surveillance des foules en temps réel pour les professionnels de la sécurité, les mairies et les organisateurs d'événements. Signalement participatif, reporting avec preuves et alertes instantanées.</div>
+      <div class="suite-card-tags"><span class="suite-tag">Sécurité</span><span class="suite-tag">Foules</span><span class="suite-tag">Temps réel</span><span class="suite-tag">B2B</span></div>
+    </div>
+
+    <div class="suite-card">
+      <div class="suite-card-status soon"><div class="suite-card-status-dot"></div>À venir</div>
+      <div class="suite-number">02</div>
+      <div class="suite-card-name"><span>Flow</span>City</div>
+      <div class="suite-card-domain">flowcity.malary.fr</div>
+      <div class="suite-card-desc">Gestion intelligente des flux urbains et des espaces publics pour les villes et métropoles. Sérénité pour les équipes municipales, fluidité pour les citoyens.</div>
+      <div class="suite-card-tags"><span class="suite-tag">Urbanisme</span><span class="suite-tag">Mobilité</span><span class="suite-tag">Smart City</span></div>
+    </div>
+
+    <div class="suite-card">
+      <div class="suite-card-status soon"><div class="suite-card-status-dot"></div>À venir</div>
+      <div class="suite-number">03</div>
+      <div class="suite-card-name"><span>Flow</span>Safe</div>
+      <div class="suite-card-domain">flowsafe.malary.fr</div>
+      <div class="suite-card-desc">Prévention et gestion des risques pour les sites industriels, chantiers et zones sensibles. Reporting HSE en temps réel avec preuves photo et traçabilité complète.</div>
+      <div class="suite-card-tags"><span class="suite-tag">Industrie</span><span class="suite-tag">Prévention</span><span class="suite-tag">HSE</span></div>
+    </div>
+
+    <div class="suite-card">
+      <div class="suite-card-status soon"><div class="suite-card-status-dot"></div>À venir</div>
+      <div class="suite-number">04</div>
+      <div class="suite-card-name"><span>Flow</span>Hotel</div>
+      <div class="suite-card-domain">flowhotel.malary.fr</div>
+      <div class="suite-card-desc">Optimisation des flux clients et coordination des équipes pour l'hôtellerie. Offrir une expérience sereine aux clients tout en simplifiant la gestion opérationnelle.</div>
+      <div class="suite-card-tags"><span class="suite-tag">Hôtellerie</span><span class="suite-tag">Hospitality</span><span class="suite-tag">Expérience</span></div>
+    </div>
+
+    <div class="suite-card">
+      <div class="suite-card-status soon"><div class="suite-card-status-dot"></div>À venir</div>
+      <div class="suite-number">05</div>
+      <div class="suite-card-name"><span>Flow</span>Site</div>
+      <div class="suite-card-domain">flowsite.malary.fr</div>
+      <div class="suite-card-desc">Surveillance et sécurisation des grands sites : centres commerciaux, parcs, campus et espaces multifonctions. Vision globale, réactivité locale.</div>
+      <div class="suite-card-tags"><span class="suite-tag">Commerce</span><span class="suite-tag">Campus</span><span class="suite-tag">Grands sites</span></div>
+    </div>
+
+    <div class="suite-card">
+      <div class="suite-card-status soon"><div class="suite-card-status-dot"></div>À venir</div>
+      <div class="suite-number">06</div>
+      <div class="suite-card-name"><span>Flow</span>School</div>
+      <div class="suite-card-domain">flowschool.malary.fr</div>
+      <div class="suite-card-desc">Sécurité et gestion des flux pour les établissements scolaires et universités. Protéger les élèves, rassurer les familles, simplifier le quotidien des équipes.</div>
+      <div class="suite-card-tags"><span class="suite-tag">Éducation</span><span class="suite-tag">Campus</span><span class="suite-tag">Protection</span></div>
+    </div>
+
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="contact-inner">
+    <div class="section-label" style="justify-content:center">Prendre contact</div>
+    <h2 class="section-title">Parlons de votre <em>projet</em></h2>
+    <p class="contact-desc">Vous gérez la sécurité d'un site, d'un événement ou d'une collectivité ? Demandez une démonstration personnalisée de FlowAlert.</p>
+    <form class="contact-form" onsubmit="submitForm(event)">
+      <div class="contact-row">
+        <div class="form-group">
+          <label class="form-label">Prénom & Nom</label>
+          <input type="text" class="form-input" placeholder="Jean Dupont" required />
+        </div>
+        <div class="form-group">
+          <label class="form-label">Organisation</label>
+          <input type="text" class="form-input" placeholder="Mairie de Lyon" required />
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Email professionnel</label>
+        <input type="email" class="form-input" placeholder="jean.dupont@organisation.fr" required />
+      </div>
+      <div class="form-group">
+        <label class="form-label">Votre secteur</label>
+        <select class="form-select">
+          <option value="">Choisir votre secteur...</option>
+          <option>Sécurité privée</option>
+          <option>Collectivité / Mairie</option>
+          <option>Organisateur d'événements</option>
+          <option>Hôtellerie</option>
+          <option>Industrie / HSE</option>
+          <option>Éducation</option>
+          <option>Autre</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-textarea" placeholder="Décrivez votre besoin en quelques mots..."></textarea>
+      </div>
+      <button type="submit" class="btn-primary" style="width:100%;justify-content:center;">Envoyer la demande →</button>
+    </form>
+    <p style="font-size:12px;color:var(--text3);text-align:center;">Ou contactez-nous directement : <a href="mailto:contact@malary.fr" style="color:var(--or);text-decoration:none;">contact@malary.fr</a></p>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Malary</div>
+  <div class="footer-suite">
+    <a href="#flowalert">FlowAlert</a>
+    <a href="#suite">FlowCity</a>
+    <a href="#suite">FlowSafe</a>
+    <a href="#suite">FlowHotel</a>
+    <a href="#suite">FlowSite</a>
+    <a href="#suite">FlowSchool</a>
+  </div>
+  <div class="footer-text">© 2025 Malary. Tous droits réservés.</div>
+</footer>
+
+<script>
+function submitForm(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('button[type=submit]');
+  btn.textContent = '✓ Demande envoyée — nous vous recontactons sous 24h';
+  btn.style.background = 'rgba(201,168,76,0.2)';
+  btn.style.color = 'var(--or)';
+  btn.style.border = '1px solid var(--or)';
+  btn.disabled = true;
+}
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(el => {
+    if (el.isIntersecting) { el.target.style.opacity = '1'; el.target.style.transform = 'translateY(0)'; }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.suite-card, .feature-item, .pricing-card').forEach(el => {
+  el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+  observer.observe(el);
+});
+</script>
+</body>
+</html>
