@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mentions légales & CGU — Malary</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --noir-0:#0A0A0A;
+    --noir-1:#121212;
+    --noir-2:#1A1A1A;
+    --noir-3:#242424;
+    --or:#C9A96E;
+    --or-soft:rgba(201,169,110,0.18);
+    --blanc:#F4F1EA;
+    --gris:#8C8880;
+    --gris-clair:#b0aca5;
+    --sans:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'DM Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--noir-0);
+    color:var(--blanc);
+    font-family:var(--sans);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--or);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 6vw;
+    background:rgba(10,10,10,0.88);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(201,169,110,0.12);
+  }
+  .logo-word{
+    font-family:var(--mono);
+    font-size:15px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--or);
+  }
+  header a.back{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:1px;
+    color:var(--gris);
+    text-transform:uppercase;
+    transition:color .2s;
+  }
+  header a.back:hover{color:var(--or);text-decoration:none;}
+
+  /* Layout */
+  .wrapper{
+    max-width:860px;
+    margin:0 auto;
+    padding:60px 6vw 100px;
+  }
+
+  /* Nav tabs */
+  .tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:56px;
+    border-bottom:1px solid rgba(201,169,110,0.12);
+    padding-bottom:24px;
+  }
+  .tab-btn{
+    background:none;
+    border:1px solid rgba(201,169,110,0.2);
+    color:var(--gris);
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    padding:8px 18px;
+    border-radius:2px;
+    cursor:pointer;
+    transition:all .2s;
+  }
+  .tab-btn:hover,.tab-btn.active{
+    background:var(--or-soft);
+    border-color:var(--or);
+    color:var(--or);
+  }
+
+  /* Sections */
+  .section{display:none;}
+  .section.active{display:block;}
+
+  /* Typographie doc */
+  .doc-title{
+    font-size:clamp(22px,3vw,32px);
+    font-weight:700;
+    color:var(--or);
+    margin-bottom:8px;
+    letter-spacing:-0.3px;
+  }
+  .doc-date{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--gris);
+    margin-bottom:48px;
+  }
+  h2{
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--or);
+    margin:48px 0 16px;
+    padding-top:48px;
+    border-top:1px solid rgba(201,169,110,0.1);
+  }
+  h2:first-of-type{margin-top:0;padding-top:0;border-top:none;}
+  h3{
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:.5px;
+    color:var(--blanc);
+    margin:28px 0 10px;
+  }
+  p{
+    font-size:14px;
+    color:var(--gris-clair);
+    margin-bottom:14px;
+  }
+  ul,ol{
+    padding-left:22px;
+    margin-bottom:14px;
+  }
+  li{
+    font-size:14px;
+    color:var(--gris-clair);
+    margin-bottom:6px;
+  }
+  strong{color:var(--blanc);}
+  .highlight{
+    background:var(--or-soft);
+    border-left:3px solid var(--or);
+    padding:14px 18px;
+    border-radius:0 4px 4px 0;
+    margin:20px 0;
+    font-size:13px;
+    color:var(--gris-clair);
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:16px 0 24px;
+    font-size:13px;
+  }
+  th{
+    text-align:left;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--or);
+    padding:10px 12px;
+    border-bottom:1px solid rgba(201,169,110,0.2);
+  }
+  td{
+    padding:10px 12px;
+    color:var(--gris-clair);
+    border-bottom:1px solid rgba(244,241,234,0.05);
+    vertical-align:top;
+  }
+
+  /* Footer */
+  footer{
+    padding:40px 6vw;
+    display:flex;align-items:center;justify-content:space-between;
+    border-top:1px solid rgba(244,241,234,0.08);
+    flex-wrap:wrap;gap:16px;
+  }
+  footer .meta{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--gris);
+    letter-spacing:.5px;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="logo-word">Malary</span>
+  <a href="https://malary.eu" class="back">← malary.eu</a>
+</header>
+
+<div class="wrapper">
+
+  <!-- Navigation -->
+  <nav class="tabs" role="tablist">
+    <button class="tab-btn active" onclick="show('ml')" role="tab">Mentions légales</button>
+    <button class="tab-btn" onclick="show('cgu')" role="tab">CGU</button>
+    <button class="tab-btn" onclick="show('cgv')" role="tab">CGV</button>
+    <button class="tab-btn" onclick="show('rgpd')" role="tab">Confidentialité</button>
+  </nav>
+
+  <!-- ──────────────────────────────────────────
+       MENTIONS LÉGALES
+  ────────────────────────────────────────── -->
+  <section id="ml" class="section active">
+    <div class="doc-title">Mentions légales</div>
+    <div class="doc-date">En vigueur au 1er juillet 2026</div>
+
+    <h2>Éditeur</h2>
+    <p>Le site <strong>malary.eu</strong> et l'application mobile <strong>FlowAlert</strong> sont édités par :</p>
+    <p>
+      <strong>MALARY</strong><br>
+      Entrepreneur individuel<br>
+      Haute-Savoie, France<br>
+      SIRET : <strong>[À COMPLÉTER après obtention]</strong><br>
+      E-mail : <a href="mailto:contact@malary.eu">contact@malary.eu</a>
+    </p>
+    <p>Directeur de la publication : Nicolas Houtin</p>
+
+    <h2>Hébergement</h2>
+    <p><strong>Site malary.eu</strong> : GitHub Pages — GitHub, Inc., 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA</p>
+    <p><strong>Dashboard dashboard.malary.eu</strong> : GitHub Pages</p>
+    <p><strong>Outils internes (ops.malary.eu)</strong> : Netlify, Inc., 44 Montgomery Street, Suite 300, San Francisco, CA 94104, USA</p>
+    <p><strong>Backend applicatif (FlowAlert)</strong> : Google Firebase / Google Cloud Platform — serveurs région <strong>europe-west1</strong> (Belgique). Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA</p>
+
+    <h2>Propriété intellectuelle</h2>
+    <p>L'ensemble des contenus présents sur malary.eu et dans l'application FlowAlert (textes, visuels, logotypes, code source) sont la propriété exclusive de MALARY. Toute reproduction, représentation ou utilisation sans autorisation préalable est interdite.</p>
+    <p>La marque <strong>MALARY</strong> et la marque <strong>Suite Flow</strong> sont des marques de MALARY. Leur utilisation sans accord écrit est interdite.</p>
+
+    <h2>Responsabilité</h2>
+    <p>MALARY ne saurait être tenu responsable des dommages directs ou indirects résultant de l'utilisation du site ou de l'application, y compris en cas d'indisponibilité temporaire du service.</p>
+
+    <h2>Cookies</h2>
+    <p>Le site malary.eu n'utilise pas de cookies à des fins publicitaires. Des cookies techniques strictement nécessaires au fonctionnement peuvent être déposés. L'application FlowAlert collecte des données de géolocalisation dans le cadre de son fonctionnement professionnel (voir Politique de confidentialité).</p>
+
+    <h2>Droit applicable</h2>
+    <p>Les présentes mentions légales sont soumises au droit français. Tout litige relatif à leur interprétation relève de la compétence exclusive des tribunaux français.</p>
+  </section>
+
+  <!-- ──────────────────────────────────────────
+       CGU
+  ────────────────────────────────────────── -->
+  <section id="cgu" class="section">
+    <div class="doc-title">Conditions Générales d'Utilisation</div>
+    <div class="doc-date">En vigueur au 1er juillet 2026</div>
+
+    <h2>Article 1 — Objet</h2>
+    <p>Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation de l'application mobile <strong>FlowAlert</strong> et de ses interfaces associées (dashboard Manager, tableau de bord interne), édités par MALARY.</p>
+    <p>L'accès à FlowAlert est réservé aux professionnels disposant d'un compte créé par un administrateur client ou par MALARY. En accédant à l'application, l'utilisateur accepte sans réserve les présentes CGU.</p>
+
+    <h2>Article 2 — Accès au service</h2>
+    <p>L'accès à FlowAlert nécessite :</p>
+    <ul>
+      <li>Un compte utilisateur activé par un administrateur autorisé ;</li>
+      <li>Un appareil compatible (iOS 15 minimum) avec connexion Internet ;</li>
+      <li>L'activation des autorisations de géolocalisation, caméra et notifications push.</li>
+    </ul>
+    <p>L'utilisateur est seul responsable de la confidentialité de ses identifiants.</p>
+
+    <h2>Article 3 — Fonctionnalités</h2>
+    <p>FlowAlert permet notamment :</p>
+    <ul>
+      <li>La déclaration et le suivi d'incidents terrain en temps réel ;</li>
+      <li>La géolocalisation des agents en service ;</li>
+      <li>La messagerie équipe et urgences ;</li>
+      <li>L'accès à un assistant IA de coordination ;</li>
+      <li>La consultation du tableau de bord Manager via dashboard.malary.eu.</li>
+    </ul>
+
+    <h2>Article 4 — Obligations de l'utilisateur</h2>
+    <p>L'utilisateur s'engage à :</p>
+    <ul>
+      <li>Utiliser FlowAlert exclusivement dans le cadre professionnel autorisé par son employeur ou client ;</li>
+      <li>Ne pas tenter d'accéder aux données d'autres clients ;</li>
+      <li>Ne pas introduire de contenus illicites ou malveillants ;</li>
+      <li>Signaler immédiatement toute anomalie de sécurité à <a href="mailto:contact@malary.eu">contact@malary.eu</a>.</li>
+    </ul>
+
+    <h2>Article 5 — Disponibilité du service</h2>
+    <p>MALARY s'efforce d'assurer la disponibilité du service 24h/24, 7j/7, mais ne garantit pas une disponibilité ininterrompue. Des opérations de maintenance peuvent entraîner des interruptions temporaires.</p>
+
+    <h2>Article 6 — Propriété intellectuelle</h2>
+    <p>Tous les éléments de FlowAlert (interface, algorithmes, base de données, marques) sont la propriété exclusive de MALARY. Aucune licence n'est accordée sur ces éléments au-delà du droit d'usage personnel et non transmissible nécessaire à l'utilisation du service.</p>
+
+    <h2>Article 7 — Géolocalisation</h2>
+    <p>L'activation de la géolocalisation est nécessaire au fonctionnement de FlowAlert. La collecte de position n'est active <strong>que lorsque l'agent est en service</strong> et connecté à l'application. Les modalités complètes figurent dans la Politique de confidentialité.</p>
+
+    <h2>Article 8 — Responsabilité</h2>
+    <p>MALARY ne saurait être tenu responsable des dommages résultant d'une utilisation non conforme aux présentes CGU, d'une interruption de service, ou d'une perte de données hors de son contrôle.</p>
+
+    <h2>Article 9 — Modification des CGU</h2>
+    <p>MALARY se réserve le droit de modifier les présentes CGU à tout moment. Les utilisateurs seront informés de toute modification substantielle par notification dans l'application ou par e-mail.</p>
+
+    <h2>Article 10 — Droit applicable</h2>
+    <p>Les présentes CGU sont soumises au droit français. Tout litige sera soumis aux tribunaux compétents du ressort du siège social de MALARY.</p>
+  </section>
+
+  <!-- ──────────────────────────────────────────
+       CGV
+  ────────────────────────────────────────── -->
+  <section id="cgv" class="section">
+    <div class="doc-title">Conditions Générales de Vente</div>
+    <div class="doc-date">En vigueur au 1er juillet 2026</div>
+
+    <div class="highlight">
+      Les présentes CGV s'appliquent exclusivement aux contrats conclus entre MALARY et des clients professionnels (B2B). Elles excluent expressément les relations avec des consommateurs au sens du Code de la consommation.
+    </div>
+
+    <h2>Article 1 — Objet</h2>
+    <p>Les présentes Conditions Générales de Vente (CGV) régissent toute souscription aux offres SaaS de MALARY, notamment <strong>FlowAlert</strong> (application mobile de coordination terrain et gestion d'incidents).</p>
+
+    <h2>Article 2 — Offres et tarifs</h2>
+    <table>
+      <tr>
+        <th>Formule</th>
+        <th>Licences incluses</th>
+        <th>Tarif mensuel HT</th>
+      </tr>
+      <tr>
+        <td><strong>Starter</strong></td>
+        <td>5 utilisateurs</td>
+        <td>149 €</td>
+      </tr>
+      <tr>
+        <td><strong>Pro</strong></td>
+        <td>15 utilisateurs</td>
+        <td>249 €</td>
+      </tr>
+      <tr>
+        <td><strong>Entreprise</strong></td>
+        <td>Au-delà de 15</td>
+        <td>Sur devis (par licence ou forfait négocié)</td>
+      </tr>
+    </table>
+    <p>Les tarifs sont indiqués hors taxes. La TVA applicable est celle en vigueur au jour de la facturation.</p>
+    <p>MALARY se réserve le droit de modifier ses tarifs. Le client sera informé de toute révision avec un préavis de 30 jours.</p>
+
+    <h2>Article 3 — Souscription et prise d'effet</h2>
+    <p>La souscription est formalisée par :</p>
+    <ul>
+      <li>L'acceptation d'un devis ou bon de commande signé ;</li>
+      <li>Ou la confirmation écrite par e-mail.</li>
+    </ul>
+    <p>Le contrat prend effet à la date de création du compte client par MALARY. L'attribution des licences est gérée directement par l'administrateur client.</p>
+
+    <h2>Article 4 — Durée et reconduction</h2>
+    <p>Les abonnements sont souscrits pour une durée initiale d'un mois, renouvelable tacitement par périodes d'un mois, sauf résiliation notifiée par l'une des parties au moins 15 jours avant l'échéance.</p>
+
+    <h2>Article 5 — Facturation et paiement</h2>
+    <p>La facturation est mensuelle, émise en début de période. Le règlement est dû à 30 jours date de facture. Tout retard de paiement entraîne, de plein droit et sans mise en demeure préalable, l'application d'une pénalité de retard égale à 3 fois le taux d'intérêt légal en vigueur, ainsi qu'une indemnité forfaitaire pour frais de recouvrement de 40 €.</p>
+    <p><em>Note : l'intégration Stripe (paiement automatisé en ligne) sera activée ultérieurement. En attendant, le règlement s'effectue par virement bancaire selon les coordonnées figurant sur la facture.</em></p>
+
+    <h2>Article 6 — Obligations de MALARY</h2>
+    <p>MALARY s'engage à :</p>
+    <ul>
+      <li>Fournir l'accès à FlowAlert conformément à la formule souscrite ;</li>
+      <li>Assurer la disponibilité du service avec un objectif de 99 % (hors maintenance planifiée) ;</li>
+      <li>Notifier le client de toute indisponibilité prévisible avec un préavis raisonnable ;</li>
+      <li>Traiter les données conformément au RGPD (voir Politique de confidentialité).</li>
+    </ul>
+
+    <h2>Article 7 — Obligations du client</h2>
+    <p>Le client s'engage à :</p>
+    <ul>
+      <li>S'acquitter des sommes dues dans les délais convenus ;</li>
+      <li>Utiliser le service dans le respect des CGU et de la législation applicable ;</li>
+      <li>Informer ses collaborateurs des conditions d'utilisation, notamment en matière de géolocalisation ;</li>
+      <li>Ne pas sous-licencier ou revendre l'accès au service sans accord écrit de MALARY.</li>
+    </ul>
+
+    <h2>Article 8 — Résiliation</h2>
+    <p>Chaque partie peut résilier le contrat :</p>
+    <ul>
+      <li>Par notification écrite avec préavis de 15 jours avant fin de période ;</li>
+      <li>Immédiatement en cas de manquement grave non remédié dans les 15 jours suivant une mise en demeure.</li>
+    </ul>
+    <p>En cas de résiliation à l'initiative du client avant l'échéance, aucun remboursement de la période en cours n'est dû.</p>
+
+    <h2>Article 9 — Limitation de responsabilité</h2>
+    <p>La responsabilité totale de MALARY ne pourra excéder les sommes effectivement versées par le client au cours des 3 derniers mois. MALARY ne saurait être tenu responsable des pertes d'exploitation, dommages indirects ou immatériels.</p>
+
+    <h2>Article 10 — Confidentialité et données</h2>
+    <p>Les parties s'engagent à traiter comme confidentielles toutes les informations de nature confidentielle échangées dans le cadre du contrat. Les données du client hébergées sur FlowAlert restent sa propriété exclusive. En cas de résiliation, MALARY s'engage à fournir un export des données sur demande dans un délai de 30 jours.</p>
+
+    <h2>Article 11 — Droit applicable et juridiction</h2>
+    <p>Les présentes CGV sont soumises au droit français. En cas de litige, et après tentative de résolution amiable, les parties conviennent de la compétence exclusive des tribunaux compétents du ressort du siège social de MALARY.</p>
+  </section>
+
+  <!-- ──────────────────────────────────────────
+       RGPD / POLITIQUE DE CONFIDENTIALITÉ
+  ────────────────────────────────────────── -->
+  <section id="rgpd" class="section">
+    <div class="doc-title">Politique de confidentialité</div>
+    <div class="doc-date">En vigueur au 1er juillet 2026 — Conformité RGPD (UE 2016/679)</div>
+
+    <h2>1. Responsable du traitement</h2>
+    <p>
+      <strong>MALARY</strong> — Entrepreneur individuel<br>
+      Haute-Savoie, France<br>
+      SIRET : <strong>[À COMPLÉTER]</strong><br>
+      E-mail DPO / contact RGPD : <a href="mailto:contact@malary.eu">contact@malary.eu</a>
+    </p>
+
+    <h2>2. Données collectées et finalités</h2>
+
+    <h3>2.1 Données des utilisateurs de FlowAlert (agents terrain)</h3>
+    <table>
+      <tr><th>Donnée</th><th>Finalité</th><th>Base légale</th><th>Durée</th></tr>
+      <tr><td>Identité (nom, prénom, photo)</td><td>Identification dans l'app</td><td>Exécution du contrat</td><td>Durée du contrat + 1 an</td></tr>
+      <tr><td>Adresse e-mail / identifiants</td><td>Authentification</td><td>Exécution du contrat</td><td>Durée du contrat + 1 an</td></tr>
+      <tr><td><strong>Géolocalisation (position GPS)</strong></td><td>Coordination terrain en temps réel</td><td>Intérêt légitime / consentement</td><td>72 heures glissantes (logs)</td></tr>
+      <tr><td>Signalements (texte, photos, coordonnées)</td><td>Traçabilité des incidents</td><td>Exécution du contrat</td><td>Durée du contrat + 5 ans</td></tr>
+      <tr><td>Messages chat équipe / urgences</td><td>Communication opérationnelle</td><td>Exécution du contrat</td><td>90 jours</td></tr>
+    </table>
+
+    <h3>2.2 Données des clients (entreprises abonnées)</h3>
+    <table>
+      <tr><th>Donnée</th><th>Finalité</th><th>Base légale</th><th>Durée</th></tr>
+      <tr><td>Coordonnées de facturation</td><td>Facturation, comptabilité</td><td>Obligation légale</td><td>10 ans</td></tr>
+      <tr><td>Données de contact (nom, e-mail)</td><td>Gestion de la relation client</td><td>Exécution du contrat</td><td>Durée du contrat + 3 ans</td></tr>
+      <tr><td>Données d'usage (logs connexion, volume)</td><td>Support, amélioration du service</td><td>Intérêt légitime</td><td>12 mois</td></tr>
+    </table>
+
+    <h2>3. Géolocalisation des agents — informations spécifiques</h2>
+    <div class="highlight">
+      <strong>Information obligatoire (article L.1222-4 Code du travail)</strong><br>
+      La géolocalisation de salariés ou intervenants via FlowAlert doit faire l'objet d'une information individuelle préalable par l'employeur, conformément au Code du travail français. L'entreprise cliente est responsable de cette information auprès de ses salariés.
+    </div>
+    <p><strong>Modalités techniques :</strong></p>
+    <ul>
+      <li>La position GPS est collectée <strong>uniquement lorsque l'agent est en service</strong> et l'application active ;</li>
+      <li>La géolocalisation s'arrête automatiquement dès que l'agent se déconnecte ;</li>
+      <li>Les données de position sont stockées sur les serveurs Google Firebase en <strong>région europe-west1</strong> (Belgique) ;</li>
+      <li>L'historique de position est conservé <strong>72 heures maximum</strong>, puis supprimé automatiquement ;</li>
+      <li>Aucune vente de données de géolocalisation à des tiers.</li>
+    </ul>
+    <p><strong>Droit à l'opposition :</strong> un agent peut refuser la géolocalisation en ne se connectant pas à FlowAlert ou en désactivant les permissions de localisation dans les réglages iOS. Cela peut rendre certaines fonctionnalités indisponibles.</p>
+
+    <h2>4. Sous-traitants et transferts de données</h2>
+    <table>
+      <tr><th>Sous-traitant</th><th>Rôle</th><th>Localisation</th></tr>
+      <tr><td>Google Firebase (Firestore, Auth, Storage)</td><td>Base de données, authentification, fichiers</td><td>Europe (europe-west1, Belgique)</td></tr>
+      <tr><td>Apple Inc. (TestFlight, App Store)</td><td>Distribution de l'application iOS</td><td>USA (couvert par SCCs)</td></tr>
+      <tr><td>Anthropic (API Claude)</td><td>Assistant IA dans l'application</td><td>USA (couvert par SCCs)</td></tr>
+      <tr><td>Gandi SAS</td><td>Hébergement e-mail, noms de domaine</td><td>France / UE</td></tr>
+    </table>
+    <p>Les transferts hors UE sont encadrés par les clauses contractuelles types (CCT) de la Commission européenne.</p>
+
+    <h2>5. Droits des personnes concernées</h2>
+    <p>Conformément au RGPD, toute personne dont les données sont traitées par MALARY dispose des droits suivants :</p>
+    <ul>
+      <li><strong>Droit d'accès</strong> (art. 15) : obtenir une copie des données vous concernant ;</li>
+      <li><strong>Droit de rectification</strong> (art. 16) : corriger des données inexactes ;</li>
+      <li><strong>Droit à l'effacement</strong> (art. 17) : demander la suppression de vos données ;</li>
+      <li><strong>Droit à la limitation</strong> (art. 18) : suspendre un traitement ;</li>
+      <li><strong>Droit à la portabilité</strong> (art. 20) : recevoir vos données dans un format structuré ;</li>
+      <li><strong>Droit d'opposition</strong> (art. 21) : s'opposer à un traitement fondé sur l'intérêt légitime.</li>
+    </ul>
+    <p>Pour exercer ces droits : <a href="mailto:contact@malary.eu">contact@malary.eu</a> — réponse sous 30 jours maximum.</p>
+
+    <h2>6. Sécurité des données</h2>
+    <p>MALARY met en œuvre les mesures techniques et organisationnelles suivantes :</p>
+    <ul>
+      <li>Chiffrement des données en transit (HTTPS/TLS) et au repos (Google Firebase) ;</li>
+      <li>Authentification Firebase (token JWT) avec contrôle d'accès par rôle ;</li>
+      <li>Règles de sécurité Firestore limitant l'accès aux seules données du client concerné ;</li>
+      <li>Clé API Google Maps restreinte par domaine/bundle ;</li>
+      <li>Accès administrateur limité aux adresses contact@malary.eu et contact@malary.ch.</li>
+    </ul>
+
+    <h2>7. Cookies et traceurs</h2>
+    <p>Le site malary.eu n'utilise pas de cookies publicitaires. Seuls des cookies techniques strictement nécessaires peuvent être déposés (session, sécurité). L'application mobile FlowAlert n'utilise pas de cookies.</p>
+
+    <h2>8. Autorité de contrôle</h2>
+    <p>Vous pouvez introduire une réclamation auprès de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés) :</p>
+    <p>3 Place de Fontenoy — TSA 80715 — 75334 Paris Cedex 07<br>
+    <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a></p>
+
+    <h2>9. Modifications</h2>
+    <p>Cette politique peut être mise à jour. La version en vigueur est toujours accessible à l'adresse <a href="https://malary.eu/legal.html">malary.eu/legal.html</a>. Toute modification substantielle fera l'objet d'une notification.</p>
+  </section>
+
+</div>
+
+<footer>
+  <span class="logo-word">Malary</span>
+  <span class="meta">© 2026 Malary — <a href="https://malary.eu">malary.eu</a></span>
+</footer>
+
+<script>
+  function show(id){
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.currentTarget.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  }
+</script>
+</body>
+</html>
