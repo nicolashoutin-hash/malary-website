@@ -42,3 +42,11 @@ L’ancien legal.html promettait sans preuve dans ce dépôt : géolocalisation 
 ## Compléments de vérification
 
 La maquette Manager suit désormais le secteur : carte pour FlowAlert/FlowCity ; sites, chambres et locaux pour les quatre autres Flow. Les données de maquette sont explicitement fictives ; les initiales personnelles ont été retirées. Les contrôles de liens, fichiers, identifiants et syntaxe sont relancés sur cette version.
+
+## Messagerie — audit retrouvé et relu
+
+Sources : « Texte collé(20261029-165550).txt » (audit global Jarvis × DashboardOPS) et « Texte collé(20261028-234702).txt » (audit commercial). Rapports datés, pas une inspection du code actuel.
+
+L’audit du 29 octobre décrit Jarvis local (serveur Python sur Mac, interfaces Mac/iPhone), avec mail_agent connecté directement à Gandi en IMAP/SMTP. Le tableau d’inventaire indique « pas de stockage » pour cette lecture directe ; cela ne prouve pas l’absence de traces ou caches dans tous les autres modules. OPS dispose d’un second chemin Gandi via Cloud Functions et synchronise emails_inbox dans Firestore. Les agents Jarvis et fonctions OPS utilisent Anthropic/Claude ; OpenAI côté Jarvis reste explicitement non vérifié. Les brouillons sont opérationnels ; l’envoi par Jarvis exige la validation utilisateur selon l’audit. Ne pas transformer le projet d’unification Jarvis→OPS en affirmation d’une migration accomplie.
+
+Conséquence pour la notice : décrire Gandi + Jarvis/OPS + Google Firebase et l’assistance IA ; ne pas limiter la description à un lecteur sans copie. Vérifier les champs réellement envoyés à Anthropic, les régions des services concernés, les garanties de transfert et les durées de conservation des courriels et brouillons. Aucun transfert automatique de tous les courriels à une IA n’est établi par ces rapports. Aucun changement de Jarvis/OPS ni envoi de courriel effectué dans ce chantier site.
