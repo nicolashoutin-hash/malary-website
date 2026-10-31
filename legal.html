@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mentions légales & CGU — Malary</title>
-<meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Mentions légales, conditions et confidentialité — MALARY</title><meta name="robots" content="noindex"><link rel="stylesheet" href="assets/fonts/fonts.css"><style>
   :root{
     --noir-0:#0A0A0A;
     --noir-1:#121212;
@@ -191,321 +181,88 @@
     color:var(--gris);
     letter-spacing:.5px;
   }
-</style>
-</head>
-<body>
 
-<header>
-  <span class="logo-word">Malary</span>
-  <a href="https://malary.eu" class="back">← malary.eu</a>
-</header>
-
-<div class="wrapper">
-
-  <!-- Navigation -->
-  <nav class="tabs" role="tablist">
-    <button class="tab-btn active" onclick="show('ml')" role="tab">Mentions légales</button>
-    <button class="tab-btn" onclick="show('cgu')" role="tab">CGU</button>
-    <button class="tab-btn" onclick="show('cgv')" role="tab">CGV</button>
-    <button class="tab-btn" onclick="show('rgpd')" role="tab">Confidentialité</button>
-  </nav>
-
-  <!-- ──────────────────────────────────────────
-       MENTIONS LÉGALES
-  ────────────────────────────────────────── -->
-  <section id="ml" class="section active">
-    <div class="doc-title">Mentions légales</div>
-    <div class="doc-date">En vigueur au 1er juillet 2026</div>
-
-    <h2>Éditeur</h2>
-    <p>Le site <strong>malary.eu</strong> et l'application mobile <strong>FlowAlert</strong> sont édités sous la marque :</p>
-    <p>
-      <strong>MALARY</strong><br>
-      Haute-Savoie, France<br>
-      E-mail : <a href="mailto:contact@malary.eu">contact@malary.eu</a>
-    </p>
-    <div class="highlight">
-      La structure juridique exploitant la marque MALARY est en cours de constitution. Les informations d'identification complètes (dénomination sociale, numéro d'immatriculation, directeur de la publication) seront ajoutées dès l'immatriculation effectuée, conformément aux obligations de la loi pour la confiance dans l'économie numérique (LCEN).
-    </div>
-
-    <h2>Hébergement</h2>
-    <p><strong>Site malary.eu</strong> : GitHub Pages — GitHub, Inc., 88 Colin P Kelly Jr Street, San Francisco, CA 94107, USA</p>
-    <p><strong>Dashboard dashboard.malary.eu</strong> : GitHub Pages</p>
-    <p><strong>Outils internes (ops.malary.eu)</strong> : Netlify, Inc., 44 Montgomery Street, Suite 300, San Francisco, CA 94104, USA</p>
-    <p><strong>Backend applicatif (FlowAlert)</strong> : Google Firebase / Google Cloud Platform — serveurs région <strong>europe-west1</strong> (Belgique). Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA</p>
-
-    <h2>Propriété intellectuelle</h2>
-    <p>L'ensemble des contenus présents sur malary.eu et dans l'application FlowAlert (textes, visuels, logotypes, code source) sont la propriété exclusive de MALARY. Toute reproduction, représentation ou utilisation sans autorisation préalable est interdite.</p>
-    <p>La marque <strong>MALARY</strong> et la marque <strong>Suite Flow</strong> sont des marques de MALARY. Leur utilisation sans accord écrit est interdite.</p>
-
-    <h2>Responsabilité</h2>
-    <p>MALARY ne saurait être tenu responsable des dommages directs ou indirects résultant de l'utilisation du site ou de l'application, y compris en cas d'indisponibilité temporaire du service.</p>
-
-    <h2>Cookies</h2>
-    <p>Le site malary.eu n'utilise pas de cookies à des fins publicitaires. Des cookies techniques strictement nécessaires au fonctionnement peuvent être déposés. L'application FlowAlert collecte des données de géolocalisation dans le cadre de son fonctionnement professionnel (voir Politique de confidentialité).</p>
-
-    <h2>Droit applicable</h2>
-    <p>Les présentes mentions légales sont soumises au droit français. Tout litige relatif à leur interprétation relève de la compétence exclusive des tribunaux français.</p>
-  </section>
-
-  <!-- ──────────────────────────────────────────
-       CGU
-  ────────────────────────────────────────── -->
-  <section id="cgu" class="section">
-    <div class="doc-title">Conditions Générales d'Utilisation</div>
-    <div class="doc-date">En vigueur au 1er juillet 2026</div>
-
-    <h2>Article 1 — Objet</h2>
-    <p>Les présentes Conditions Générales d'Utilisation (CGU) régissent l'accès et l'utilisation de l'application mobile <strong>FlowAlert</strong> et de ses interfaces associées (dashboard Manager, tableau de bord interne), édités par MALARY.</p>
-    <p>L'accès à FlowAlert est réservé aux professionnels disposant d'un compte créé par un administrateur client ou par MALARY. En accédant à l'application, l'utilisateur accepte sans réserve les présentes CGU.</p>
-
-    <h2>Article 2 — Accès au service</h2>
-    <p>L'accès à FlowAlert nécessite :</p>
-    <ul>
-      <li>Un compte utilisateur activé par un administrateur autorisé ;</li>
-      <li>Un appareil compatible (iOS 15 minimum) avec connexion Internet ;</li>
-      <li>L'activation des autorisations de géolocalisation, caméra et notifications push.</li>
-    </ul>
-    <p>L'utilisateur est seul responsable de la confidentialité de ses identifiants.</p>
-
-    <h2>Article 3 — Fonctionnalités</h2>
-    <p>FlowAlert permet notamment :</p>
-    <ul>
-      <li>La déclaration et le suivi d'incidents terrain en temps réel ;</li>
-      <li>La géolocalisation des agents en service ;</li>
-      <li>La messagerie équipe et urgences ;</li>
-      <li>L'accès à un assistant IA de coordination ;</li>
-      <li>La consultation du tableau de bord Manager via dashboard.malary.eu.</li>
-    </ul>
-
-    <h2>Article 4 — Obligations de l'utilisateur</h2>
-    <p>L'utilisateur s'engage à :</p>
-    <ul>
-      <li>Utiliser FlowAlert exclusivement dans le cadre professionnel autorisé par son employeur ou client ;</li>
-      <li>Ne pas tenter d'accéder aux données d'autres clients ;</li>
-      <li>Ne pas introduire de contenus illicites ou malveillants ;</li>
-      <li>Signaler immédiatement toute anomalie de sécurité à <a href="mailto:contact@malary.eu">contact@malary.eu</a>.</li>
-    </ul>
-
-    <h2>Article 5 — Disponibilité du service</h2>
-    <p>MALARY s'efforce d'assurer la disponibilité du service 24h/24, 7j/7, mais ne garantit pas une disponibilité ininterrompue. Des opérations de maintenance peuvent entraîner des interruptions temporaires.</p>
-
-    <h2>Article 6 — Propriété intellectuelle</h2>
-    <p>Tous les éléments de FlowAlert (interface, algorithmes, base de données, marques) sont la propriété exclusive de MALARY. Aucune licence n'est accordée sur ces éléments au-delà du droit d'usage personnel et non transmissible nécessaire à l'utilisation du service.</p>
-
-    <h2>Article 7 — Géolocalisation</h2>
-    <p>L'activation de la géolocalisation est nécessaire au fonctionnement de FlowAlert. La collecte de position n'est active <strong>que lorsque l'agent est en service</strong> et connecté à l'application. Les modalités complètes figurent dans la Politique de confidentialité.</p>
-
-    <h2>Article 8 — Responsabilité</h2>
-    <p>MALARY ne saurait être tenu responsable des dommages résultant d'une utilisation non conforme aux présentes CGU, d'une interruption de service, ou d'une perte de données hors de son contrôle.</p>
-
-    <h2>Article 9 — Modification des CGU</h2>
-    <p>MALARY se réserve le droit de modifier les présentes CGU à tout moment. Les utilisateurs seront informés de toute modification substantielle par notification dans l'application ou par e-mail.</p>
-
-    <h2>Article 10 — Droit applicable</h2>
-    <p>Les présentes CGU sont soumises au droit français. Tout litige sera soumis aux tribunaux français compétents.</p>
-  </section>
-
-  <!-- ──────────────────────────────────────────
-       CGV
-  ────────────────────────────────────────── -->
-  <section id="cgv" class="section">
-    <div class="doc-title">Conditions Générales de Vente</div>
-    <div class="doc-date">En vigueur au 1er juillet 2026</div>
-
-    <div class="highlight">
-      Les présentes CGV s'appliquent exclusivement aux contrats conclus entre MALARY et des clients professionnels (B2B). Elles excluent expressément les relations avec des consommateurs au sens du Code de la consommation.
-    </div>
-
-    <h2>Article 1 — Objet</h2>
-    <p>Les présentes Conditions Générales de Vente (CGV) régissent toute souscription aux offres SaaS de MALARY, notamment <strong>FlowAlert</strong> (application mobile de coordination terrain et gestion d'incidents).</p>
-
-    <h2>Article 2 — Offres et tarifs</h2>
-    <table>
-      <tr>
-        <th>Formule</th>
-        <th>Licences incluses</th>
-        <th>Tarif mensuel HT</th>
-      </tr>
-      <tr>
-        <td><strong>Starter</strong></td>
-        <td>5 utilisateurs</td>
-        <td>149 €</td>
-      </tr>
-      <tr>
-        <td><strong>Pro</strong></td>
-        <td>15 utilisateurs</td>
-        <td>249 €</td>
-      </tr>
-      <tr>
-        <td><strong>Entreprise</strong></td>
-        <td>Au-delà de 15</td>
-        <td>Sur devis (par licence ou forfait négocié)</td>
-      </tr>
-    </table>
-    <p>Les tarifs sont indiqués hors taxes. La TVA applicable est celle en vigueur au jour de la facturation.</p>
-    <p>MALARY se réserve le droit de modifier ses tarifs. Le client sera informé de toute révision avec un préavis de 30 jours.</p>
-
-    <h2>Article 3 — Souscription et prise d'effet</h2>
-    <p>La souscription est formalisée par :</p>
-    <ul>
-      <li>L'acceptation d'un devis ou bon de commande signé ;</li>
-      <li>Ou la confirmation écrite par e-mail.</li>
-    </ul>
-    <p>Le contrat prend effet à la date de création du compte client par MALARY. L'attribution des licences est gérée directement par l'administrateur client.</p>
-
-    <h2>Article 4 — Durée et reconduction</h2>
-    <p>Les abonnements sont souscrits pour une durée initiale d'un mois, renouvelable tacitement par périodes d'un mois, sauf résiliation notifiée par l'une des parties au moins 15 jours avant l'échéance.</p>
-
-    <h2>Article 5 — Facturation et paiement</h2>
-    <p>La facturation est mensuelle, émise en début de période. Le règlement est dû à 30 jours date de facture. Tout retard de paiement entraîne, de plein droit et sans mise en demeure préalable, l'application d'une pénalité de retard égale à 3 fois le taux d'intérêt légal en vigueur, ainsi qu'une indemnité forfaitaire pour frais de recouvrement de 40 €.</p>
-    <p><em>Note : l'intégration Stripe (paiement automatisé en ligne) sera activée ultérieurement. En attendant, le règlement s'effectue par virement bancaire selon les coordonnées figurant sur la facture.</em></p>
-
-    <h2>Article 6 — Obligations de MALARY</h2>
-    <p>MALARY s'engage à :</p>
-    <ul>
-      <li>Fournir l'accès à FlowAlert conformément à la formule souscrite ;</li>
-      <li>Assurer la disponibilité du service avec un objectif de 99 % (hors maintenance planifiée) ;</li>
-      <li>Notifier le client de toute indisponibilité prévisible avec un préavis raisonnable ;</li>
-      <li>Traiter les données conformément au RGPD (voir Politique de confidentialité).</li>
-    </ul>
-
-    <h2>Article 7 — Obligations du client</h2>
-    <p>Le client s'engage à :</p>
-    <ul>
-      <li>S'acquitter des sommes dues dans les délais convenus ;</li>
-      <li>Utiliser le service dans le respect des CGU et de la législation applicable ;</li>
-      <li>Informer ses collaborateurs des conditions d'utilisation, notamment en matière de géolocalisation ;</li>
-      <li>Ne pas sous-licencier ou revendre l'accès au service sans accord écrit de MALARY.</li>
-    </ul>
-
-    <h2>Article 8 — Résiliation</h2>
-    <p>Chaque partie peut résilier le contrat :</p>
-    <ul>
-      <li>Par notification écrite avec préavis de 15 jours avant fin de période ;</li>
-      <li>Immédiatement en cas de manquement grave non remédié dans les 15 jours suivant une mise en demeure.</li>
-    </ul>
-    <p>En cas de résiliation à l'initiative du client avant l'échéance, aucun remboursement de la période en cours n'est dû.</p>
-
-    <h2>Article 9 — Limitation de responsabilité</h2>
-    <p>La responsabilité totale de MALARY ne pourra excéder les sommes effectivement versées par le client au cours des 3 derniers mois. MALARY ne saurait être tenu responsable des pertes d'exploitation, dommages indirects ou immatériels.</p>
-
-    <h2>Article 10 — Confidentialité et données</h2>
-    <p>Les parties s'engagent à traiter comme confidentielles toutes les informations de nature confidentielle échangées dans le cadre du contrat. Les données du client hébergées sur FlowAlert restent sa propriété exclusive. En cas de résiliation, MALARY s'engage à fournir un export des données sur demande dans un délai de 30 jours.</p>
-
-    <h2>Article 11 — Droit applicable et juridiction</h2>
-    <p>Les présentes CGV sont soumises au droit français. En cas de litige, et après tentative de résolution amiable, les parties conviennent de la compétence exclusive des tribunaux français compétents.</p>
-  </section>
-
-  <!-- ──────────────────────────────────────────
-       RGPD / POLITIQUE DE CONFIDENTIALITÉ
-  ────────────────────────────────────────── -->
-  <section id="rgpd" class="section">
-    <div class="doc-title">Politique de confidentialité</div>
-    <div class="doc-date">En vigueur au 1er juillet 2026 — Conformité RGPD (UE 2016/679)</div>
-
-    <h2>1. Responsable du traitement</h2>
-    <p>
-      <strong>MALARY</strong><br>
-      Haute-Savoie, France<br>
-      E-mail DPO / contact RGPD : <a href="mailto:contact@malary.eu">contact@malary.eu</a>
-    </p>
-    <p><em>La structure juridique exploitant la marque MALARY est en cours de constitution. Les informations d'identification complètes seront mises à jour dès l'immatriculation effectuée.</em></p>
-
-    <h2>2. Données collectées et finalités</h2>
-
-    <h3>2.1 Données des utilisateurs de FlowAlert (agents terrain)</h3>
-    <table>
-      <tr><th>Donnée</th><th>Finalité</th><th>Base légale</th><th>Durée</th></tr>
-      <tr><td>Identité (nom, prénom, photo)</td><td>Identification dans l'app</td><td>Exécution du contrat</td><td>Durée du contrat + 1 an</td></tr>
-      <tr><td>Adresse e-mail / identifiants</td><td>Authentification</td><td>Exécution du contrat</td><td>Durée du contrat + 1 an</td></tr>
-      <tr><td><strong>Géolocalisation (position GPS)</strong></td><td>Coordination terrain en temps réel</td><td>Intérêt légitime / consentement</td><td>72 heures glissantes (logs)</td></tr>
-      <tr><td>Signalements (texte, photos, coordonnées)</td><td>Traçabilité des incidents</td><td>Exécution du contrat</td><td>Durée du contrat + 5 ans</td></tr>
-      <tr><td>Messages chat équipe / urgences</td><td>Communication opérationnelle</td><td>Exécution du contrat</td><td>90 jours</td></tr>
-    </table>
-
-    <h3>2.2 Données des clients (entreprises abonnées)</h3>
-    <table>
-      <tr><th>Donnée</th><th>Finalité</th><th>Base légale</th><th>Durée</th></tr>
-      <tr><td>Coordonnées de facturation</td><td>Facturation, comptabilité</td><td>Obligation légale</td><td>10 ans</td></tr>
-      <tr><td>Données de contact (nom, e-mail)</td><td>Gestion de la relation client</td><td>Exécution du contrat</td><td>Durée du contrat + 3 ans</td></tr>
-      <tr><td>Données d'usage (logs connexion, volume)</td><td>Support, amélioration du service</td><td>Intérêt légitime</td><td>12 mois</td></tr>
-    </table>
-
-    <h2>3. Géolocalisation des agents — informations spécifiques</h2>
-    <div class="highlight">
-      <strong>Information obligatoire (article L.1222-4 Code du travail)</strong><br>
-      La géolocalisation de salariés ou intervenants via FlowAlert doit faire l'objet d'une information individuelle préalable par l'employeur, conformément au Code du travail français. L'entreprise cliente est responsable de cette information auprès de ses salariés.
-    </div>
-    <p><strong>Modalités techniques :</strong></p>
-    <ul>
-      <li>La position GPS est collectée <strong>uniquement lorsque l'agent est en service</strong> et l'application active ;</li>
-      <li>La géolocalisation s'arrête automatiquement dès que l'agent se déconnecte ;</li>
-      <li>Les données de position sont stockées sur les serveurs Google Firebase en <strong>région europe-west1</strong> (Belgique) ;</li>
-      <li>L'historique de position est conservé <strong>72 heures maximum</strong>, puis supprimé automatiquement ;</li>
-      <li>Aucune vente de données de géolocalisation à des tiers.</li>
-    </ul>
-    <p><strong>Droit à l'opposition :</strong> un agent peut refuser la géolocalisation en ne se connectant pas à FlowAlert ou en désactivant les permissions de localisation dans les réglages iOS. Cela peut rendre certaines fonctionnalités indisponibles.</p>
-
-    <h2>4. Sous-traitants et transferts de données</h2>
-    <table>
-      <tr><th>Sous-traitant</th><th>Rôle</th><th>Localisation</th></tr>
-      <tr><td>Google Firebase (Firestore, Auth, Storage)</td><td>Base de données, authentification, fichiers</td><td>Europe (europe-west1, Belgique)</td></tr>
-      <tr><td>Apple Inc. (TestFlight, App Store)</td><td>Distribution de l'application iOS</td><td>USA (couvert par SCCs)</td></tr>
-      <tr><td>Anthropic (API Claude)</td><td>Assistant IA dans l'application</td><td>USA (couvert par SCCs)</td></tr>
-      <tr><td>Gandi SAS</td><td>Hébergement e-mail, noms de domaine</td><td>France / UE</td></tr>
-    </table>
-    <p>Les transferts hors UE sont encadrés par les clauses contractuelles types (CCT) de la Commission européenne.</p>
-
-    <h2>5. Droits des personnes concernées</h2>
-    <p>Conformément au RGPD, toute personne dont les données sont traitées par MALARY dispose des droits suivants :</p>
-    <ul>
-      <li><strong>Droit d'accès</strong> (art. 15) : obtenir une copie des données vous concernant ;</li>
-      <li><strong>Droit de rectification</strong> (art. 16) : corriger des données inexactes ;</li>
-      <li><strong>Droit à l'effacement</strong> (art. 17) : demander la suppression de vos données ;</li>
-      <li><strong>Droit à la limitation</strong> (art. 18) : suspendre un traitement ;</li>
-      <li><strong>Droit à la portabilité</strong> (art. 20) : recevoir vos données dans un format structuré ;</li>
-      <li><strong>Droit d'opposition</strong> (art. 21) : s'opposer à un traitement fondé sur l'intérêt légitime.</li>
-    </ul>
-    <p>Pour exercer ces droits : <a href="mailto:contact@malary.eu">contact@malary.eu</a> — réponse sous 30 jours maximum.</p>
-
-    <h2>6. Sécurité des données</h2>
-    <p>MALARY met en œuvre les mesures techniques et organisationnelles suivantes :</p>
-    <ul>
-      <li>Chiffrement des données en transit (HTTPS/TLS) et au repos (Google Firebase) ;</li>
-      <li>Authentification Firebase (token JWT) avec contrôle d'accès par rôle ;</li>
-      <li>Règles de sécurité Firestore limitant l'accès aux seules données du client concerné ;</li>
-      <li>Clé API Google Maps restreinte par domaine/bundle ;</li>
-      <li>Accès administrateur limité aux adresses contact@malary.eu et contact@malary.ch.</li>
-    </ul>
-
-    <h2>7. Cookies et traceurs</h2>
-    <p>Le site malary.eu n'utilise pas de cookies publicitaires. Seuls des cookies techniques strictement nécessaires peuvent être déposés (session, sécurité). L'application mobile FlowAlert n'utilise pas de cookies.</p>
-
-    <h2>8. Autorité de contrôle</h2>
-    <p>Vous pouvez introduire une réclamation auprès de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés) :</p>
-    <p>3 Place de Fontenoy — TSA 80715 — 75334 Paris Cedex 07<br>
-    <a href="https://www.cnil.fr" target="_blank" rel="noopener">www.cnil.fr</a></p>
-
-    <h2>9. Modifications</h2>
-    <p>Cette politique peut être mise à jour. La version en vigueur est toujours accessible à l'adresse <a href="https://malary.eu/legal.html">malary.eu/legal.html</a>. Toute modification substantielle fera l'objet d'une notification.</p>
-  </section>
-
-</div>
-
-<footer>
-  <span class="logo-word">Malary</span>
-  <span class="meta">© 2026 Malary — <a href="https://malary.eu">malary.eu</a></span>
-</footer>
-
-<script>
-  function show(id){
-    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-    event.currentTarget.classList.add('active');
-    window.scrollTo({top:0,behavior:'smooth'});
-  }
-</script>
-</body>
-</html>
+.section{display:block;margin-top:56px;scroll-margin-top:110px;} .tabs{position:static;} .tab-btn{display:inline-block;text-decoration:none;} h1{font-size:32px;color:var(--or);margin-bottom:20px;} .draft{padding:18px;border:1px solid var(--or);margin-bottom:24px;} :focus-visible{outline:2px solid var(--or);outline-offset:4px;} table{display:block;overflow-x:auto;} @media(max-width:600px){header{padding:16px 5vw}.wrapper{padding:30px 5vw 70px}.tab-btn{padding:8px 10px}h1{font-size:26px}}</style></head><body><header><a class="logo-word" href="index.html">MALARY</a><a href="index.html" class="back">← Accueil</a></header><main class="wrapper">
+<h1>Informations légales et protection des données</h1>
+<div class="draft"><strong>Version préparatoire — non publiée.</strong> Identification postale et téléphonique de l’éditeur à compléter avant mise en ligne. Les conditions commerciales sont un projet pour la future société ; elles ne permettent aucune souscription à ce stade.</div>
+<p class="doc-date">Version préparée le 31 octobre 2026</p>
+<nav class="tabs" aria-label="Documents juridiques"><a class="tab-btn" href="#ml">Mentions légales</a><a class="tab-btn" href="#cgu">CGU</a><a class="tab-btn" href="#cgv">Conditions commerciales</a><a class="tab-btn" href="#rgpd">Confidentialité</a><a class="tab-btn" href="#cookies">Cookies</a><a class="tab-btn" href="#applications">Applications</a></nav>
+<section id="ml" class="section">
+<h2>Mentions légales</h2>
+<h3>Éditeur et directeur de la publication</h3>
+<p>Nicolas Houtin, porteur du projet MALARY, à Neydens, Haute-Savoie, France.<br>Adresse postale complète : <strong>à renseigner avant publication</strong>.<br>Téléphone de contact : <strong>à renseigner avant publication</strong>.<br>Courriel : <a href="mailto:contact@malary.eu">contact@malary.eu</a>.</p>
+<p>MALARY est le nom du projet de conception et développement de solutions présenté sur ce site. La société est en cours de constitution. Aucun SIREN, numéro RCS, capital social ou numéro de TVA n’est présenté comme acquis. L’identité de la société exploitante sera publiée après son immatriculation.</p>
+<h3>Hébergement du site vitrine</h3>
+<p>GitHub Pages — GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, États-Unis. <a href="https://support.github.com/">Assistance GitHub</a>.</p>
+<h3>Contenus et propriété intellectuelle</h3>
+<p>Les textes, visuels, logos et éléments originaux sont protégés par les droits applicables de leurs titulaires respectifs. Leur consultation ne transfère aucun droit de propriété intellectuelle. Toute réutilisation au-delà des exceptions légales nécessite une autorisation. Les noms et éléments de tiers restent soumis aux droits de leurs titulaires.</p>
+<h3>Signalements</h3>
+<p>Pour signaler un contenu, un lien défectueux ou une difficulté d’accès : <a href="mailto:contact@malary.eu">contact@malary.eu</a>. Merci de décrire le problème sans communiquer de mot de passe ou de donnée sensible.</p>
+</section>
+<section id="cgu" class="section">
+<h2>Conditions générales d’utilisation du site</h2>
+<h3>Objet et public</h3>
+<p>Le site malary.eu présente MALARY et Suite Flow aux organisations et professionnels. Sa consultation est libre. Il ne comporte ni création de compte, ni commande, ni paiement en ligne. Les demandes de présentation s’effectuent par courriel et n’engagent pas à acheter.</p>
+<h3>Présentation des solutions</h3>
+<p>Suite Flow comprend FlowAlert, FlowSite, FlowSafe, FlowSchool, FlowCity et FlowHotel. Les présentations et maquettes illustrent les usages visés. Les fonctionnalités, compatibilités, options, calendriers de disponibilité et conditions de déploiement applicables à un client doivent être définis dans un document contractuel distinct. Les données des maquettes sont illustratives.</p>
+<h3>Bon usage et disponibilité</h3>
+<p>Le visiteur s’engage à ne pas perturber le site, tenter un accès non autorisé, usurper une identité ou transmettre de contenu illicite. Le site peut être interrompu pour maintenance ou pour des raisons techniques. Aucun engagement de disponibilité des applications ne résulte de la consultation du site.</p>
+<h3>Responsabilité et liens</h3>
+<p>L’éditeur s’efforce de fournir une information exacte et de corriger les erreurs signalées. Les responsabilités sont appréciées selon le droit applicable ; aucune disposition n’exclut une responsabilité qui ne peut légalement être écartée. Les sites tiers accessibles par lien disposent de leurs propres conditions et politiques.</p>
+<h3>Évolution et droit applicable</h3>
+<p>Ces conditions régissent la consultation du site dans leur version accessible à la date de visite. Elles sont soumises au droit français, sans préjudice des dispositions impératives applicables. Les litiges relèvent des juridictions légalement compétentes. Les contrats relatifs aux applications feront l’objet de conditions distinctes.</p>
+</section>
+<section id="cgv" class="section">
+<h2>Conditions commerciales — projet B2B</h2>
+<div class="highlight"><strong>Projet non contractuel.</strong> La société n’est pas encore immatriculée. Aucune commande n’est acceptée par ce site et aucun abonnement payant n’y est souscrit. Les clauses ci-dessous constituent une base à finaliser avec l’identité du prestataire et les annexes propres au service avant toute signature.</div>
+<h3>1. Périmètre et documents</h3>
+<p>Le projet vise des prestations professionnelles relatives aux six applications Suite Flow et à Dashboard Manager. Le devis ou bon de commande précisera l’entité prestataire, le produit, les fonctionnalités, les licences, l’installation, l’accompagnement, les prérequis, la date de démarrage et les prix. Les conditions particulières acceptées priment sur les dispositions générales incompatibles. Toute souscription nécessite l’identification du prestataire et l’acceptation des documents contractuels avant activation payante.</p>
+<h3>2. Grille tarifaire indicative</h3>
+<table><thead><tr><th>Licences / application</th><th>Forfait mensuel HT</th></tr></thead><tbody><tr><td>1 à 5</td><td>149 €</td></tr><tr><td>6 à 10</td><td>249 €</td></tr><tr><td>11 à 15</td><td>349 €</td></tr><tr><td>16 à 25</td><td>549 €</td></tr><tr><td>26 et plus</td><td>Sur devis</td></tr></tbody></table>
+<p>Les montants sont forfaitaires par tranche et par application, en euros hors taxes. Les éventuels frais de configuration, migration, accompagnement ou options ainsi que les taxes doivent figurer dans le devis avant acceptation. La grille du site ne vaut pas devis et ne modifie aucun contrat existant.</p>
+<h3>3. Durée et renouvellement envisagés</h3>
+<p>Sauf disposition différente du devis, l’abonnement sera mensuel, renouvelé pour un mois, avec résiliation écrite au moins quinze jours avant l’échéance. La date de début et les éventuelles périodes d’essai devront être précisées avant signature. Une période d’essai ne devient pas payante sans accord préalable. Une modification de prix sera annoncée au moins trente jours avant son application à une nouvelle période, avec possibilité de résilier avant cette application.</p>
+<h3>4. Facturation et paiement envisagés</h3>
+<p>Sauf accord particulier, la facture sera émise en début de période, payable à trente jours date de facture par virement. Aucun escompte n’est prévu pour paiement anticipé. En B2B soumis au droit français, tout retard entraîne les pénalités prévues au contrat, au minimum trois fois le taux d’intérêt légal, ainsi que l’indemnité forfaitaire de recouvrement de 40 € ; une indemnisation complémentaire pourra être demandée sur justificatifs lorsque les frais excèdent ce forfait.</p>
+<h3>5. Accès, assistance et usage</h3>
+<p>Le prestataire fournira le périmètre convenu et un contact d’assistance. Les horaires, délais de réponse, opérations de maintenance et éventuels niveaux de service seront précisés dans le contrat. Aucun taux de disponibilité ni service d’assistance permanent n’est promis par cette page. Le client gérera les habilitations de ses utilisateurs et informera ses équipes des usages autorisés.</p>
+<h3>6. Données, sécurité et confidentialité</h3>
+<p>Le client conserve ses droits sur ses données. Lorsque le prestataire traite des données personnelles pour son compte, un accord de sous-traitance et des annexes complétées seront conclus avant le traitement. Ces documents préciseront les instructions, catégories de données, sous-traitants, localisations, transferts, mesures de sécurité, durées, modalités de restitution et suppression. Les parties protégeront les informations confidentielles échangées, sous réserve des obligations légales.</p>
+<h3>7. Suspension, fin de contrat et réversibilité</h3>
+<p>Une suspension devra être proportionnée à un risque de sécurité, une utilisation illicite ou un manquement contractuel. Sauf urgence justifiée, le client sera averti et disposera d’un délai pour remédier au manquement. La résiliation pour manquement pourra intervenir après une mise en demeure restée sans effet pendant quinze jours. Avant signature, le contrat précisera le format, le délai, le coût éventuel de restitution des données et leur calendrier de suppression, y compris des sauvegardes.</p>
+<h3>8. Propriété, responsabilité et différends</h3>
+<p>Le droit d’utilisation sera limité aux besoins du client et au périmètre convenu, sans transfert de propriété intellectuelle. Les responsabilités et éventuels plafonds devront être convenus dans le contrat sans priver une obligation essentielle de sa substance ni écarter les responsabilités impératives. Les solutions ne remplacent pas les procédures d’urgence ou les décisions des professionnels habilités. Le droit français et les juridictions légalement compétentes s’appliqueront sous réserve des règles impératives et des conditions particulières valablement acceptées.</p>
+</section>
+<section id="rgpd" class="section">
+<h2>Confidentialité du site vitrine</h2>
+<h3>Responsable du traitement et contact</h3>
+<p>Avant l’immatriculation, Nicolas Houtin, porteur du projet MALARY, est responsable du traitement des demandes adressées au projet. Ses coordonnées figurent dans les <a href="#ml">mentions légales</a>. Pour toute question ou demande relative aux données : <a href="mailto:contact@malary.eu">contact@malary.eu</a>. Cette adresse est un contact vie privée ; elle ne constitue pas l’annonce de la désignation d’un DPO.</p>
+<h3>Navigation et demandes de contact</h3>
+<p>Le site ne comporte ni formulaire de collecte, ni inscription à une newsletter, ni compte visiteur, ni outil d’analyse d’audience ou pixel publicitaire ajouté par l’éditeur. Les liens de contact ouvrent votre application de messagerie. Aucun message ne nous est transmis avant votre envoi effectif.</p>
+<p>Si vous nous écrivez, nous recevons votre adresse électronique, les informations que vous choisissez de communiquer (nom, fonction, organisation, téléphone, contenu et pièces jointes) ainsi que les métadonnées du courriel. Une adresse de réponse et un message suffisent pour échanger ; les autres informations ne sont pas systématiquement nécessaires. Évitez les données de santé, les informations concernant des mineurs et les informations confidentielles sur des tiers.</p>
+<h3>Finalités, bases légales et conservation proposées</h3>
+<p>La réponse à une question générale repose sur l’intérêt légitime à gérer les échanges professionnels. Une demande de devis ou de démonstration en vue d’un contrat relève des mesures précontractuelles demandées par la personne. Ces données ne sont pas utilisées pour inscrire automatiquement les contacts à une newsletter.</p>
+<p>La politique de conservation à mettre en œuvre est la suivante : les demandes courantes sont supprimées au plus tard douze mois après leur clôture ; les coordonnées de prospects suivis dans le cadre d’une relation commerciale sont conservées au plus trois ans après le dernier contact venant du prospect. Une conservation distincte et restreinte peut être nécessaire pour établir ou défendre un droit, pendant le délai applicable au litige. Ces durées sont des règles de gestion à mettre en place ; elles ne désignent pas une suppression technique automatique déjà auditée.</p>
+<h3>Destinataires et prestataires</h3>
+<p>Les messages sont destinés au porteur du projet et aux seules personnes autorisées à traiter la demande. Leur transmission et leur stockage impliquent les prestataires de messagerie de l’expéditeur et du destinataire. <strong>Le prestataire de la boîte contact@malary.eu, les lieux de traitement et les garanties de transfert doivent être renseignés et vérifiés avant publication de cette politique.</strong> Les données ne sont ni vendues ni communiquées à un annonceur par l’éditeur.</p>
+<p>Le site et ses fichiers, dont les polices et la vidéo, sont servis par GitHub Pages. GitHub indique enregistrer l’adresse IP des visiteurs pour des raisons de sécurité, y compris sans connexion à un compte GitHub. GitHub est une société américaine ; les modalités de ces traitements, de leur conservation et de leurs transferts sont décrites dans sa <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">déclaration de confidentialité</a>. L’éditeur n’accède pas à un tableau d’analyse des visites ajouté au site.</p>
+<h3>Vos droits</h3>
+<p>Selon la base légale et les conditions prévues par le RGPD, vous pouvez demander l’accès, la rectification, l’effacement, la limitation et la portabilité de vos données, ou vous opposer à un traitement fondé sur l’intérêt légitime. Si un traitement repose sur votre consentement, vous pouvez le retirer à tout moment sans affecter les traitements antérieurs licites.</p>
+<p>Adressez la demande à <a href="mailto:contact@malary.eu">contact@malary.eu</a>. Une réponse sera apportée en principe dans un mois ; une prolongation de deux mois peut être nécessaire en raison de la complexité ou du nombre de demandes, avec information dans le premier mois. Une preuve d’identité proportionnée ne sera demandée qu’en cas de doute raisonnable. Vous pouvez aussi saisir la <a href="https://www.cnil.fr/fr/plaintes">CNIL</a>.</p>
+<h3>Sécurité et évolution</h3>
+<p>Le site utilise HTTPS. Les accès aux messages doivent être limités et protégés. Ne transmettez aucun secret ni dossier sensible par le contact général. Cette politique sera actualisée lorsque l’exploitant, les outils ou les finalités changeront ; la date de version figure en haut de page.</p>
+</section>
+<section id="cookies" class="section">
+<h2>Cookies et ressources externes</h2>
+<p>Dans la version préparée du site vitrine, l’éditeur n’ajoute aucun cookie publicitaire, traceur d’audience, stockage local ou pixel de réseau social. Les polices, les images et la vidéo sont hébergées avec le site ; leur affichage ne nécessite pas de chargement depuis Google Fonts, YouTube, Meta ou TikTok.</p>
+<p>Aucun bandeau de consentement n’est ajouté pour des traceurs absents. Si des outils non nécessaires sont introduits ultérieurement, ils devront être bloqués avant consentement et un choix de refus aussi simple que l’acceptation, ainsi qu’un retrait accessible, devront être proposés. Les journaux de sécurité de l’hébergeur sont décrits dans la rubrique confidentialité.</p>
+</section>
+<section id="applications" class="section">
+<h2>Données dans les applications Suite Flow</h2>
+<p>Cette section distingue les applications du site vitrine ; elle ne remplace pas la notice propre au service effectivement déployé. Les informations de collecte doivent être fournies aux utilisateurs dans leur contexte d’utilisation.</p>
+<p>Pour les opérations réalisées pour le compte d’un client, ce dernier détermine les finalités et les habilitations ; le rôle du prestataire doit être qualifié et documenté dans le contrat. Pour une demande concernant un compte ou des données d’un établissement, contactez son administrateur ou <a href="mailto:contact@malary.eu">contact@malary.eu</a> afin d’être orienté vers le bon interlocuteur.</p>
+<p>FlowAlert et FlowCity comportent des usages cartographiques. FlowSite, FlowSafe, FlowSchool et FlowHotel utilisent des sites, zones, locaux ou chambres sans cartographie. Une permission de localisation du téléphone n’est pas à elle seule une base légale de surveillance de salariés. L’employeur doit déterminer un usage justifié et proportionné et informer les personnes concernées.</p>
+<p>Avant un déploiement traitant des données personnelles réelles, il reste à vérifier par produit les champs collectés, finalités, bases légales, permissions mobiles, destinataires, durées effectives et effacement, prestataires et régions de chaque service Firebase, éventuels outils d’IA, transferts internationaux, mesures de sécurité et procédure de violation de données. Aucun délai de suppression automatique, arrêt de géolocalisation ou hébergement exclusivement européen n’est garanti sans vérification technique.</p>
+<p>Pour FlowSafe et les usages scolaires, les conditions spécifiques aux données de santé ou de mineurs, et, le cas échéant, l’analyse d’impact et les exigences d’hébergement, doivent être établies avant d’autoriser ces traitements. N’utilisez pas une démonstration avec des données identifiantes de patients ou d’élèves.</p>
+</section>
+</main><footer><span class="meta">© 2026 MALARY · <a href="index.html">Accueil</a> · <a href="support.html">Assistance</a></span></footer></body></html>
