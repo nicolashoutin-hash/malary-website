@@ -1,0 +1,185 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Assistance — MALARY</title><meta name="robots" content="noindex"><link rel="stylesheet" href="assets/fonts/fonts.css"><style>
+  :root{
+    --noir-0:#0A0A0A;
+    --noir-1:#121212;
+    --noir-2:#1A1A1A;
+    --noir-3:#242424;
+    --or:#C9A96E;
+    --or-soft:rgba(201,169,110,0.18);
+    --blanc:#F4F1EA;
+    --gris:#8C8880;
+    --gris-clair:#b0aca5;
+    --sans:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'DM Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--noir-0);
+    color:var(--blanc);
+    font-family:var(--sans);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--or);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 6vw;
+    background:rgba(10,10,10,0.88);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(201,169,110,0.12);
+  }
+  .logo-word{
+    font-family:var(--mono);
+    font-size:15px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--or);
+  }
+  header a.back{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:1px;
+    color:var(--gris);
+    text-transform:uppercase;
+    transition:color .2s;
+  }
+  header a.back:hover{color:var(--or);text-decoration:none;}
+
+  /* Layout */
+  .wrapper{
+    max-width:860px;
+    margin:0 auto;
+    padding:60px 6vw 100px;
+  }
+
+  /* Nav tabs */
+  .tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:56px;
+    border-bottom:1px solid rgba(201,169,110,0.12);
+    padding-bottom:24px;
+  }
+  .tab-btn{
+    background:none;
+    border:1px solid rgba(201,169,110,0.2);
+    color:var(--gris);
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    padding:8px 18px;
+    border-radius:2px;
+    cursor:pointer;
+    transition:all .2s;
+  }
+  .tab-btn:hover,.tab-btn.active{
+    background:var(--or-soft);
+    border-color:var(--or);
+    color:var(--or);
+  }
+
+  /* Sections */
+  .section{display:none;}
+  .section.active{display:block;}
+
+  /* Typographie doc */
+  .doc-title{
+    font-size:clamp(22px,3vw,32px);
+    font-weight:700;
+    color:var(--or);
+    margin-bottom:8px;
+    letter-spacing:-0.3px;
+  }
+  .doc-date{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--gris);
+    margin-bottom:48px;
+  }
+  h2{
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--or);
+    margin:48px 0 16px;
+    padding-top:48px;
+    border-top:1px solid rgba(201,169,110,0.1);
+  }
+  h2:first-of-type{margin-top:0;padding-top:0;border-top:none;}
+  h3{
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:.5px;
+    color:var(--blanc);
+    margin:28px 0 10px;
+  }
+  p{
+    font-size:14px;
+    color:var(--gris-clair);
+    margin-bottom:14px;
+  }
+  ul,ol{
+    padding-left:22px;
+    margin-bottom:14px;
+  }
+  li{
+    font-size:14px;
+    color:var(--gris-clair);
+    margin-bottom:6px;
+  }
+  strong{color:var(--blanc);}
+  .highlight{
+    background:var(--or-soft);
+    border-left:3px solid var(--or);
+    padding:14px 18px;
+    border-radius:0 4px 4px 0;
+    margin:20px 0;
+    font-size:13px;
+    color:var(--gris-clair);
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:16px 0 24px;
+    font-size:13px;
+  }
+  th{
+    text-align:left;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--or);
+    padding:10px 12px;
+    border-bottom:1px solid rgba(201,169,110,0.2);
+  }
+  td{
+    padding:10px 12px;
+    color:var(--gris-clair);
+    border-bottom:1px solid rgba(244,241,234,0.05);
+    vertical-align:top;
+  }
+
+  /* Footer */
+  footer{
+    padding:40px 6vw;
+    display:flex;align-items:center;justify-content:space-between;
+    border-top:1px solid rgba(244,241,234,0.08);
+    flex-wrap:wrap;gap:16px;
+  }
+  footer .meta{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--gris);
+    letter-spacing:.5px;
+  }
+
+.section{display:block;margin-top:56px;scroll-margin-top:110px;} .tabs{position:static;} .tab-btn{display:inline-block;text-decoration:none;} h1{font-size:32px;color:var(--or);margin-bottom:20px;} .draft{padding:18px;border:1px solid var(--or);margin-bottom:24px;} :focus-visible{outline:2px solid var(--or);outline-offset:4px;} table{display:block;overflow-x:auto;} @media(max-width:600px){header{padding:16px 5vw}.wrapper{padding:30px 5vw 70px}.tab-btn{padding:8px 10px}h1{font-size:26px}}</style></head><body><header><a class="logo-word" href="index.html">MALARY</a><a href="index.html" class="back">← Accueil</a></header><main class="wrapper"><h1>Assistance Suite Flow</h1><p>Une question sur FlowAlert, FlowSite, FlowSafe, FlowSchool, FlowCity ou FlowHotel ?</p><p>Contactez <a href="mailto:contact@malary.eu?subject=Assistance%20Suite%20Flow">contact@malary.eu</a> en indiquant le produit, votre organisation, la version de l’application et la description du problème. N’envoyez ni mot de passe ni données sensibles. Les demandes de support ne sont pas un canal d’urgence.</p><h2>Compte et données personnelles</h2><p>Pour une modification ou une suppression de compte, adressez-vous à l’administrateur de votre organisation. Vous pouvez également écrire à notre contact en précisant l’organisation et l’adresse du compte, sans joindre de pièce d’identité à ce stade. Une demande sera orientée vers le responsable compétent ; certaines données peuvent devoir être conservées selon les obligations applicables.</p><p><a href="legal.html#rgpd">Confidentialité</a> · <a href="legal.html#applications">Données dans les applications</a> · <a href="legal.html#ml">Mentions légales</a></p></main></body></html>

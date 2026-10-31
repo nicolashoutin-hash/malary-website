@@ -1,0 +1,41 @@
+font-6.ttf
+0: Copyright 2019 The Syne Project Authors (https://gitlab.com/bonjour-monde/fonderie/syne-typeface)
+1: Syne
+13: 
+14: https://scripts.sil.org/OFL
+
+font-3.ttf
+0: Copyright 2014 The DM Sans Project Authors (https://github.com/googlefonts/dm-fonts)
+1: DM Sans Medium
+13: 
+14: https://scripts.sil.org/OFL
+
+font-1.ttf
+0: Copyright 2020 The DM Mono Project Authors (https://www.github.com/googlefonts/dm-mono)
+1: DM Mono Medium
+13: 
+14: http://scripts.sil.org/OFL
+
+font-2.ttf
+0: Copyright 2014 The DM Sans Project Authors (https://github.com/googlefonts/dm-fonts)
+1: DM Sans
+13: 
+14: https://scripts.sil.org/OFL
+
+font-5.ttf
+0: Copyright 2019 The Syne Project Authors (https://gitlab.com/bonjour-monde/fonderie/syne-typeface)
+1: Syne SemiBold
+13: 
+14: https://scripts.sil.org/OFL
+
+font-0.ttf
+0: Copyright 2020 The DM Mono Project Authors (https://www.github.com/googlefonts/dm-mono)
+1: DM Mono
+13: 
+14: http://scripts.sil.org/OFL
+
+font-4.ttf
+0: Copyright 2014 The DM Sans Project Authors (https://github.com/googlefonts/dm-fonts)
+1: DM Sans
+13: 
+14: https://scripts.sil.org/OFL

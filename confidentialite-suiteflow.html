@@ -1,0 +1,190 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>Données personnelles — les six Flow | MALARY</title><link rel="stylesheet" href="assets/fonts/fonts.css"><style>
+  :root{
+    --noir-0:#0A0A0A;
+    --noir-1:#121212;
+    --noir-2:#1A1A1A;
+    --noir-3:#242424;
+    --or:#C9A96E;
+    --or-soft:rgba(201,169,110,0.18);
+    --blanc:#F4F1EA;
+    --gris:#8C8880;
+    --gris-clair:#b0aca5;
+    --sans:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
+    --mono:'DM Mono',monospace;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--noir-0);
+    color:var(--blanc);
+    font-family:var(--sans);
+    line-height:1.75;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--or);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* Header */
+  header{
+    position:sticky;top:0;z-index:100;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:20px 6vw;
+    background:rgba(10,10,10,0.88);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid rgba(201,169,110,0.12);
+  }
+  .logo-word{
+    font-family:var(--mono);
+    font-size:15px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    color:var(--or);
+  }
+  header a.back{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:1px;
+    color:var(--gris);
+    text-transform:uppercase;
+    transition:color .2s;
+  }
+  header a.back:hover{color:var(--or);text-decoration:none;}
+
+  /* Layout */
+  .wrapper{
+    max-width:860px;
+    margin:0 auto;
+    padding:60px 6vw 100px;
+  }
+
+  /* Nav tabs */
+  .tabs{
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+    margin-bottom:56px;
+    border-bottom:1px solid rgba(201,169,110,0.12);
+    padding-bottom:24px;
+  }
+  .tab-btn{
+    background:none;
+    border:1px solid rgba(201,169,110,0.2);
+    color:var(--gris);
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+    padding:8px 18px;
+    border-radius:2px;
+    cursor:pointer;
+    transition:all .2s;
+  }
+  .tab-btn:hover,.tab-btn.active{
+    background:var(--or-soft);
+    border-color:var(--or);
+    color:var(--or);
+  }
+
+  /* Sections */
+  .section{display:none;}
+  .section.active{display:block;}
+
+  /* Typographie doc */
+  .doc-title{
+    font-size:clamp(22px,3vw,32px);
+    font-weight:700;
+    color:var(--or);
+    margin-bottom:8px;
+    letter-spacing:-0.3px;
+  }
+  .doc-date{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--gris);
+    margin-bottom:48px;
+  }
+  h2{
+    font-size:15px;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--or);
+    margin:48px 0 16px;
+    padding-top:48px;
+    border-top:1px solid rgba(201,169,110,0.1);
+  }
+  h2:first-of-type{margin-top:0;padding-top:0;border-top:none;}
+  h3{
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:.5px;
+    color:var(--blanc);
+    margin:28px 0 10px;
+  }
+  p{
+    font-size:14px;
+    color:var(--gris-clair);
+    margin-bottom:14px;
+  }
+  ul,ol{
+    padding-left:22px;
+    margin-bottom:14px;
+  }
+  li{
+    font-size:14px;
+    color:var(--gris-clair);
+    margin-bottom:6px;
+  }
+  strong{color:var(--blanc);}
+  .highlight{
+    background:var(--or-soft);
+    border-left:3px solid var(--or);
+    padding:14px 18px;
+    border-radius:0 4px 4px 0;
+    margin:20px 0;
+    font-size:13px;
+    color:var(--gris-clair);
+  }
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:16px 0 24px;
+    font-size:13px;
+  }
+  th{
+    text-align:left;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--or);
+    padding:10px 12px;
+    border-bottom:1px solid rgba(201,169,110,0.2);
+  }
+  td{
+    padding:10px 12px;
+    color:var(--gris-clair);
+    border-bottom:1px solid rgba(244,241,234,0.05);
+    vertical-align:top;
+  }
+
+  /* Footer */
+  footer{
+    padding:40px 6vw;
+    display:flex;align-items:center;justify-content:space-between;
+    border-top:1px solid rgba(244,241,234,0.08);
+    flex-wrap:wrap;gap:16px;
+  }
+  footer .meta{
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--gris);
+    letter-spacing:.5px;
+  }
+
+.section{display:block;margin-top:56px;scroll-margin-top:110px;} .tabs{position:static;} .tab-btn{display:inline-block;text-decoration:none;} h1{font-size:32px;color:var(--or);margin-bottom:20px;} .draft{padding:18px;border:1px solid var(--or);margin-bottom:24px;} :focus-visible{outline:2px solid var(--or);outline-offset:4px;} table{display:block;overflow-x:auto;} @media(max-width:600px){header{padding:16px 5vw}.wrapper{padding:30px 5vw 70px}.tab-btn{padding:8px 10px}h1{font-size:26px}}</style></head><body><header><a class="logo-word" href="index.html">MALARY</a><a class="back" href="legal.html#applications">← Documents juridiques</a></header><main class="wrapper"><h1>Données personnelles dans Suite Flow</h1><div class="draft"><strong>Notice générale — à compléter pour chaque déploiement.</strong> Le périmètre de chaque déploiement et l’identité complète de l’exploitant doivent être validés avant diffusion de la notice applicable. Cette présentation ne constitue pas une certification RGPD des applications.</div><p class="doc-date">Préparé le 31 octobre 2026</p><nav class="tabs" aria-label="Les six Flow"><a class="tab-btn" href="#flowalert">FlowAlert</a><a class="tab-btn" href="#flowcity">FlowCity</a><a class="tab-btn" href="#flowsite">FlowSite</a><a class="tab-btn" href="#flowsafe">FlowSafe</a><a class="tab-btn" href="#flowschool">FlowSchool</a><a class="tab-btn" href="#flowhotel">FlowHotel</a></nav><h2>Qui décide des traitements ?</h2><p>Votre organisation détermine les finalités et les habilitations de ses opérations. MALARY fournit les fonctions convenues pour son compte et selon ses instructions. Les traitements propres de relation commerciale et de support sont distingués dans la <a href="legal.html#rgpd">politique du site</a>.</p><p>Les données ne doivent être accessibles qu’aux personnes habilitées pour leur mission. L’autorisation du téléphone pour une permission et l’acceptation des conditions d’utilisation ne remplacent pas la base légale du traitement.</p><section id="flowalert" class="section"><h2>FlowAlert</h2><h3>Sécurité et événementiel</h3><p>Comptes professionnels, incidents, date et auteur, position et adresse lorsque la fonction est utilisée, photos et messages. Un assistant IA peut recevoir le texte saisi et l’historique de conversation ; son usage et les données autorisées doivent être précisés avant activation.</p><p>La notice remise par votre organisation doit préciser les champs réellement utilisés, leurs finalités, la base légale, les destinataires, les durées et vos interlocuteurs. Les repères métier et le nom du produit ne justifient pas une collecte supplémentaire.</p></section>
+<section id="flowcity" class="section"><h2>FlowCity</h2><h3>Villes et collectivités</h3><p>Comptes des agents, signalements municipaux et catégories de services, lieu, date, auteur, gravité, descriptions, médias et échanges. La collectivité précise la mission et le fondement des traitements qu’elle détermine.</p><p>La notice remise par votre organisation doit préciser les champs réellement utilisés, leurs finalités, la base légale, les destinataires, les durées et vos interlocuteurs. Les repères métier et le nom du produit ne justifient pas une collecte supplémentaire.</p></section>
+<section id="flowsite" class="section"><h2>FlowSite</h2><h3>Sites et chantiers</h3><p>Comptes professionnels, sites et zones gérés par le client, incidents et suivi, médias et échanges selon les fonctions activées. Le repérage métier se fait par site ou zone, sans cartographie.</p><p>La notice remise par votre organisation doit préciser les champs réellement utilisés, leurs finalités, la base légale, les destinataires, les durées et vos interlocuteurs. Les repères métier et le nom du produit ne justifient pas une collecte supplémentaire.</p></section>
+<section id="flowsafe" class="section"><h2>FlowSafe</h2><h3>EMS, EHPAD et établissements de santé</h3><p>Comptes professionnels et incidents rattachés aux étages, chambres ou locaux, sans cartographie. Les données de santé et les personnes vulnérables nécessitent un périmètre et des garanties spécifiques ; une chambre peut permettre d’identifier un résident.</p><p>La notice remise par votre organisation doit préciser les champs réellement utilisés, leurs finalités, la base légale, les destinataires, les durées et vos interlocuteurs. Les repères métier et le nom du produit ne justifient pas une collecte supplémentaire.</p></section>
+<section id="flowschool" class="section"><h2>FlowSchool</h2><h3>Établissements scolaires</h3><p>Comptes des professionnels, locaux et incidents, descriptions, médias et coordination selon le périmètre activé, sans cartographie. Toute fonction concernant directement les élèves, leur présence ou leur santé doit être documentée séparément.</p><p>La notice remise par votre organisation doit préciser les champs réellement utilisés, leurs finalités, la base légale, les destinataires, les durées et vos interlocuteurs. Les repères métier et le nom du produit ne justifient pas une collecte supplémentaire.</p></section>
+<section id="flowhotel" class="section"><h2>FlowHotel</h2><h3>Hôtellerie</h3><p>Comptes des équipes, repères d’hôtel, chambres et locaux, incidents et échanges selon les fonctions activées, sans cartographie. Un numéro de chambre et une date peuvent permettre d’identifier un client ; limiter les détails au besoin professionnel.</p><p>La notice remise par votre organisation doit préciser les champs réellement utilisés, leurs finalités, la base légale, les destinataires, les durées et vos interlocuteurs. Les repères métier et le nom du produit ne justifient pas une collecte supplémentaire.</p></section><section class="section" id="droits"><h2>Information, conservation et droits</h2><p>Les informations de collecte doivent être disponibles avant le traitement, dans le contexte d’utilisation. Chaque catégorie de données doit avoir une durée ou des critères justifiés, appliqués dans les systèmes concernés. Aucune purge uniforme à 72 heures ni absence de transfert international n’est garantie par cette page.</p><p>Selon les fonctions et services concernés, l’hébergement, l’authentification, les notifications, la recherche d’adresse, les fonds de carte et l’assistance IA peuvent impliquer différents fournisseurs. La notice de déploiement doit en préciser les destinataires et les éventuels transferts, ainsi que les garanties applicables.</p><p>Vous pouvez demander à votre organisation l’accès et la rectification et, selon les conditions légales, l’effacement, la limitation, la portabilité ou l’opposition. Lorsqu’un traitement repose sur un consentement, celui-ci peut être retiré. Contactez votre administrateur ou <a href="mailto:contact@malary.eu">contact@malary.eu</a> pour être orienté vers le responsable compétent. Une réponse intervient en principe dans un mois, avec prolongation possible et motivée dans les conditions légales.</p><p>Pour une réclamation, vous pouvez saisir la <a href="https://www.cnil.fr/fr/plaintes">CNIL</a> ou l’autorité compétente selon votre situation. <a href="support.html">Assistance et demandes concernant le compte</a>.</p></section></main><footer><span class="meta"><a href="index.html">Accueil</a> · <a href="legal.html">Mentions et conditions</a></span></footer></body></html>

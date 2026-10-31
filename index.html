@@ -4,10 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Malary — Conception et développement de solutions</title>
+<link rel="canonical" href="https://malary.eu/">
+<meta name="theme-color" content="#0A0A0A">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="fr_FR">
+<meta property="og:title" content="MALARY — Des solutions pensées pour vos réalités">
+<meta property="og:description" content="Découvrez Suite Flow : six applications métier pour signaler, coordonner et piloter votre activité terrain.">
+<meta property="og:url" content="https://malary.eu/">
+<meta property="og:image" content="https://malary.eu/assets/image-01.png">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <meta name="description" content="MALARY identifie les défis des professionnels et développe des solutions concrètes pour y répondre. SuiteFlow est notre première gamme de solutions, dédiée aux réalités opérationnelles de six métiers.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Mono:wght@400;500&family=Syne:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
 <style>
   :root{
     --noir-0:#0A0A0A; --noir-1:#121212; --noir-2:#1A1A1A; --noir-3:#242424;
@@ -69,7 +76,7 @@
   .section-head .eyebrow{margin-bottom:18px;}
   .section-head h2{font-family:var(--serif);font-weight:400;font-size:clamp(30px,4.2vw,48px);line-height:1.15;}
   .section-head p{margin-top:18px;color:var(--gris);font-size:16px;max-width:540px;}
-  .reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease, transform .8s ease;}
+  .reveal{opacity:1;transform:none;transition:opacity .8s ease, transform .8s ease;}
   .reveal.is-visible{opacity:1;transform:translateY(0);}
 
   .probleme-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start;}
@@ -341,6 +348,31 @@
   @media(max-width:1050px){.dm-workspace{grid-template-columns:145px minmax(0,1fr)}.dm-side{display:none}.dm-v3-points{grid-template-columns:1fr 1fr}}
   @media(max-width:720px){.dm-workspace{grid-template-columns:1fr;min-width:850px}.dm-rail{display:none}.dm-premium-scroll{overflow-x:auto}.dm-v3-points{grid-template-columns:1fr}.dm-grid-main{grid-template-columns:1fr}.dm-kpis{grid-template-columns:1fr 1fr}}
 
+
+  :root{--gris:#aaa69e;}
+  :focus-visible{outline:2px solid var(--or);outline-offset:5px;}
+  section[id]{scroll-margin-top:125px;}
+  .skip-link{position:fixed;top:-70px;left:20px;z-index:200;background:var(--or);color:#0a0a0a;padding:12px 18px;}
+  .skip-link:focus{top:12px;}
+  .menu-toggle{display:none;background:none;border:1px solid var(--or);color:var(--or);font:inherit;padding:9px 14px;}
+  .legal-links{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px;}
+  .legal-links a{font-size:11px;letter-spacing:0;text-transform:none;text-decoration:underline;text-underline-offset:3px;}
+  .contact-section p.contact-privacy{font-size:12px;max-width:650px;margin:24px auto 0;}
+  .contact-privacy a,.pricing-note a{text-decoration:underline;text-underline-offset:3px;}
+  .flow-card:focus-visible .prompt{opacity:1;transform:none;}
+  @media(max-width:1200px){
+    .menu-toggle{display:block;}
+    #main-nav{display:none;position:absolute;top:100%;left:0;right:0;padding:24px 6vw;background:#121212;max-height:75svh;overflow:auto;border-bottom:1px solid var(--or-soft);}
+    #main-nav.open{display:flex;flex-direction:column;gap:18px;}
+    .legal-links{display:flex;}
+  }
+  @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*,*::before,*::after{animation:none!important;transition:none!important;}.reveal{opacity:1;transform:none;}}
+
+  [hidden]{display:none!important;}
+  .dm-places{height:250px;padding:18px;background:#0d0f12;}
+  .dm-places p{font-size:11px;color:#aaa69e;margin-bottom:18px;line-height:1.6;}
+  .dm-place-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:15px 0;border-bottom:1px solid #242424;font-size:10px;color:#dfe4ec;}
+  .dm-place-row strong{font-size:8px;color:#C9A96E;font-weight:500;}
 </style>
 </head>
 <body>
@@ -351,7 +383,8 @@
 
 <header>
   <a href="#top" class="logo" aria-label="Malary — Accueil"><img src="assets/image-01.png" alt="Malary"></a>
-  <nav>
+  <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+  <nav id="main-nav" aria-label="Navigation principale">
     <a href="#malary-group">Malary</a>
     <a href="#suite-flow">Suite Flow</a>
     <a href="#comment-ca-marche">Comment ça marche</a>
@@ -363,7 +396,8 @@
   </nav>
 </header>
 
-<main id="top">
+<a class="skip-link" href="#top">Aller au contenu</a>
+<main id="top" tabindex="-1">
 
   <section class="hero" style="border-top:none;">
     <div class="group-mark">MALARY · Conception &amp; développement de solutions</div>
@@ -394,7 +428,7 @@
     </div>
   </div>
 
-  <section class="group-section" id="malary-group"><div class="group-shell"><div class="group-copy reveal"><div class="eyebrow">Le groupe</div><h2>Malary construit le <em>socle.</em><br>Les Flow parlent métier.</h2><p>Malary est la marque groupe. SuiteFlow est sa première gamme de solutions. Chaque Flow répond à un environnement opérationnel précis, tandis que Dashboard Manager rassemble le pilotage, les accès et la vision globale.</p></div><div class="group-pillars reveal"><article class="group-pillar"><span class="num">01 / SOLUTIONS</span><h3>Une direction produit unique</h3><p>Architecture, expérience, sécurité et évolutions sont pensées comme un ensemble cohérent, sous la responsabilité de Malary.</p></article><article class="group-pillar"><span class="num">02 / SUITE FLOW</span><h3>Un standard, six métiers</h3><p>FlowAlert, FlowCity, FlowHotel, FlowSafe, FlowSchool et FlowSite partagent un même socle tout en respectant les usages de chaque secteur.</p></article><article class="group-pillar"><span class="num">03 / MANAGER</span><h3>Un cockpit de pilotage</h3><p>Dashboard Manager centralise supervision, activité, utilisateurs, licences et traçabilité côté client.</p></article><article class="group-pillar"><span class="num">04 / CONFIANCE</span><h3>Une approche responsable</h3><p>Protection des données, accès par rôle et transparence sont intégrés à la conception et au déploiement des usages.</p></article></div></div></section>
+  <section class="group-section" id="malary-group"><div class="group-shell"><div class="group-copy reveal"><div class="eyebrow">MALARY</div><h2>Malary construit le <em>socle.</em><br>Les Flow parlent métier.</h2><p>MALARY porte le projet de solutions. SuiteFlow est sa première gamme de solutions. Chaque Flow répond à un environnement opérationnel précis, tandis que Dashboard Manager rassemble le pilotage, les accès et la vision globale.</p></div><div class="group-pillars reveal"><article class="group-pillar"><span class="num">01 / SOLUTIONS</span><h3>Une direction produit unique</h3><p>Architecture, expérience, sécurité et évolutions sont pensées comme un ensemble cohérent, sous la responsabilité de Malary.</p></article><article class="group-pillar"><span class="num">02 / SUITE FLOW</span><h3>Un standard, six métiers</h3><p>FlowAlert, FlowCity, FlowHotel, FlowSafe, FlowSchool et FlowSite partagent un même socle tout en respectant les usages de chaque secteur.</p></article><article class="group-pillar"><span class="num">03 / MANAGER</span><h3>Un cockpit de pilotage</h3><p>Dashboard Manager centralise supervision, activité, utilisateurs, licences et traçabilité côté client.</p></article><article class="group-pillar"><span class="num">04 / CONFIANCE</span><h3>Une approche responsable</h3><p>Protection des données, accès par rôle et transparence sont intégrés à la conception et au déploiement des usages.</p></article></div></div></section>
 <section class="selector-section">
     <div class="eyebrow">Trouvez votre application</div>
     <h2 style="font-family:var(--serif);font-weight:400;font-size:clamp(24px,3.2vw,34px);margin-bottom:28px;">Quel est votre secteur ?</h2>
@@ -428,8 +462,8 @@
         <h3>Avec la Suite Flow</h3>
         <ul>
           <li><span class="marker">+</span> Un signalement envoyé en quelques secondes</li>
-          <li><span class="marker">+</span> Localisation, horodatage et gravité automatiques</li>
-          <li><span class="marker">+</span> Le responsable voit l'incident dès qu'il survient</li>
+          <li><span class="marker">+</span> Lieu, horodatage et niveau de gravité réunis</li>
+          <li><span class="marker">+</span> Le responsable suit les signalements reçus</li>
           <li><span class="marker">+</span> Une vision complète, mise à jour en continu</li>
         </ul>
       </div>
@@ -455,17 +489,17 @@
     <div class="section-head reveal">
       <div class="eyebrow">La gamme</div>
       <h2>Une base commune, six métiers.</h2>
-      <p>Les six applications sont désormais disponibles. Votre secteur est déjà mis en avant ci-dessous.</p>
+      <p>Découvrez les six applications métier. Contactez-nous pour connaître les modalités de démonstration et de déploiement adaptées à votre organisation.</p>
     </div>
     <div class="flow-grid reveal" id="flow-grid">
       <div class="flow-card highlight" data-id="alert">
         <img class="photo" src="assets/image-03.jpg" alt="Barrière de sécurité lors d'un événement, la nuit">
         <div class="scrim"></div>
         <div class="content">
-          <span class="tag">Disponible</span>
+          <span class="tag">Solution métier</span>
           <h3>FlowAlert</h3>
           <div class="secteur">Sécurité événementielle</div>
-          <p>Coordination des équipes terrain et suivi des mouvements de foule.</p>
+          <p>Coordination des équipes terrain et suivi des incidents événementiels.</p>
           <span class="prompt">Voir le fonctionnement →</span>
         </div>
       </div>
@@ -473,7 +507,7 @@
         <img class="photo" src="assets/image-04.jpg" alt="Rue de ville la nuit, éclairée par un lampadaire">
         <div class="scrim"></div>
         <div class="content">
-          <span class="tag">Disponible</span>
+          <span class="tag">Solution métier</span>
           <h3>FlowCity</h3>
           <div class="secteur">Villes et collectivités</div>
           <p>Signalements sur l'espace public remontés au bon service municipal.</p>
@@ -484,10 +518,10 @@
         <img class="photo" src="assets/image-05.jpg" alt="Chambre médicalisée moderne et calme">
         <div class="scrim"></div>
         <div class="content">
-          <span class="tag">Disponible</span>
+          <span class="tag">Solution métier</span>
           <h3>FlowSafe</h3>
           <div class="secteur">Santé résidentielle</div>
-          <p>Chutes et incidents localisés étage par chambre — pensé pour les EHPAD.</p>
+          <p>Coordination des équipes et incidents par étage, chambre ou local — EMS et EHPAD.</p>
           <span class="prompt">Voir le fonctionnement →</span>
         </div>
       </div>
@@ -495,7 +529,7 @@
         <img class="photo" src="assets/image-06.jpg" alt="Grue et structure en construction au crépuscule">
         <div class="scrim"></div>
         <div class="content">
-          <span class="tag">Disponible</span>
+          <span class="tag">Solution métier</span>
           <h3>FlowSite</h3>
           <div class="secteur">Chantiers</div>
           <p>Suivi des incidents par zone de chantier.</p>
@@ -506,7 +540,7 @@
         <img class="photo" src="assets/image-07.jpg" alt="Couloir d'un hôtel haut de gamme">
         <div class="scrim"></div>
         <div class="content">
-          <span class="tag">Disponible</span>
+          <span class="tag">Solution métier</span>
           <h3>FlowHotel</h3>
           <div class="secteur">Hôtellerie</div>
           <p>Interface en anglais, repères hôteliers — Room, Lobby, Front Desk.</p>
@@ -517,7 +551,7 @@
         <img class="photo" src="assets/image-08.jpg" alt="Façade d'un établissement scolaire moderne au crépuscule">
         <div class="scrim"></div>
         <div class="content">
-          <span class="tag">Disponible</span>
+          <span class="tag">Solution métier</span>
           <h3>FlowSchool</h3>
           <div class="secteur">Établissements scolaires</div>
           <p>Signalement localisé par zone — cour, cantine, gymnase.</p>
@@ -531,7 +565,7 @@
     <div class="section-head reveal">
       <div class="eyebrow">Comment ça marche</div>
       <h2>Votre secteur, votre flux.</h2>
-      <p>La démonstration ci-dessous suit automatiquement le secteur choisi en haut de page.</p>
+      <p>La présentation ci-dessous suit le secteur choisi. Les écrans et données affichés sont des illustrations ; le périmètre de chaque déploiement est défini avec vous.</p>
     </div>
     <div class="reveal">
       <div class="current-app">FlowAlert — <span id="current-secteur">Sécurité événementielle</span></div>
@@ -561,14 +595,14 @@
         <div class="dm-topbar">
           <div class="dm-window-dots"><i></i><i></i><i></i></div>
           <div class="dm-product">MALARY <span>/ Dashboard Manager</span></div>
-          <div class="dm-context"><span>Organisation · Genève Centre</span><span class="dm-status-live"><i></i>Temps réel</span><div class="dm-avatar">NH</div></div>
+          <div class="dm-context"><span>Organisation · Genève Centre</span><span class="dm-status-live"><i></i>Temps réel</span><div class="dm-avatar">DM</div></div>
         </div>
         <div class="dm-workspace">
           <aside class="dm-rail">
             <div class="dm-rail-label">Pilotage</div>
             <div class="dm-rail-item active">Vue d’ensemble <b>LIVE</b></div>
             <div class="dm-rail-item">Incidents <b>12</b></div>
-            <div class="dm-rail-item">Carte terrain</div>
+            <div class="dm-rail-item" id="dm-location-nav">Carte terrain</div>
             <div class="dm-rail-label">Organisation</div>
             <div class="dm-rail-item">Utilisateurs <b>48</b></div>
             <div class="dm-rail-item">Équipes <b>7</b></div>
@@ -581,7 +615,7 @@
 
           <div class="dm-center">
             <div class="dm-center-head">
-              <div><div class="dm-center-title">Vue opérationnelle</div><div class="dm-center-sub">Jeudi 9 octobre · dernière synchronisation à l’instant</div></div>
+              <div><div class="dm-center-title">Vue opérationnelle</div><div class="dm-center-sub">Aperçu illustratif · données fictives</div></div>
               <div class="dm-center-actions"><span class="dm-mini-btn">Exporter</span><span class="dm-mini-btn gold">+ Nouvel utilisateur</span></div>
             </div>
             <div class="dm-kpis">
@@ -592,14 +626,20 @@
             </div>
             <div class="dm-grid-main">
               <section class="dm-panel">
-                <div class="dm-panel-head"><strong>Carte opérationnelle</strong><span>5 sites · 48 utilisateurs</span></div>
-                <div class="dm-map-v3">
+                <div class="dm-panel-head"><strong id="dm-location-title">Carte opérationnelle</strong><span>Exemple de présentation</span></div>
+                <div class="dm-map-v3" id="dm-map-preview">
                   <i class="dm-road r1"></i><i class="dm-road r2"></i><i class="dm-road r3"></i>
                   <i class="dm-pulse-pin red" style="left:67%;top:38%"></i>
                   <i class="dm-pulse-pin gold" style="left:42%;top:58%"></i>
                   <i class="dm-pulse-pin blue" style="left:28%;top:29%"></i>
                   <i class="dm-pulse-pin green" style="left:77%;top:69%"></i>
                   <div class="dm-map-label"><span><i class="r"></i>Critique</span><span><i class="a"></i>À traiter</span><span><i class="g"></i>Résolu</span></div>
+                </div>
+                <div class="dm-places" id="dm-places-preview" hidden>
+                  <p id="dm-places-intro"></p>
+                  <div class="dm-place-row"><span id="dm-place-1">Site A</span><strong>À traiter</strong></div>
+                  <div class="dm-place-row"><span id="dm-place-2">Site B</span><strong>En cours</strong></div>
+                  <div class="dm-place-row"><span id="dm-place-3">Site C</span><strong>Résolu</strong></div>
                 </div>
               </section>
               <div class="dm-stack">
@@ -686,27 +726,27 @@
     <div class="section-head reveal">
       <div class="eyebrow">Tarifs</div>
       <h2>Un prix, quel que soit votre métier.</h2>
-      <p>Une licence donne accès à une application de la Suite Flow. Le prix dépend du nombre de licences, pas de l'application choisie : la grille est la même pour les six. Pas de paiement intégré : vous gérez vos accès depuis le tableau de bord.</p>
+      <p>Une licence donne accès à une application de la Suite Flow. Le prix dépend du nombre de licences, pas de l'application choisie : la grille est la même pour les six. Les modalités de déploiement sont définies avec vous ; aucune commande ni aucun paiement ne sont proposés sur ce site.</p>
     </div>
     <div class="pricing-grid reveal">
       <div class="price-card">
         <div class="plan">1 à 5 licences</div>
-        <div class="amount">149€<span>/mois</span></div>
+        <div class="amount">149€<span> HT/mois</span></div>
         <div class="detail">Soit environ 30 € par licence</div>
       </div>
       <div class="price-card feature">
         <div class="plan">6 à 10 licences</div>
-        <div class="amount">249€<span>/mois</span></div>
+        <div class="amount">249€<span> HT/mois</span></div>
         <div class="detail">Soit environ 25 € par licence</div>
       </div>
       <div class="price-card">
         <div class="plan">11 à 15 licences</div>
-        <div class="amount">349€<span>/mois</span></div>
+        <div class="amount">349€<span> HT/mois</span></div>
         <div class="detail">Soit environ 23 € par licence</div>
       </div>
       <div class="price-card">
         <div class="plan">16 à 25 licences</div>
-        <div class="amount">549€<span>/mois</span></div>
+        <div class="amount">549€<span> HT/mois</span></div>
         <div class="detail">Soit environ 22 € par licence</div>
       </div>
       <div class="price-card">
@@ -715,7 +755,7 @@
         <div class="detail">Tarif établi sur devis</div>
       </div>
     </div>
-    <p class="pricing-note reveal">Prix mensuel forfaitaire par tranche. Le prix par licence indiqué correspond à une tranche complète.</p>
+    <p class="pricing-note reveal">Grille indicative en euros hors taxes, par application et par tranche de licences. Le prix par licence correspond à une tranche complète. Les taxes et conditions applicables seront précisées dans un devis après immatriculation. Ces montants ne constituent pas une offre contractuelle. <a href="legal.html#cgv">Conditions commerciales</a>.</p>
   </section>
 
   <section id="about">
@@ -726,7 +766,7 @@
     </div>
     <div class="about-grid reveal">
       <article class="about-card"><span class="about-number">01</span><h3>La vision</h3><p>Remplacer les informations dispersées par une vision opérationnelle commune : terrain, management et traçabilité réunis dans un même écosystème.</p><p><strong>Un seul standard technique, six métiers.</strong></p></article>
-      <article class="about-card"><span class="about-number">02</span><h3>Le groupe</h3><p><strong>Malary</strong> est une entreprise française de conception et développement de solutions, basée en Haute‑Savoie. Nous développons SuiteFlow et son Dashboard Manager comme une famille de solutions cohérente, pas comme une collection d’applications isolées.</p></article>
+      <article class="about-card"><span class="about-number">02</span><h3>Le projet MALARY</h3><p><strong>Malary</strong> est un projet français de conception et développement de solutions, porté depuis la Haute‑Savoie. La société est en cours de constitution. Nous développons SuiteFlow et son Dashboard Manager comme une famille de solutions cohérente, pas comme une collection d’applications isolées.</p></article>
       <article class="about-card"><span class="about-number">03</span><h3>L’engagement</h3><p>Des outils compréhensibles, une relation directe et une attention portée à la sécurité, à la protection des données et à la maîtrise côté client.</p><p>Pas de fonctionnalités superflues. Pas de dépendance inutile.</p></article>
     </div>
   </section>
@@ -735,11 +775,12 @@
     <div class="reveal">
       <div class="eyebrow" style="justify-content:center;">Parlons-en</div>
       <h2>Parlons de votre terrain, pas d’un logiciel générique.</h2>
-      <p>Une démonstration de la Suite Flow, du Dashboard Manager et de notre approche protection des données, adaptée à votre activité.</p>
+      <p>Une présentation de la Suite Flow, du Dashboard Manager et de notre approche de protection des données, adaptée à votre activité.</p>
       <div class="contact-actions">
         <a href="mailto:contact@malary.eu?subject=Demande%20de%20d%C3%A9monstration%20Suite%20Flow" class="btn btn-primary">Demander une démonstration</a>
         <a href="mailto:contact@malary.eu" class="contact-email">contact@malary.eu</a>
       </div>
+      <p class="contact-privacy">Ces liens ouvrent votre messagerie. Vos coordonnées et votre message servent à répondre à votre demande. N’envoyez pas de données de santé, de mots de passe ni d’informations confidentielles sur vos équipes. <a href="legal.html#rgpd">Utilisation de vos données et exercice de vos droits</a>.</p>
     </div>
   </section>
 
@@ -747,7 +788,7 @@
 
 <footer>
   <a href="#top" class="logo"><img src="assets/image-01.png" alt="Malary"></a>
-  <div class="meta">© 2026 Malary — <a href="/legal.html" style="color:var(--gris);text-decoration:none" onmouseover="this.style.color='#C9A96E'" onmouseout="this.style.color='#8C8880'">Mentions légales &amp; CGU</a></div>
+  <div class="meta">© 2026 MALARY <nav class="legal-links" aria-label="Informations légales"><a href="legal.html#ml">Mentions légales</a><a href="legal.html#cgu">CGU</a><a href="legal.html#cgv">Conditions commerciales</a><a href="legal.html#rgpd">Confidentialité</a><a href="legal.html#cookies">Cookies</a><a href="support.html">Assistance</a></nav></div>
 </footer>
 
 <script>
@@ -771,8 +812,8 @@
     setLabel();
   })();
   const els = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}});},{threshold:0.15});
-  els.forEach(el=>io.observe(el));
+  const io = typeof IntersectionObserver === "function" ? new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('is-visible');io.unobserve(e.target);}});},{threshold:0.15}) : null;
+  els.forEach(el=>io ? io.observe(el) : el.classList.add("is-visible"));
 
   (function(){
     const canvas = document.getElementById('bg-network');
@@ -803,21 +844,21 @@
   })();
 
   const flowData = {
-    alert:{name:'FlowAlert', secteur:'Sécurité événementielle', intro:"Pensé pour les prestataires de sécurité événementielle : chaque signalement remonte au poste de commandement avant même que l'agent ait fini sa ronde.", steps:[
-      {t:"L'agent signale", d:"Depuis l'application mobile, en quelques secondes : type d'incident (intrusion, malaise, objet suspect...), niveau de gravité, position GPS exacte et photo à l'appui."},
+    alert:{name:'FlowAlert', secteur:'Sécurité événementielle', intro:"Pensé pour les prestataires de sécurité événementielle : chaque signalement remonte au poste de commandement pour faciliter la coordination des interventions.", steps:[
+      {t:"L'agent signale", d:"Depuis l'application mobile, en quelques secondes : type d'incident (intrusion, malaise, objet suspect...), niveau de gravité, position si disponible et photo à l'appui."},
       {t:'Le responsable voit', d:"Le tableau de bord affiche l'incident en temps réel sur une carte du site, avec l'équipe déjà mobilisée à proximité et l'historique complet de la journée."},
       {t:"L'équipe coordonne", d:"Deux canaux séparés — Alertes pour l'urgent, Équipe pour le courant — évitent que les consignes se perdent dans un fil de discussion unique."}]},
     city:{name:'FlowCity', secteur:'Villes et collectivités', intro:"Conçu pour les services techniques municipaux : chaque signalement d'agent arrive directement au bon interlocuteur, sans passer par un standard téléphonique.", steps:[
       {t:"L'agent signale", d:"Voirie dégradée, dépôt sauvage, éclairage public défaillant, espace vert à entretenir : un signalement localisé par GPS et catégorisé en quelques secondes."},
-      {t:'Le bon service reçoit', d:"Le signalement est automatiquement routé vers le service municipal concerné, sans ressaisie ni transfert manuel entre agents."},
+      {t:'Le bon service reçoit', d:"Le responsable consulte les signalements municipaux et organise leur prise en charge par les services concernés."},
       {t:'Le suivi est visible', d:"Statut — ouvert, en cours, fermé — et historique consultables par site, sur un tableau de bord propre à chaque client de la collectivité."}]},
     safe:{name:'FlowSafe', secteur:'Santé résidentielle', intro:"Pensé pour les EHPAD et établissements de santé : cinq catégories d'incident couvrent l'essentiel du quotidien soignant, sans formulaire générique à réinterpréter.", steps:[
       {t:'Le soignant signale', d:"Cinq catégories dédiées — chute, incident médicamenteux, trouble du comportement, incident matériel, non-conformité — chacune avec ses propres champs."},
-      {t:'Localisé en un geste', d:"Un sélecteur à deux roues, étage puis chambre, remplace la recherche d'adresse : aucun numéro de chambre invalide n'est possible."},
-      {t:'Le suivi est tracé', d:"Chaque signalement est horodaté et rattaché au résident concerné, consultable par le responsable comme par l'équipe suivante."}]},
-    site:{name:'FlowSite', secteur:'Chantiers', intro:"Pensé pour le BTP : chaque zone du chantier — gros œuvre, second œuvre, stockage — a sa propre file de signalements, sans coordonnées GPS à relever.", steps:[
+      {t:'Localisé en un geste', d:"Un sélecteur à deux roues, étage puis chambre, remplace la recherche d'adresse : les équipes utilisent les repères de l’établissement."},
+      {t:'Le suivi est tracé', d:"Les équipes suivent les incidents par chambre ou local, selon leurs habilitations. Les conditions d’un éventuel traitement de données de santé doivent être établies avant tout déploiement concerné."}]},
+    site:{name:'FlowSite', secteur:'Chantiers', intro:"Pensé pour le BTP : le client organise ses sites et ses zones depuis Dashboard Manager, puis les équipes y rattachent leurs signalements.", steps:[
       {t:"L'agent signale", d:"Cinq zones type : gros œuvre, second œuvre, stockage matériel, bureaux de chantier, parking et accès — adaptables au site réel."},
-      {t:'Localisé sur le plan', d:"La zone est choisie directement sur le plan du chantier affiché dans l'app, sans avoir à décrire ou localiser l'endroit."},
+      {t:'Le site est structuré', d:"Le client crée et gère ses sites dans Dashboard Manager. Les signalements sont rattachés au site et à la zone concernés, sans cartographie."},
       {t:'Coordination inter-entreprises', d:"Un canal de discussion dédié au chantier réunit les équipes des différents corps de métier présents sur site."}]},
     hotel:{name:'FlowHotel', secteur:'Hôtellerie', intro:"Pensé pour l'hôtellerie haut de gamme : interface entièrement en anglais, vocabulaire du métier plutôt que des libellés génériques traduits.", steps:[
       {t:'Le personnel signale', d:"Interface entièrement en anglais — Room, Floor, Lobby, Front Desk — pour un personnel qui pense déjà dans ces termes."},
@@ -831,6 +872,22 @@
 
   function selectSector(id, scroll){
     const d = flowData[id];
+    if (!d) return;
+    const hasMap = id === 'alert' || id === 'city';
+    const places = {
+      site:{title:'Sites et zones de chantier',intro:'Le client crée et organise ses sites dans Dashboard Manager.',rows:['Chantier A · Gros œuvre','Chantier A · Stockage','Chantier B · Accès']},
+      safe:{title:'Chambres et locaux',intro:'Une vue des espaces de l’établissement, selon les habilitations.',rows:['Étage 1 · Chambre 101','Étage 2 · Salle commune','Rez-de-chaussée · Local technique']},
+      school:{title:'Établissement et locaux',intro:'Des repères adaptés aux espaces de l’établissement.',rows:['Bâtiment A · Salle 12','Cour de récréation','Gymnase']},
+      hotel:{title:'Hôtel et locaux',intro:'Des repères hôteliers pour coordonner les équipes.',rows:['Floor 1 · Room 101','Lobby · Front Desk','Restaurant']}
+    };
+    document.getElementById('dm-map-preview').hidden = !hasMap;
+    document.getElementById('dm-places-preview').hidden = hasMap;
+    document.getElementById('dm-location-nav').textContent = hasMap ? 'Carte terrain' : 'Sites et locaux';
+    document.getElementById('dm-location-title').textContent = hasMap ? 'Carte opérationnelle' : places[id].title;
+    if (!hasMap) {
+      document.getElementById('dm-places-intro').textContent = places[id].intro;
+      places[id].rows.forEach((label,i)=>document.getElementById('dm-place-'+(i+1)).textContent=label);
+    }
     document.querySelector('.current-app').innerHTML = d.name + ' — <span id="current-secteur">' + d.secteur + '</span>';
     document.getElementById('flow-intro').textContent = d.intro;
     document.querySelectorAll('#flow-steps .alert-step').forEach((el,i)=>{
@@ -838,8 +895,8 @@
       el.querySelector('.s-desc').textContent = d.steps[i].d;
     });
     document.getElementById('dm-brand-name').innerHTML = d.name + ' — <span>Manager</span>';
-    document.querySelectorAll('#sectorBar button').forEach(b=>b.classList.toggle('active', b.dataset.id===id));
-    document.querySelectorAll('.flow-card').forEach(c=>c.classList.toggle('highlight', c.dataset.id===id));
+    document.querySelectorAll('#sectorBar button').forEach(b=>{b.classList.toggle('active', b.dataset.id===id);b.setAttribute('aria-pressed', String(b.dataset.id===id));});
+    document.querySelectorAll('.flow-card').forEach(c=>{c.classList.toggle('highlight', c.dataset.id===id);c.setAttribute('aria-pressed', String(c.dataset.id===id));});
     if(scroll){ document.getElementById('suite-flow').scrollIntoView({behavior:'smooth', block:'start'}); }
   }
   document.getElementById('sectorBar').addEventListener('click', e=>{
@@ -853,6 +910,16 @@
       document.getElementById('comment-ca-marche').scrollIntoView({behavior:'smooth', block:'start'});
     }
   });
+  document.querySelectorAll('.flow-card').forEach(card=>{
+    card.setAttribute('role','button');card.tabIndex=0;
+    card.setAttribute('aria-label', 'Découvrir '+flowData[card.dataset.id].name);
+    card.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();card.click();}});
+  });
+  const menuButton=document.querySelector('.menu-toggle'),mainNav=document.getElementById('main-nav');
+  function closeMenu(){menuButton.setAttribute('aria-expanded','false');mainNav.classList.remove('open');}
+  menuButton.addEventListener('click',()=>{const open=menuButton.getAttribute('aria-expanded')!=='true';menuButton.setAttribute('aria-expanded',String(open));mainNav.classList.toggle('open',open);});
+  mainNav.addEventListener('click',e=>{if(e.target.closest('a'))closeMenu();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menuButton.getAttribute('aria-expanded')==='true'){closeMenu();menuButton.focus();}});
   selectSector('alert', false);
 </script>
 
