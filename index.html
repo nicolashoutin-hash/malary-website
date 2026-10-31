@@ -368,6 +368,11 @@
   }
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;}*,*::before,*::after{animation:none!important;transition:none!important;}.reveal{opacity:1;transform:none;}}
 
+  [hidden]{display:none!important;}
+  .dm-places{height:250px;padding:18px;background:#0d0f12;}
+  .dm-places p{font-size:11px;color:#aaa69e;margin-bottom:18px;line-height:1.6;}
+  .dm-place-row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:15px 0;border-bottom:1px solid #242424;font-size:10px;color:#dfe4ec;}
+  .dm-place-row strong{font-size:8px;color:#C9A96E;font-weight:500;}
 </style>
 </head>
 <body>
@@ -590,14 +595,14 @@
         <div class="dm-topbar">
           <div class="dm-window-dots"><i></i><i></i><i></i></div>
           <div class="dm-product">MALARY <span>/ Dashboard Manager</span></div>
-          <div class="dm-context"><span>Organisation · Genève Centre</span><span class="dm-status-live"><i></i>Temps réel</span><div class="dm-avatar">NH</div></div>
+          <div class="dm-context"><span>Organisation · Genève Centre</span><span class="dm-status-live"><i></i>Temps réel</span><div class="dm-avatar">DM</div></div>
         </div>
         <div class="dm-workspace">
           <aside class="dm-rail">
             <div class="dm-rail-label">Pilotage</div>
             <div class="dm-rail-item active">Vue d’ensemble <b>LIVE</b></div>
             <div class="dm-rail-item">Incidents <b>12</b></div>
-            <div class="dm-rail-item">Carte terrain</div>
+            <div class="dm-rail-item" id="dm-location-nav">Carte terrain</div>
             <div class="dm-rail-label">Organisation</div>
             <div class="dm-rail-item">Utilisateurs <b>48</b></div>
             <div class="dm-rail-item">Équipes <b>7</b></div>
@@ -610,7 +615,7 @@
 
           <div class="dm-center">
             <div class="dm-center-head">
-              <div><div class="dm-center-title">Vue opérationnelle</div><div class="dm-center-sub">Jeudi 9 octobre · dernière synchronisation à l’instant</div></div>
+              <div><div class="dm-center-title">Vue opérationnelle</div><div class="dm-center-sub">Aperçu illustratif · données fictives</div></div>
               <div class="dm-center-actions"><span class="dm-mini-btn">Exporter</span><span class="dm-mini-btn gold">+ Nouvel utilisateur</span></div>
             </div>
             <div class="dm-kpis">
@@ -621,14 +626,20 @@
             </div>
             <div class="dm-grid-main">
               <section class="dm-panel">
-                <div class="dm-panel-head"><strong>Carte opérationnelle</strong><span>5 sites · 48 utilisateurs</span></div>
-                <div class="dm-map-v3">
+                <div class="dm-panel-head"><strong id="dm-location-title">Carte opérationnelle</strong><span>Exemple de présentation</span></div>
+                <div class="dm-map-v3" id="dm-map-preview">
                   <i class="dm-road r1"></i><i class="dm-road r2"></i><i class="dm-road r3"></i>
                   <i class="dm-pulse-pin red" style="left:67%;top:38%"></i>
                   <i class="dm-pulse-pin gold" style="left:42%;top:58%"></i>
                   <i class="dm-pulse-pin blue" style="left:28%;top:29%"></i>
                   <i class="dm-pulse-pin green" style="left:77%;top:69%"></i>
                   <div class="dm-map-label"><span><i class="r"></i>Critique</span><span><i class="a"></i>À traiter</span><span><i class="g"></i>Résolu</span></div>
+                </div>
+                <div class="dm-places" id="dm-places-preview" hidden>
+                  <p id="dm-places-intro"></p>
+                  <div class="dm-place-row"><span id="dm-place-1">Site A</span><strong>À traiter</strong></div>
+                  <div class="dm-place-row"><span id="dm-place-2">Site B</span><strong>En cours</strong></div>
+                  <div class="dm-place-row"><span id="dm-place-3">Site C</span><strong>Résolu</strong></div>
                 </div>
               </section>
               <div class="dm-stack">
@@ -834,7 +845,7 @@
 
   const flowData = {
     alert:{name:'FlowAlert', secteur:'Sécurité événementielle', intro:"Pensé pour les prestataires de sécurité événementielle : chaque signalement remonte au poste de commandement pour faciliter la coordination des interventions.", steps:[
-      {t:"L'agent signale", d:"Depuis l'application mobile, en quelques secondes : type d'incident (intrusion, malaise, objet suspect...), niveau de gravité, position GPS exacte et photo à l'appui."},
+      {t:"L'agent signale", d:"Depuis l'application mobile, en quelques secondes : type d'incident (intrusion, malaise, objet suspect...), niveau de gravité, position si disponible et photo à l'appui."},
       {t:'Le responsable voit', d:"Le tableau de bord affiche l'incident en temps réel sur une carte du site, avec l'équipe déjà mobilisée à proximité et l'historique complet de la journée."},
       {t:"L'équipe coordonne", d:"Deux canaux séparés — Alertes pour l'urgent, Équipe pour le courant — évitent que les consignes se perdent dans un fil de discussion unique."}]},
     city:{name:'FlowCity', secteur:'Villes et collectivités', intro:"Conçu pour les services techniques municipaux : chaque signalement d'agent arrive directement au bon interlocuteur, sans passer par un standard téléphonique.", steps:[
@@ -862,6 +873,21 @@
   function selectSector(id, scroll){
     const d = flowData[id];
     if (!d) return;
+    const hasMap = id === 'alert' || id === 'city';
+    const places = {
+      site:{title:'Sites et zones de chantier',intro:'Le client crée et organise ses sites dans Dashboard Manager.',rows:['Chantier A · Gros œuvre','Chantier A · Stockage','Chantier B · Accès']},
+      safe:{title:'Chambres et locaux',intro:'Une vue des espaces de l’établissement, selon les habilitations.',rows:['Étage 1 · Chambre 101','Étage 2 · Salle commune','Rez-de-chaussée · Local technique']},
+      school:{title:'Établissement et locaux',intro:'Des repères adaptés aux espaces de l’établissement.',rows:['Bâtiment A · Salle 12','Cour de récréation','Gymnase']},
+      hotel:{title:'Hôtel et locaux',intro:'Des repères hôteliers pour coordonner les équipes.',rows:['Floor 1 · Room 101','Lobby · Front Desk','Restaurant']}
+    };
+    document.getElementById('dm-map-preview').hidden = !hasMap;
+    document.getElementById('dm-places-preview').hidden = hasMap;
+    document.getElementById('dm-location-nav').textContent = hasMap ? 'Carte terrain' : 'Sites et locaux';
+    document.getElementById('dm-location-title').textContent = hasMap ? 'Carte opérationnelle' : places[id].title;
+    if (!hasMap) {
+      document.getElementById('dm-places-intro').textContent = places[id].intro;
+      places[id].rows.forEach((label,i)=>document.getElementById('dm-place-'+(i+1)).textContent=label);
+    }
     document.querySelector('.current-app').innerHTML = d.name + ' — <span id="current-secteur">' + d.secteur + '</span>';
     document.getElementById('flow-intro').textContent = d.intro;
     document.querySelectorAll('#flow-steps .alert-step').forEach((el,i)=>{

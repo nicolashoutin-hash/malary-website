@@ -38,3 +38,7 @@ L’ancien legal.html promettait sans preuve dans ce dépôt : géolocalisation 
 - https://www.cnil.fr/fr/questions-reponses-sur-les-referentiels-relatifs-la-gestion-des-activites-commerciales-et-des
 - https://docs.github.com/en/pages/getting-started-with-github-pages/what-is-github-pages
 - https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement
+
+## Compléments de vérification
+
+La maquette Manager suit désormais le secteur : carte pour FlowAlert/FlowCity ; sites, chambres et locaux pour les quatre autres Flow. Les données de maquette sont explicitement fictives ; les initiales personnelles ont été retirées. Les contrôles de liens, fichiers, identifiants et syntaxe sont relancés sur cette version.
