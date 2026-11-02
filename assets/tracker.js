@@ -53,8 +53,8 @@
       '(dépôt d\'un cookie Google et traitement de données techniques). Elle ne se charge qu\'avec votre accord. ' +
       '<a href="/legal.html" style="color:#9cf">En savoir plus</a>.</span>' +
       '<span style="display:flex;gap:8px">' +
-      '<button type="button" id="ms-refuse" style="padding:7px 14px;border:1px solid #555;background:transparent;color:#eee;border-radius:6px;cursor:pointer">Refuser</button>' +
-      '<button type="button" id="ms-accept" style="padding:7px 14px;border:0;background:#4a9b6f;color:#fff;border-radius:6px;cursor:pointer">Accepter</button>' +
+      '<button type="button" id="ms-refuse" style="padding:8px 16px;border:0;background:#555;color:#fff;border-radius:6px;font:inherit;cursor:pointer">Refuser</button>' +
+      '<button type="button" id="ms-accept" style="padding:8px 16px;border:0;background:#4a9b6f;color:#fff;border-radius:6px;font:inherit;cursor:pointer">Accepter</button>' +
       '</span>';
     (document.body || document.documentElement).appendChild(b);
     document.getElementById("ms-accept").addEventListener("click", window.malaryConsent.accept);
@@ -89,10 +89,29 @@
       }
       bump("pageviews");
       if (once("src")) { var s = source(); if (s) bump("src_" + s); }
-      var SEC = ["city", "alert", "site", "safe", "school", "hotel", "tarifs", "contact"];
+      // Vues de SECTION — on observe le CONTENU réel, jamais les menus :
+      //  • 6 Flows = cartes de contenu `.flow-card[data-id]` (les boutons de
+      //    menu sont des <button data-id> sans classe flow-card → exclus) ;
+      //  • tarifs/contact = vraies <section id>.
+      var SEC_FLOWS = ["city", "alert", "site", "safe", "school", "hotel"];
+      var SEC_PAGES = ["tarifs", "contact"];
       if ("IntersectionObserver" in window) {
-        var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting && SEC.indexOf(e.target.id) > -1 && once("sec_" + e.target.id)) bump("sec_" + e.target.id); }); }, { threshold: 0.4 });
-        SEC.forEach(function (id) { var el = document.getElementById(id); if (el) io.observe(el); });
+        var secMap = new Map(); // élément de contenu -> "sec_<clé>"
+        document.querySelectorAll(".flow-card[data-id]").forEach(function (el) {
+          var id = el.getAttribute("data-id");
+          if (SEC_FLOWS.indexOf(id) > -1) secMap.set(el, "sec_" + id);
+        });
+        SEC_PAGES.forEach(function (id) {
+          var el = document.querySelector("section#" + id);
+          if (el) secMap.set(el, "sec_" + id);
+        });
+        var io = new IntersectionObserver(function (es) {
+          es.forEach(function (e) {
+            var key = secMap.get(e.target);
+            if (e.isIntersecting && key && once(key)) bump(key);
+          });
+        }, { threshold: 0.4 });
+        secMap.forEach(function (key, el) { io.observe(el); });
       }
       document.addEventListener("click", function (ev) {
         var a = ev.target.closest && ev.target.closest('a[href^="mailto:"]'); if (!a) return;

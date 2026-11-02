@@ -9,6 +9,7 @@ Version préparée sur une branche ; ne pas fusionner tant que les éléments bl
 - Vérifier et compléter les coordonnées de contact de l’hébergeur selon les obligations applicables.
 - Mettre effectivement en œuvre les durées de conservation proposées (12 mois après clôture pour demandes courantes ; 3 ans après dernier contact émanant du prospect pour le suivi commercial), la restriction d’accès et la gestion des demandes de droits. Ces durées ne sont pas des mécanismes audités existants.
 - Après ces vérifications, remplacer les textes préparatoires par la version d’application et retirer le bandeau de brouillon uniquement pour les parties effectivement finalisées. Les CGV resteront un projet jusqu’à identification de la société et validation des conditions commerciales.
+- Mesure d’audience : **région Firestore vérifiée = `europe-west1` (UE)** pour les compteurs agrégés (lecture via le compte de service). **Domaines autorisés de la clé reCAPTCHA Enterprise : à confirmer en console** (non lisible par les comptes de service Datastore ; le test attesté a montré que `malary.eu` est accepté). Décrire les traitements Google et les éventuels transferts d’après les conditions applicables, **sans affirmer qu’ils sont couverts par des CCT**. La conservation « ~treize mois » repose sur une **purge périodique indépendante de Jarvis** (LaunchAgent dédié, dépend du Mac allumé et d’une session ouverte) : objectif de gestion **auto-corrigé à chaque exécution** (chaque passage supprime tout l’échu), pas une suppression automatique garantie à la journée près.
 
 ## Préparation des contrats des applications
 
@@ -24,7 +25,7 @@ L’ancien legal.html promettait sans preuve dans ce dépôt : géolocalisation 
 - Statut de projet en constitution ; aucune société présentée comme immatriculée.
 - Tarifs HT harmonisés 149/249/349/549 € pour 1–5/6–10/11–15/16–25 licences, puis devis ; pas de vente sur site.
 - Mentions, CGU du site, projet commercial B2B, confidentialité du site, cookies et distinction applications ; ancres ml/cgu/cgv/rgpd conservées et accessibles sans JavaScript.
-- Polices hébergées localement, sans analytics, pixel ni bandeau de consentement inutile.
+- Polices hébergées localement, sans pixel ni réseau social. Mesure d’audience **facultative et soumise au consentement** retenue : compteurs agrégés anonymes dans un projet Firebase dédié (`malary-web-stats`), protégés par App Check reCAPTCHA Enterprise (Google) ; **aucun chargement Google ni dépôt de cookie, et aucune collecte, avant acceptation**. Bannière avec Accepter et Refuser d’égale importance, retrait accessible en pied de page. Détail en confidentialité/cookies de `legal.html`.
 - Contact mailto expliqué, assistance et parcours de demande de suppression de compte.
 - Menu responsive, accès clavier, focus, accès direct au contenu, réduction des animations ; contenu lisible sans IntersectionObserver.
 - Canonical/Open Graph, sitemap, robots et page 404.

@@ -788,7 +788,7 @@
 
 <footer>
   <a href="#top" class="logo"><img src="assets/image-01.png" alt="Malary"></a>
-  <div class="meta">© 2026 MALARY <nav class="legal-links" aria-label="Informations légales"><a href="legal.html#ml">Mentions légales</a><a href="legal.html#cgu">CGU</a><a href="legal.html#cgv">Conditions commerciales</a><a href="legal.html#rgpd">Confidentialité</a><a href="legal.html#cookies">Cookies</a><a href="support.html">Assistance</a></nav></div>
+  <div class="meta">© 2026 MALARY <nav class="legal-links" aria-label="Informations légales"><a href="legal.html#ml">Mentions légales</a><a href="legal.html#cgu">CGU</a><a href="legal.html#cgv">Conditions commerciales</a><a href="legal.html#rgpd">Confidentialité</a><a href="legal.html#cookies">Cookies</a><a href="#" class="legal-manage-consent" onclick="if(window.malaryConsent){window.malaryConsent.withdraw();}return false;">Gérer le consentement</a><a href="support.html">Assistance</a></nav></div>
 </footer>
 
 <script>
@@ -922,6 +922,9 @@
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&menuButton.getAttribute('aria-expanded')==='true'){closeMenu();menuButton.focus();}});
   selectSector('alert', false);
 </script>
+
+<!-- Mesure d'audience privacy-first : ne charge RIEN avant consentement (banniere Accepter/Refuser), site normal si refus, retrait possible. -->
+<script type="module" src="assets/tracker.js"></script>
 
 </body>
 </html>
