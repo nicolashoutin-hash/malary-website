@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>MALARY — page de test interne (non publiée)</title>
+  <!-- Force le mode TEST : toutes les écritures vont dans web_stats_test,
+       jamais dans les statistiques publiques. Drapeau de page (non persistant). -->
+  <script>window.__MS_FORCE_TEST__ = true;</script>
+  <style>body{font:16px/1.6 system-ui,sans-serif;max-width:720px;margin:40px auto;padding:0 16px;color:#222}section{margin:40vh 0}</style>
+</head>
+<body>
+  <h1>Page de test interne — mesure d'audience</h1>
+  <p>Cette page <strong>n'est pas liée</strong> au site public. Elle sert uniquement à
+  valider la collecte <em>attestée</em> (App Check / reCAPTCHA Enterprise) dans la
+  collection isolée <code>web_stats_test</code>. Les visiteurs réels ne doivent pas y accéder.</p>
+
+  <p>Au chargement, le traceur (après acceptation du consentement) écrit :
+  <code>pageviews +1</code>, la provenance, puis <code>sec_tarifs +1</code> quand la
+  section ci-dessous est visible. Le bouton déclenche <code>clk_demo +1</code>.</p>
+
+  <section id="tarifs">
+    <h2>Section « tarifs » (test de vue de section)</h2>
+    <p>Fais défiler jusqu'ici pour déclencher le comptage de la section.</p>
+    <p><a href="mailto:contact@malary.eu?subject=Demande%20de%20démonstration">Demander une démonstration (test clic)</a></p>
+  </section>
+
+  <script type="module" src="/assets/tracker.js"></script>
+</body>
+</html>
