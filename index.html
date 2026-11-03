@@ -894,7 +894,7 @@
       el.querySelector('.s-title').textContent = d.steps[i].t;
       el.querySelector('.s-desc').textContent = d.steps[i].d;
     });
-    document.getElementById('dm-brand-name').innerHTML = d.name + ' — <span>Manager</span>';
+    var dmBrand = document.getElementById('dm-brand-name'); if (dmBrand) dmBrand.innerHTML = d.name + ' — <span>Manager</span>';
     document.querySelectorAll('#sectorBar button').forEach(b=>{b.classList.toggle('active', b.dataset.id===id);b.setAttribute('aria-pressed', String(b.dataset.id===id));});
     document.querySelectorAll('.flow-card').forEach(c=>{c.classList.toggle('highlight', c.dataset.id===id);c.setAttribute('aria-pressed', String(c.dataset.id===id));});
     if(scroll){ document.getElementById('suite-flow').scrollIntoView({behavior:'smooth', block:'start'}); }
