@@ -5,20 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Malary — Conception et développement de solutions</title>
 <link rel="canonical" href="https://malary.eu/">
-<meta name="theme-color" content="#0A0A0A">
+<meta name="theme-color" content="#081A35">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
 <meta property="og:title" content="MALARY — Des solutions pensées pour vos réalités">
-<meta property="og:description" content="Découvrez Suite Flow : six applications métier pour signaler, coordonner et piloter votre activité terrain.">
+<meta property="og:description" content="Découvrez MALARY Suite : six applications métier pour signaler, coordonner et piloter votre activité terrain.">
 <meta property="og:url" content="https://malary.eu/">
-<meta property="og:image" content="https://malary.eu/assets/image-01.png">
+<meta property="og:image" content="https://malary.eu/assets/malary-suite.png">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<meta name="description" content="MALARY identifie les défis des professionnels et développe des solutions concrètes pour y répondre. SuiteFlow est notre première gamme de solutions, dédiée aux réalités opérationnelles de six métiers.">
+<meta name="description" content="MALARY identifie les défis des professionnels et développe des solutions concrètes pour y répondre. MALARY Suite est notre première gamme de solutions, dédiée aux réalités opérationnelles de six métiers.">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <style>
   :root{
-    --noir-0:#0A0A0A; --noir-1:#121212; --noir-2:#1A1A1A; --noir-3:#242424;
-    --or:#C9A96E; --or-soft:rgba(201,169,110,0.35);
+    /* MALARY — bleu nuit + or (tokens de thème) */
+    --noir-0:#050F1E; --noir-1:#081A35; --noir-2:#0C2140; --noir-3:#163256;
+    --or:#C7A05A; --or-soft:rgba(199,160,90,0.35);
     --blanc:#F4F1EA; --gris:#8C8880;
     --serif:Georgia,'Times New Roman',serif;
     --sans:'DM Sans',-apple-system,BlinkMacSystemFont,sans-serif;
@@ -33,14 +34,14 @@
 
   #bg-network{position:fixed;inset:0;z-index:1;pointer-events:none;display:block;}
   .grain-overlay{position:fixed;inset:0;z-index:50;pointer-events:none;opacity:.05;mix-blend-mode:overlay;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
-  .vignette{position:fixed;inset:0;z-index:2;pointer-events:none;background:radial-gradient(120% 90% at 50% -10%, transparent 40%, rgba(10,10,10,0.55) 100%);}
+  .vignette{position:fixed;inset:0;z-index:2;pointer-events:none;background:radial-gradient(120% 90% at 50% -10%, transparent 40%, rgba(3,9,20,0.6) 100%);}
   header,main,footer{position:relative;z-index:3;}
 
   .logo{display:inline-flex;align-items:center;}
   .logo img{display:block;height:56px;width:auto;}
   footer .logo img{height:42px;}
 
-  header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:22px 6vw;background:rgba(10,10,10,0.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(201,169,110,0.12);}
+  header{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:22px 6vw;background:rgba(6,19,45,0.74);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(199,160,90,0.14);}
   nav{display:flex;gap:34px;}
   nav a{font-size:13px;letter-spacing:1.5px;text-transform:uppercase;color:var(--gris);transition:color .25s ease;}
   nav a{white-space:nowrap;}
@@ -50,7 +51,7 @@
 
   .hero{min-height:92svh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:140px 6vw 40px;position:relative;text-align:center;overflow-x:clip;}
   .hero::before{content:"";position:absolute;top:-20%;right:-10%;width:60vw;height:60vw;max-width:700px;max-height:700px;background:radial-gradient(circle, var(--or-soft) 0%, transparent 70%);opacity:0.14;pointer-events:none;}
-  .hero-logo{width:132px;height:auto;margin-bottom:36px;filter:drop-shadow(0 20px 40px rgba(0,0,0,0.45));}
+  .hero-logo{width:clamp(210px,27vw,290px);height:auto;margin-bottom:30px;filter:drop-shadow(0 30px 60px rgba(0,0,0,0.55));}
   .eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:3px;text-transform:uppercase;color:var(--or);margin-bottom:28px;display:flex;align-items:center;gap:12px;}
   .eyebrow::before{content:"";width:28px;height:1px;background:var(--or);}
   h1{font-family:var(--serif);font-weight:400;font-size:clamp(32px,5.2vw,72px);line-height:1.04;letter-spacing:-1px;max-width:960px;white-space:nowrap;color:var(--blanc);}
@@ -67,7 +68,7 @@
 
   .selector-section{padding:0 6vw 110px;border-top:none;}
   .sector-pills{display:flex;gap:12px;flex-wrap:wrap;}
-  .sector-pills button{font-family:var(--mono);font-size:12.5px;letter-spacing:1px;text-transform:uppercase;color:var(--gris);background:rgba(10,10,10,0.4);border:1px solid rgba(244,241,234,0.15);padding:15px 24px;cursor:pointer;transition:all .25s ease;}
+  .sector-pills button{font-family:var(--mono);font-size:12.5px;letter-spacing:1px;text-transform:uppercase;color:var(--gris);background:rgba(6,16,36,0.4);border:1px solid rgba(244,241,234,0.15);padding:15px 24px;cursor:pointer;transition:all .25s ease;}
   .sector-pills button:hover{border-color:var(--or-soft);color:var(--blanc);}
   .sector-pills button.active{background:var(--or);color:var(--noir-0);border-color:var(--or);font-weight:700;}
 
@@ -96,8 +97,9 @@
   .flow-card:active{transform:scale(0.97);}
   .flow-card .photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(0.85) brightness(0.92);transition:transform .5s ease;}
   .flow-card:hover .photo{transform:scale(1.04);}
-  .flow-card .scrim{position:absolute;inset:0;background:linear-gradient(180deg, rgba(10,10,9,0.05) 0%, rgba(10,10,9,0.35) 45%, rgba(10,10,9,0.96) 100%);}
+  .flow-card .scrim{position:absolute;inset:0;background:linear-gradient(180deg, rgba(5,13,27,0.08) 0%, rgba(6,17,38,0.42) 45%, rgba(6,17,38,0.97) 100%);}
   .flow-card .content{position:relative;z-index:1;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;padding:30px 28px;}
+  .flow-logo{position:absolute;top:22px;left:22px;z-index:2;width:76px;height:76px;object-fit:contain;border-radius:16px;box-shadow:0 10px 26px -10px rgba(0,0,0,0.65);}
   .flow-card .prompt{display:block;margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:1px;color:var(--or);opacity:0;transform:translateX(-4px);transition:all .25s ease;}
   .flow-card:hover .prompt{opacity:1;transform:translateX(0);}
   .flow-card:hover{box-shadow:inset 0 0 0 1px var(--or-soft);}
@@ -107,12 +109,12 @@
   .flow-card .secteur{font-size:13px;color:var(--or);margin-bottom:12px;letter-spacing:0.3px;}
   .flow-card p{font-size:14px;color:rgba(244,241,234,0.75);}
 
-  .alert-section{background:rgba(18,18,18,0.6);}
+  .alert-section{background:rgba(10,27,54,0.6);}
   .current-app{font-family:var(--serif);font-size:24px;color:var(--blanc);margin-bottom:14px;}
   .current-app span{color:var(--or);}
   .flow-intro{font-size:15px;color:var(--gris);max-width:640px;margin-bottom:36px;line-height:1.6;}
   .alert-flow{display:flex;align-items:center;gap:0;flex-wrap:wrap;}
-  .alert-step{flex:1;min-width:220px;padding:34px 28px;background:rgba(26,26,26,0.75);border:1px solid rgba(244,241,234,0.08);}
+  .alert-step{flex:1;min-width:220px;padding:34px 28px;background:rgba(14,35,66,0.75);border:1px solid rgba(244,241,234,0.08);}
   .alert-step .num{font-family:var(--mono);color:var(--or);font-size:13px;margin-bottom:16px;display:block;}
   .alert-step h4{font-family:var(--serif);font-size:19px;font-weight:400;margin-bottom:10px;}
   .alert-step p{font-size:14px;color:var(--gris);}
@@ -125,10 +127,10 @@
   .pricing-note{margin-top:22px;font-size:13px;color:var(--gris);text-align:center;}
   @media (max-width:1000px){.pricing-grid{grid-template-columns:repeat(2,1fr);}.pricing-grid .price-card,.pricing-grid .price-card:nth-child(n+4){grid-column:span 1;}.pricing-grid .price-card:last-child{grid-column:span 2;}}
   @media (max-width:560px){.pricing-grid{grid-template-columns:1fr;}.pricing-grid .price-card:last-child{grid-column:span 1;}}
-  .price-card{position:relative;overflow:hidden;border:1px solid rgba(244,241,234,0.1);background:rgba(10,10,10,0.4);backdrop-filter:blur(3px);padding:26px 24px;transition:border-color .3s ease, transform .3s ease, box-shadow .3s ease;}
+  .price-card{position:relative;overflow:hidden;border:1px solid rgba(244,241,234,0.1);background:rgba(6,16,36,0.4);backdrop-filter:blur(3px);padding:26px 24px;transition:border-color .3s ease, transform .3s ease, box-shadow .3s ease;}
   .price-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg, transparent, var(--or-soft), transparent);}
   .price-card:hover{border-color:var(--or-soft);transform:translateY(-4px);box-shadow:0 24px 50px -28px rgba(201,169,110,0.28);}
-  .price-card.feature{border-color:var(--or);background:linear-gradient(180deg, rgba(201,169,110,0.08), rgba(10,10,10,0.4) 60%);box-shadow:0 30px 60px -26px rgba(201,169,110,0.3);}
+  .price-card.feature{border-color:var(--or);background:linear-gradient(180deg, rgba(201,169,110,0.08), rgba(6,16,36,0.4) 60%);box-shadow:0 30px 60px -26px rgba(201,169,110,0.3);}
   .price-card.feature::before{background:var(--or);}
   .price-card.feature:hover{box-shadow:0 36px 70px -24px rgba(201,169,110,0.45);}
   .price-card .plan{font-family:var(--mono);font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gris);margin-bottom:14px;}
@@ -148,13 +150,13 @@
 
   .about-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
   @media (max-width:900px){.about-grid{grid-template-columns:1fr;}}
-  .about-card{background:rgba(18,18,18,0.6);backdrop-filter:blur(3px);border:1px solid rgba(244,241,234,0.08);padding:42px 34px;transition:all .35s ease;}
+  .about-card{background:rgba(10,27,54,0.6);backdrop-filter:blur(3px);border:1px solid rgba(244,241,234,0.08);padding:42px 34px;transition:all .35s ease;}
   .about-card:hover{border-color:var(--or-soft);transform:translateY(-6px);box-shadow:0 30px 55px -28px rgba(201,169,110,0.28);}
   .about-number{display:block;font-family:var(--mono);font-size:12px;color:var(--or);letter-spacing:2px;margin-bottom:22px;}
   .about-card h3{font-family:var(--serif);font-weight:400;font-size:28px;margin-bottom:20px;}
   .about-card p{color:var(--gris);font-size:15px;margin-bottom:16px;}
   .about-card strong{color:var(--or);}
-  #about{background:rgba(10,10,10,0.3);}
+  #about{background:rgba(6,16,36,0.3);}
 
   .dm-layout{display:grid;grid-template-columns:1fr;gap:56px;align-items:start;}
   .dm-shot-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
@@ -167,7 +169,7 @@
   .teaser-text p{color:var(--gris);font-size:17px;max-width:440px;}
   .teaser-frame{position:relative;width:min(300px,72vw);aspect-ratio:720/1254;border:1px solid rgba(201,169,110,0.35);background:#000;box-shadow:0 40px 80px -30px rgba(0,0,0,.7),0 0 60px -20px rgba(201,169,110,.25);overflow:hidden;justify-self:center;}
   .teaser-frame video{width:100%;height:100%;object-fit:cover;display:block;}
-  .teaser-toggle{position:absolute;right:10px;bottom:10px;z-index:2;font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--blanc);background:rgba(10,10,10,.72);border:1px solid rgba(244,241,234,.25);padding:6px 10px;cursor:pointer;backdrop-filter:blur(3px);transition:border-color .25s,color .25s;}
+  .teaser-toggle{position:absolute;right:10px;bottom:10px;z-index:2;font-family:var(--mono);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--blanc);background:rgba(6,16,36,.72);border:1px solid rgba(244,241,234,.25);padding:6px 10px;cursor:pointer;backdrop-filter:blur(3px);transition:border-color .25s,color .25s;}
   .teaser-toggle:hover,.teaser-toggle:focus-visible{border-color:var(--or);color:var(--or);outline:none;}
   @media (max-width:820px){.teaser-wrap{grid-template-columns:1fr;text-align:center;}.teaser-text p{margin:0 auto;}}
   .dm-mock{border:1px solid rgba(244,241,234,0.1);background:#0d0f12;box-shadow:0 40px 80px -30px rgba(0,0,0,0.6);overflow:hidden;font-family:'DM Sans',sans-serif;}
@@ -178,9 +180,9 @@
   @media (max-width:760px){.dm-mock-body{grid-template-columns:1fr;min-height:auto;}}
   .dm-sidebar{background:#0d0f12;border-right:1px solid rgba(255,255,255,0.06);padding:16px 10px;}
   .dm-brand{font-family:'Syne',sans-serif;color:#e8eaf0;font-size:12px;font-weight:700;margin-bottom:16px;padding:0 4px;}
-  .dm-brand span{color:#C9A84C;}
+  .dm-brand span{color:#C7A05A;}
   .dm-nav-item{display:flex;align-items:center;gap:7px;font-size:10.5px;color:#8892a4;padding:7px 8px;margin-bottom:2px;border-radius:5px;}
-  .dm-nav-item.active{color:#C9A84C;background:rgba(201,168,76,0.08);border:1px solid rgba(201,168,76,0.2);}
+  .dm-nav-item.active{color:#C7A05A;background:rgba(199,160,90,0.08);border:1px solid rgba(199,160,90,0.2);}
   .dm-nav-badge{margin-left:auto;background:#f87171;color:#fff;font-size:8px;font-weight:700;padding:1px 5px;border-radius:99px;}
   .dm-main{padding:18px 16px;background:#07080a;}
   .dm-metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:12px;}
@@ -217,7 +219,7 @@
   .dm-users{padding:2px 0;}
   .dm-user{display:flex;align-items:center;gap:6px;padding:6px 10px;border-bottom:1px solid rgba(255,255,255,0.05);}
   .dm-user:last-child{border-bottom:none;}
-  .dm-user-av{width:18px;height:18px;border-radius:4px;background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);color:#C9A84C;font-family:'Syne',sans-serif;font-size:7.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .dm-user-av{width:18px;height:18px;border-radius:4px;background:rgba(199,160,90,0.1);border:1px solid rgba(199,160,90,0.2);color:#C7A05A;font-family:'Syne',sans-serif;font-size:7.5px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
   .dm-user-name{font-size:9.5px;color:#e8eaf0;}
   .dm-user-zone{font-size:8px;color:#454d5c;}
 
@@ -228,11 +230,11 @@
   @keyframes dm-blink{0%,100%{opacity:1}50%{opacity:.3}}
   .dm-chat-tabs{display:flex;gap:3px;padding:6px 7px;border-bottom:1px solid rgba(255,255,255,0.06);}
   .dm-chat-tabs span{flex:1;text-align:center;font-size:7.5px;padding:3px;border-radius:4px;color:#454d5c;}
-  .dm-chat-tabs span.active{background:rgba(201,168,76,0.08);color:#C9A84C;}
+  .dm-chat-tabs span.active{background:rgba(199,160,90,0.08);color:#C7A05A;}
   .dm-chat-body{flex:1;padding:8px;display:flex;flex-direction:column;gap:5px;}
   .dm-bubble{max-width:90%;font-size:9.5px;padding:6px 8px;border-radius:7px;line-height:1.35;}
   .dm-bubble.in{align-self:flex-start;background:#141619;color:#e8eaf0;border:1px solid rgba(255,255,255,0.06);}
-  .dm-bubble.out{align-self:flex-end;background:rgba(201,168,76,0.08);color:#C9A84C;border:1px solid rgba(201,168,76,0.2);}
+  .dm-bubble.out{align-self:flex-end;background:rgba(199,160,90,0.08);color:#C7A05A;border:1px solid rgba(199,160,90,0.2);}
   .dm-chat-foot{padding:7px 8px;border-top:1px solid rgba(255,255,255,0.06);font-size:8px;color:#454d5c;font-family:var(--mono);}
 
   .dm-dot{width:9px;height:9px;border-radius:50%;background:rgba(255,255,255,0.14);}
@@ -253,7 +255,7 @@
   .hero-proof span{display:flex;align-items:center;gap:8px;}
   .hero-proof i{width:5px;height:5px;border-radius:50%;background:var(--or);box-shadow:0 0 18px rgba(201,169,110,.65);}
 
-  .trust-strip{padding:26px 6vw;border-top:1px solid rgba(244,241,234,.06);border-bottom:1px solid rgba(244,241,234,.06);background:rgba(18,18,18,.52);backdrop-filter:blur(10px);}
+  .trust-strip{padding:26px 6vw;border-top:1px solid rgba(244,241,234,.06);border-bottom:1px solid rgba(244,241,234,.06);background:rgba(10,27,54,.52);backdrop-filter:blur(10px);}
   .trust-strip-inner{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);}
   .trust-item{padding:12px 28px;border-right:1px solid rgba(244,241,234,.07);}
   .trust-item:last-child{border-right:none;}
@@ -264,7 +266,7 @@
 
   .rgpd-section{overflow:hidden;background:
     radial-gradient(900px 520px at 82% 28%,rgba(201,169,110,.08),transparent 68%),
-    linear-gradient(180deg,rgba(18,18,18,.55),rgba(10,10,10,.15));}
+    linear-gradient(180deg,rgba(10,27,54,.55),rgba(6,16,36,.15));}
   .rgpd-layout{display:grid;grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr);gap:clamp(48px,7vw,110px);align-items:start;}
   .rgpd-lead{position:sticky;top:125px;}
   .rgpd-kicker{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--or);margin-bottom:18px;}
@@ -273,7 +275,7 @@
   .rgpd-lead p{color:var(--gris);font-size:16px;max-width:520px;}
   .rgpd-statement{margin-top:34px;padding:20px 22px;border-left:2px solid var(--or);background:rgba(201,169,110,.055);font-size:14px;color:rgba(244,241,234,.8);}
   .rgpd-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
-  .rgpd-card{position:relative;padding:28px 26px;min-height:210px;background:rgba(18,18,18,.64);border:1px solid rgba(244,241,234,.075);transition:transform .3s ease,border-color .3s ease,background .3s ease;}
+  .rgpd-card{position:relative;padding:28px 26px;min-height:210px;background:rgba(10,27,54,.64);border:1px solid rgba(244,241,234,.075);transition:transform .3s ease,border-color .3s ease,background .3s ease;}
   .rgpd-card:hover{transform:translateY(-4px);border-color:rgba(201,169,110,.38);background:rgba(24,24,24,.8);}
   .rgpd-card .n{font-family:var(--mono);font-size:10px;color:var(--or);letter-spacing:.12em;margin-bottom:35px;display:block;}
   .rgpd-card h3{font-family:var(--serif);font-size:22px;font-weight:400;margin-bottom:10px;}
@@ -299,13 +301,13 @@
   .hero-brand-line{margin-top:18px;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:rgba(244,241,234,.48);}
   .hero-brand-line b{color:var(--or);font-weight:500;}
 
-  .group-section{padding:92px 6vw 106px;background:linear-gradient(180deg,rgba(18,18,18,.42),rgba(10,10,10,.10));}
+  .group-section{padding:92px 6vw 106px;background:linear-gradient(180deg,rgba(10,27,54,.42),rgba(6,16,36,.10));}
   .group-shell{max-width:1180px;margin:0 auto;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:clamp(46px,8vw,120px);align-items:start;}
   .group-copy .eyebrow{margin-bottom:16px;}
   .group-copy h2{font-family:var(--serif);font-size:clamp(34px,4.5vw,58px);font-weight:400;line-height:1.06;letter-spacing:-.025em;margin-bottom:22px;}
   .group-copy h2 em{font-style:italic;color:var(--or);}
   .group-copy p{color:var(--gris);font-size:16px;max-width:520px;}
-  .group-pillars{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(244,241,234,.07);background:rgba(18,18,18,.46);}
+  .group-pillars{display:grid;grid-template-columns:1fr 1fr;border:1px solid rgba(244,241,234,.07);background:rgba(10,27,54,.46);}
   .group-pillar{padding:30px 28px;min-height:184px;border-right:1px solid rgba(244,241,234,.07);border-bottom:1px solid rgba(244,241,234,.07);}
   .group-pillar:nth-child(2n){border-right:none;}
   .group-pillar:nth-last-child(-n+2){border-bottom:none;}
@@ -326,24 +328,24 @@
   .dm-premium::before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(120deg,rgba(255,255,255,.018),transparent 32%,rgba(201,169,110,.028) 70%,transparent);z-index:5;}
   .dm-topbar{height:58px;display:flex;align-items:center;gap:14px;padding:0 18px;border-bottom:1px solid rgba(255,255,255,.055);background:#0d0f12;}
   .dm-window-dots{display:flex;gap:6px;}.dm-window-dots i{width:7px;height:7px;border-radius:50%;background:rgba(255,255,255,.14)}
-  .dm-product{margin-left:8px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.02em;color:#edf0f5}.dm-product span{color:#C9A84C;font-weight:600}
+  .dm-product{margin-left:8px;font-family:'Syne',sans-serif;font-size:12px;font-weight:700;letter-spacing:.02em;color:#edf0f5}.dm-product span{color:#C7A05A;font-weight:600}
   .dm-context{margin-left:auto;display:flex;align-items:center;gap:14px;font-size:9.5px;color:#697382;font-family:var(--mono)}
   .dm-status-live{display:inline-flex;align-items:center;gap:6px;color:#6ee7b7}.dm-status-live i{width:5px;height:5px;border-radius:50%;background:#34d399;box-shadow:0 0 12px rgba(52,211,153,.55)}
-  .dm-avatar{width:26px;height:26px;border-radius:7px;border:1px solid rgba(201,169,110,.22);background:rgba(201,169,110,.08);display:flex;align-items:center;justify-content:center;color:#C9A84C;font-family:'Syne',sans-serif;font-size:9px;font-weight:700}
+  .dm-avatar{width:26px;height:26px;border-radius:7px;border:1px solid rgba(201,169,110,.22);background:rgba(201,169,110,.08);display:flex;align-items:center;justify-content:center;color:#C7A05A;font-family:'Syne',sans-serif;font-size:9px;font-weight:700}
   .dm-workspace{display:grid;grid-template-columns:170px minmax(0,1fr) 236px;min-height:590px;}
   .dm-rail{padding:18px 12px;background:#0b0d10;border-right:1px solid rgba(255,255,255,.05);}
   .dm-rail-label{font-family:var(--mono);font-size:7.5px;letter-spacing:.12em;text-transform:uppercase;color:#39414d;margin:14px 9px 7px;}
   .dm-rail-item{display:flex;align-items:center;gap:9px;padding:9px 10px;border-radius:7px;color:#687381;font-size:10.5px;margin-bottom:3px;border:1px solid transparent;}
-  .dm-rail-item b{margin-left:auto;font-family:var(--mono);font-size:8px;color:#4c5562;font-weight:500}.dm-rail-item.active{color:#e9edf4;background:rgba(201,168,76,.065);border-color:rgba(201,168,76,.18)}.dm-rail-item.active::before{content:"";width:4px;height:4px;border-radius:50%;background:#C9A84C;box-shadow:0 0 10px rgba(201,168,76,.5)}
+  .dm-rail-item b{margin-left:auto;font-family:var(--mono);font-size:8px;color:#4c5562;font-weight:500}.dm-rail-item.active{color:#e9edf4;background:rgba(199,160,90,.065);border-color:rgba(199,160,90,.18)}.dm-rail-item.active::before{content:"";width:4px;height:4px;border-radius:50%;background:#C7A05A;box-shadow:0 0 10px rgba(199,160,90,.5)}
   .dm-center{padding:18px;background:#07090b;min-width:0;}
-  .dm-center-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}.dm-center-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:#edf0f5}.dm-center-sub{font-size:9.5px;color:#4f5966;margin-top:3px}.dm-center-actions{display:flex;gap:6px}.dm-mini-btn{font-family:var(--mono);font-size:7.5px;letter-spacing:.04em;text-transform:uppercase;color:#7d8794;border:1px solid rgba(255,255,255,.07);padding:6px 8px;border-radius:5px;background:#0d0f12}.dm-mini-btn.gold{color:#C9A84C;border-color:rgba(201,168,76,.24);background:rgba(201,168,76,.055)}
+  .dm-center-head{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px}.dm-center-title{font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:#edf0f5}.dm-center-sub{font-size:9.5px;color:#4f5966;margin-top:3px}.dm-center-actions{display:flex;gap:6px}.dm-mini-btn{font-family:var(--mono);font-size:7.5px;letter-spacing:.04em;text-transform:uppercase;color:#7d8794;border:1px solid rgba(255,255,255,.07);padding:6px 8px;border-radius:5px;background:#0d0f12}.dm-mini-btn.gold{color:#C7A05A;border-color:rgba(199,160,90,.24);background:rgba(199,160,90,.055)}
   .dm-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:10px}.dm-kpi{padding:11px 12px;border:1px solid rgba(255,255,255,.055);background:#0d0f12;border-radius:7px}.dm-kpi span{display:block;font-family:var(--mono);font-size:7px;letter-spacing:.07em;text-transform:uppercase;color:#414a56;margin-bottom:6px}.dm-kpi strong{font-family:'Syne',sans-serif;font-size:20px;color:#eef1f6}.dm-kpi small{font-size:8px;color:#4b5562;margin-left:4px}.dm-kpi.warn strong{color:#fbbf24}.dm-kpi.good strong{color:#34d399}.dm-kpi.info strong{color:#60a5fa}
   .dm-grid-main{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(180px,.72fr);gap:8px;}
   .dm-panel{border:1px solid rgba(255,255,255,.055);background:#0d0f12;border-radius:7px;overflow:hidden}.dm-panel-head{display:flex;align-items:center;justify-content:space-between;padding:9px 11px;border-bottom:1px solid rgba(255,255,255,.05)}.dm-panel-head strong{font-family:'Syne',sans-serif;font-size:9px;color:#dfe4ec}.dm-panel-head span{font-family:var(--mono);font-size:7px;color:#4c5562}.dm-map-v3{height:250px;position:relative;background:radial-gradient(circle at 55% 45%,rgba(96,165,250,.08),transparent 36%),linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px) 0 0/24px 24px,linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px) 0 0/24px 24px,#080a0c}.dm-road{position:absolute;height:1px;background:rgba(255,255,255,.055);transform-origin:left center}.dm-road.r1{width:62%;left:8%;top:30%;transform:rotate(15deg)}.dm-road.r2{width:72%;left:18%;top:66%;transform:rotate(-11deg)}.dm-road.r3{width:44%;left:41%;top:18%;transform:rotate(75deg)}
   .dm-pulse-pin{position:absolute;width:9px;height:9px;border-radius:50%;box-shadow:0 0 0 5px rgba(255,255,255,.02)}.dm-pulse-pin::after{content:"";position:absolute;inset:-6px;border:1px solid currentColor;border-radius:50%;opacity:.28}.dm-pulse-pin.blue{background:#60a5fa;color:#60a5fa}.dm-pulse-pin.gold{background:#fbbf24;color:#fbbf24}.dm-pulse-pin.red{background:#f87171;color:#f87171}.dm-pulse-pin.green{background:#34d399;color:#34d399}
   .dm-map-label{position:absolute;left:12px;bottom:10px;display:flex;gap:10px;font-family:var(--mono);font-size:7px;color:#46505c}.dm-map-label i{display:inline-block;width:5px;height:5px;border-radius:50%;margin-right:4px}.dm-map-label .r{background:#f87171}.dm-map-label .a{background:#fbbf24}.dm-map-label .g{background:#34d399}
-  .dm-stack{display:grid;gap:8px}.dm-list{padding:3px 0}.dm-row{display:flex;align-items:center;gap:8px;padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.045)}.dm-row:last-child{border-bottom:none}.dm-sev{width:6px;height:6px;border-radius:50%;flex:0 0 auto}.dm-sev.red{background:#f87171}.dm-sev.amber{background:#fbbf24}.dm-sev.blue{background:#60a5fa}.dm-row-text{min-width:0;flex:1}.dm-row-title{font-size:9.5px;color:#dfe4eb;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.dm-row-meta{font-size:7.5px;color:#414a56;margin-top:2px}.dm-row-time{font-family:var(--mono);font-size:7px;color:#424b57}.dm-license{padding:12px}.dm-license-top{display:flex;align-items:end;justify-content:space-between}.dm-license-num{font-family:'Syne',sans-serif;font-size:26px;font-weight:700;color:#edf0f5}.dm-license-num span{font-size:10px;color:#4c5662;font-weight:500}.dm-license-bar{height:3px;background:#171a1f;margin:10px 0 7px;overflow:hidden}.dm-license-bar i{display:block;height:100%;width:78%;background:linear-gradient(90deg,#C9A84C,#e5c983)}.dm-license-foot{font-size:7.5px;color:#46505c}
-  .dm-side{background:#0b0d10;border-left:1px solid rgba(255,255,255,.05);display:flex;flex-direction:column}.dm-side-head{padding:14px 13px;border-bottom:1px solid rgba(255,255,255,.05)}.dm-side-head strong{display:block;font-family:'Syne',sans-serif;font-size:10px;color:#e1e5eb}.dm-side-head span{font-size:8px;color:#434c58}.dm-side-tabs{display:flex;padding:7px 8px;gap:4px;border-bottom:1px solid rgba(255,255,255,.05)}.dm-side-tabs span{flex:1;text-align:center;font-family:var(--mono);font-size:7px;padding:5px;color:#444d58;border-radius:4px}.dm-side-tabs span.active{background:rgba(201,168,76,.065);color:#C9A84C}.dm-feed{padding:5px 0;flex:1}.dm-feed-item{display:grid;grid-template-columns:22px 1fr;gap:7px;padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.04)}.dm-feed-icon{width:22px;height:22px;border-radius:5px;background:#12151a;display:flex;align-items:center;justify-content:center;font-size:9px}.dm-feed-text{font-size:8.5px;color:#8d97a4;line-height:1.4}.dm-feed-text strong{display:block;color:#d9dee5;font-size:9px;font-weight:500;margin-bottom:1px}.dm-feed-text span{font-size:7px;color:#3f4854}.dm-audit{margin:10px;border:1px solid rgba(201,168,76,.16);background:rgba(201,168,76,.035);padding:10px}.dm-audit strong{display:block;font-family:var(--mono);font-size:7.5px;letter-spacing:.08em;text-transform:uppercase;color:#C9A84C;margin-bottom:6px}.dm-audit p{font-size:8px;color:#66717e;line-height:1.45}.dm-audit-line{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:7px;color:#4b5562}.dm-audit-line i{width:5px;height:5px;border-radius:50%;background:#34d399}
+  .dm-stack{display:grid;gap:8px}.dm-list{padding:3px 0}.dm-row{display:flex;align-items:center;gap:8px;padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.045)}.dm-row:last-child{border-bottom:none}.dm-sev{width:6px;height:6px;border-radius:50%;flex:0 0 auto}.dm-sev.red{background:#f87171}.dm-sev.amber{background:#fbbf24}.dm-sev.blue{background:#60a5fa}.dm-row-text{min-width:0;flex:1}.dm-row-title{font-size:9.5px;color:#dfe4eb;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.dm-row-meta{font-size:7.5px;color:#414a56;margin-top:2px}.dm-row-time{font-family:var(--mono);font-size:7px;color:#424b57}.dm-license{padding:12px}.dm-license-top{display:flex;align-items:end;justify-content:space-between}.dm-license-num{font-family:'Syne',sans-serif;font-size:26px;font-weight:700;color:#edf0f5}.dm-license-num span{font-size:10px;color:#4c5662;font-weight:500}.dm-license-bar{height:3px;background:#171a1f;margin:10px 0 7px;overflow:hidden}.dm-license-bar i{display:block;height:100%;width:78%;background:linear-gradient(90deg,#C7A05A,#e5c983)}.dm-license-foot{font-size:7.5px;color:#46505c}
+  .dm-side{background:#0b0d10;border-left:1px solid rgba(255,255,255,.05);display:flex;flex-direction:column}.dm-side-head{padding:14px 13px;border-bottom:1px solid rgba(255,255,255,.05)}.dm-side-head strong{display:block;font-family:'Syne',sans-serif;font-size:10px;color:#e1e5eb}.dm-side-head span{font-size:8px;color:#434c58}.dm-side-tabs{display:flex;padding:7px 8px;gap:4px;border-bottom:1px solid rgba(255,255,255,.05)}.dm-side-tabs span{flex:1;text-align:center;font-family:var(--mono);font-size:7px;padding:5px;color:#444d58;border-radius:4px}.dm-side-tabs span.active{background:rgba(199,160,90,.065);color:#C7A05A}.dm-feed{padding:5px 0;flex:1}.dm-feed-item{display:grid;grid-template-columns:22px 1fr;gap:7px;padding:9px 10px;border-bottom:1px solid rgba(255,255,255,.04)}.dm-feed-icon{width:22px;height:22px;border-radius:5px;background:#12151a;display:flex;align-items:center;justify-content:center;font-size:9px}.dm-feed-text{font-size:8.5px;color:#8d97a4;line-height:1.4}.dm-feed-text strong{display:block;color:#d9dee5;font-size:9px;font-weight:500;margin-bottom:1px}.dm-feed-text span{font-size:7px;color:#3f4854}.dm-audit{margin:10px;border:1px solid rgba(199,160,90,.16);background:rgba(199,160,90,.035);padding:10px}.dm-audit strong{display:block;font-family:var(--mono);font-size:7.5px;letter-spacing:.08em;text-transform:uppercase;color:#C7A05A;margin-bottom:6px}.dm-audit p{font-size:8px;color:#66717e;line-height:1.45}.dm-audit-line{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:7px;color:#4b5562}.dm-audit-line i{width:5px;height:5px;border-radius:50%;background:#34d399}
   .dm-v3-points{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin-top:18px;background:rgba(244,241,234,.07);border:1px solid rgba(244,241,234,.07)}.dm-v3-point{background:#0a0b0d;padding:24px 22px;min-height:155px}.dm-v3-point span{font-family:var(--mono);font-size:9px;letter-spacing:.12em;color:var(--or)}.dm-v3-point h4{font-family:var(--serif);font-size:18px;font-weight:400;margin:20px 0 7px}.dm-v3-point p{font-size:12.5px;color:var(--gris);line-height:1.55}
   @media(max-width:1050px){.dm-workspace{grid-template-columns:145px minmax(0,1fr)}.dm-side{display:none}.dm-v3-points{grid-template-columns:1fr 1fr}}
   @media(max-width:720px){.dm-workspace{grid-template-columns:1fr;min-width:850px}.dm-rail{display:none}.dm-premium-scroll{overflow-x:auto}.dm-v3-points{grid-template-columns:1fr}.dm-grid-main{grid-template-columns:1fr}.dm-kpis{grid-template-columns:1fr 1fr}}
@@ -362,7 +364,7 @@
   .flow-card:focus-visible .prompt{opacity:1;transform:none;}
   @media(max-width:1200px){
     .menu-toggle{display:block;}
-    #main-nav{display:none;position:absolute;top:100%;left:0;right:0;padding:24px 6vw;background:#121212;max-height:75svh;overflow:auto;border-bottom:1px solid var(--or-soft);}
+    #main-nav{display:none;position:absolute;top:100%;left:0;right:0;padding:24px 6vw;background:var(--noir-1);max-height:75svh;overflow:auto;border-bottom:1px solid var(--or-soft);}
     #main-nav.open{display:flex;flex-direction:column;gap:18px;}
     .legal-links{display:flex;}
   }
@@ -382,11 +384,11 @@
 <div class="vignette" aria-hidden="true"></div>
 
 <header>
-  <a href="#top" class="logo" aria-label="Malary — Accueil"><img src="assets/image-01.png" alt="Malary"></a>
+  <a href="#top" class="logo" aria-label="MALARY — Accueil"><img src="assets/malary-signature.png" alt="MALARY"></a>
   <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
   <nav id="main-nav" aria-label="Navigation principale">
     <a href="#malary-group">Malary</a>
-    <a href="#suite-flow">Suite Flow</a>
+    <a href="#suite-flow">MALARY Suite</a>
     <a href="#comment-ca-marche">Comment ça marche</a>
     <a href="#dashboard-manager">Dashboard Manager</a>
     <a href="#tarifs">Tarifs</a>
@@ -401,14 +403,14 @@
 
   <section class="hero" style="border-top:none;">
     <div class="group-mark">MALARY · Conception &amp; développement de solutions</div>
-    <img src="assets/image-01.png" alt="Suite Flow — by Malary" class="hero-logo">
-    <div class="eyebrow" style="justify-content:center;">Malary présente Suite Flow</div>
+    <img src="assets/malary-suite.png" alt="MALARY Suite — l'écosystème des six applications métier" class="hero-logo">
+    <div class="eyebrow" style="justify-content:center;">Malary présente MALARY Suite</div>
     <h1 style="text-align:center;">Des solutions pensées<br><em>pour vos réalités.</em></h1>
-    <p class="hero-sub" style="margin-left:auto;margin-right:auto;text-align:center;">MALARY identifie les défis des professionnels et développe des solutions concrètes pour y répondre. SuiteFlow est notre première gamme de solutions, dédiée aux réalités opérationnelles de six métiers.</p>
-    <p class="hero-value">Suite Flow réunit six applications métier et un cockpit de pilotage commun : signaler, coordonner, superviser, tracer et décider depuis un même socle technique.</p>
-    <div class="hero-brand-line"><b>MALARY</b> → SUITE FLOW → 6 APPLICATIONS MÉTIER → DASHBOARD MANAGER</div>
+    <p class="hero-sub" style="margin-left:auto;margin-right:auto;text-align:center;">MALARY identifie les défis des professionnels et développe des solutions concrètes pour y répondre. MALARY Suite est notre première gamme de solutions, dédiée aux réalités opérationnelles de six métiers.</p>
+    <p class="hero-value">MALARY Suite réunit six applications métier et un cockpit de pilotage commun : signaler, coordonner, superviser, tracer et décider depuis un même socle technique.</p>
+    <div class="hero-brand-line"><b>MALARY</b> → MALARY SUITE → 6 APPLICATIONS MÉTIER → DASHBOARD MANAGER</div>
     <div class="hero-cta" style="justify-content:center;">
-      <a href="#suite-flow" class="btn btn-primary">Explorer la Suite Flow</a>
+      <a href="#suite-flow" class="btn btn-primary">Explorer MALARY Suite</a>
       <a href="#dashboard-manager" class="btn btn-ghost">Voir le Dashboard Manager</a>
     </div>
     <div class="hero-proof">
@@ -428,7 +430,7 @@
     </div>
   </div>
 
-  <section class="group-section" id="malary-group"><div class="group-shell"><div class="group-copy reveal"><div class="eyebrow">MALARY</div><h2>Malary construit le <em>socle.</em><br>Les Flow parlent métier.</h2><p>MALARY porte le projet de solutions. SuiteFlow est sa première gamme de solutions. Chaque Flow répond à un environnement opérationnel précis, tandis que Dashboard Manager rassemble le pilotage, les accès et la vision globale.</p></div><div class="group-pillars reveal"><article class="group-pillar"><span class="num">01 / SOLUTIONS</span><h3>Une direction produit unique</h3><p>Architecture, expérience, sécurité et évolutions sont pensées comme un ensemble cohérent, sous la responsabilité de Malary.</p></article><article class="group-pillar"><span class="num">02 / SUITE FLOW</span><h3>Un standard, six métiers</h3><p>FlowAlert, FlowCity, FlowHotel, FlowSafe, FlowSchool et FlowSite partagent un même socle tout en respectant les usages de chaque secteur.</p></article><article class="group-pillar"><span class="num">03 / MANAGER</span><h3>Un cockpit de pilotage</h3><p>Dashboard Manager centralise supervision, activité, utilisateurs, licences et traçabilité côté client.</p></article><article class="group-pillar"><span class="num">04 / CONFIANCE</span><h3>Une approche responsable</h3><p>Protection des données, accès par rôle et transparence sont intégrés à la conception et au déploiement des usages.</p></article></div></div></section>
+  <section class="group-section" id="malary-group"><div class="group-shell"><div class="group-copy reveal"><div class="eyebrow">MALARY</div><h2>Malary construit le <em>socle.</em><br>Les applications parlent métier.</h2><p>MALARY porte le projet de solutions. MALARY Suite est sa première gamme de solutions. Chaque application répond à un environnement opérationnel précis, tandis que Dashboard Manager rassemble le pilotage, les accès et la vision globale.</p></div><div class="group-pillars reveal"><article class="group-pillar"><span class="num">01 / SOLUTIONS</span><h3>Une direction produit unique</h3><p>Architecture, expérience, sécurité et évolutions sont pensées comme un ensemble cohérent, sous la responsabilité de Malary.</p></article><article class="group-pillar"><span class="num">02 / MALARY SUITE</span><h3>Un standard, six métiers</h3><p>MALARY Alert, MALARY City, MALARY Hotel, MALARY Safe, MALARY School et MALARY Site partagent un même socle tout en respectant les usages de chaque secteur.</p></article><article class="group-pillar"><span class="num">03 / MANAGER</span><h3>Un cockpit de pilotage</h3><p>Dashboard Manager centralise supervision, activité, utilisateurs, licences et traçabilité côté client.</p></article><article class="group-pillar"><span class="num">04 / CONFIANCE</span><h3>Une approche responsable</h3><p>Protection des données, accès par rôle et transparence sont intégrés à la conception et au déploiement des usages.</p></article></div></div></section>
 <section class="selector-section">
     <div class="eyebrow">Trouvez votre application</div>
     <h2 style="font-family:var(--serif);font-weight:400;font-size:clamp(24px,3.2vw,34px);margin-bottom:28px;">Quel est votre secteur ?</h2>
@@ -459,7 +461,7 @@
         </ul>
       </div>
       <div class="probleme-col apres reveal">
-        <h3>Avec la Suite Flow</h3>
+        <h3>Avec MALARY Suite</h3>
         <ul>
           <li><span class="marker">+</span> Un signalement envoyé en quelques secondes</li>
           <li><span class="marker">+</span> Lieu, horodatage et niveau de gravité réunis</li>
@@ -474,11 +476,11 @@
     <div class="teaser-wrap reveal">
       <div class="teaser-text">
         <div class="eyebrow">En vidéo</div>
-        <h2>La Suite Flow en 20 secondes.</h2>
+        <h2>MALARY Suite en 20 secondes.</h2>
         <p>Une seule plateforme, une vision globale de votre terrain — de l'événementiel aux établissements scolaires.</p>
       </div>
       <div class="teaser-frame">
-        <video id="teaserVideo" muted loop playsinline preload="metadata" poster="assets/image-02.jpg" aria-label="Teaser de la Suite Flow (vidéo sans son)"></video>
+        <video id="teaserVideo" muted loop playsinline preload="metadata" poster="assets/image-02.jpg" aria-label="Teaser de MALARY Suite (vidéo sans son)"></video>
         <button type="button" class="teaser-toggle" id="teaserToggle" aria-label="Mettre la vidéo en pause">Pause</button>
       </div>
     </div>
@@ -489,15 +491,16 @@
     <div class="section-head reveal">
       <div class="eyebrow">La gamme</div>
       <h2>Une base commune, six métiers.</h2>
-      <p>Découvrez les six applications métier. Contactez-nous pour connaître les modalités de démonstration et de déploiement adaptées à votre organisation.</p>
+      <p>Découvrez les six applications MALARY Suite. Contactez-nous pour connaître les modalités de démonstration et de déploiement adaptées à votre organisation.</p>
     </div>
     <div class="flow-grid reveal" id="flow-grid">
       <div class="flow-card highlight" data-id="alert">
         <img class="photo" src="assets/image-03.jpg" alt="Barrière de sécurité lors d'un événement, la nuit">
         <div class="scrim"></div>
+        <img class="flow-logo" src="assets/apps/malary-alert.png" alt="Logo MALARY Alert">
         <div class="content">
           <span class="tag">Solution métier</span>
-          <h3>FlowAlert</h3>
+          <h3>MALARY Alert</h3>
           <div class="secteur">Sécurité événementielle</div>
           <p>Coordination des équipes terrain et suivi des incidents événementiels.</p>
           <span class="prompt">Voir le fonctionnement →</span>
@@ -506,9 +509,10 @@
       <div class="flow-card" data-id="city">
         <img class="photo" src="assets/image-04.jpg" alt="Rue de ville la nuit, éclairée par un lampadaire">
         <div class="scrim"></div>
+        <img class="flow-logo" src="assets/apps/malary-city.png" alt="Logo MALARY City">
         <div class="content">
           <span class="tag">Solution métier</span>
-          <h3>FlowCity</h3>
+          <h3>MALARY City</h3>
           <div class="secteur">Villes et collectivités</div>
           <p>Signalements sur l'espace public remontés au bon service municipal.</p>
           <span class="prompt">Voir le fonctionnement →</span>
@@ -517,9 +521,10 @@
       <div class="flow-card" data-id="safe">
         <img class="photo" src="assets/image-05.jpg" alt="Chambre médicalisée moderne et calme">
         <div class="scrim"></div>
+        <img class="flow-logo" src="assets/apps/malary-safe.png" alt="Logo MALARY Safe">
         <div class="content">
           <span class="tag">Solution métier</span>
-          <h3>FlowSafe</h3>
+          <h3>MALARY Safe</h3>
           <div class="secteur">Santé résidentielle</div>
           <p>Coordination des équipes et incidents par étage, chambre ou local — EMS et EHPAD.</p>
           <span class="prompt">Voir le fonctionnement →</span>
@@ -528,9 +533,10 @@
       <div class="flow-card" data-id="site">
         <img class="photo" src="assets/image-06.jpg" alt="Grue et structure en construction au crépuscule">
         <div class="scrim"></div>
+        <img class="flow-logo" src="assets/apps/malary-site.png" alt="Logo MALARY Site">
         <div class="content">
           <span class="tag">Solution métier</span>
-          <h3>FlowSite</h3>
+          <h3>MALARY Site</h3>
           <div class="secteur">Chantiers</div>
           <p>Suivi des incidents par zone de chantier.</p>
           <span class="prompt">Voir le fonctionnement →</span>
@@ -539,9 +545,10 @@
       <div class="flow-card" data-id="hotel">
         <img class="photo" src="assets/image-07.jpg" alt="Couloir d'un hôtel haut de gamme">
         <div class="scrim"></div>
+        <img class="flow-logo" src="assets/apps/malary-hotel.png" alt="Logo MALARY Hotel">
         <div class="content">
           <span class="tag">Solution métier</span>
-          <h3>FlowHotel</h3>
+          <h3>MALARY Hotel</h3>
           <div class="secteur">Hôtellerie</div>
           <p>Interface en anglais, repères hôteliers — Room, Lobby, Front Desk.</p>
           <span class="prompt">Voir le fonctionnement →</span>
@@ -550,9 +557,10 @@
       <div class="flow-card" data-id="school">
         <img class="photo" src="assets/image-08.jpg" alt="Façade d'un établissement scolaire moderne au crépuscule">
         <div class="scrim"></div>
+        <img class="flow-logo" src="assets/apps/malary-school.png" alt="Logo MALARY School">
         <div class="content">
           <span class="tag">Solution métier</span>
-          <h3>FlowSchool</h3>
+          <h3>MALARY School</h3>
           <div class="secteur">Établissements scolaires</div>
           <p>Signalement localisé par zone — cour, cantine, gymnase.</p>
           <span class="prompt">Voir le fonctionnement →</span>
@@ -568,7 +576,7 @@
       <p>La présentation ci-dessous suit le secteur choisi. Les écrans et données affichés sont des illustrations ; le périmètre de chaque déploiement est défini avec vous.</p>
     </div>
     <div class="reveal">
-      <div class="current-app">FlowAlert — <span id="current-secteur">Sécurité événementielle</span></div>
+      <div class="current-app">MALARY Alert — <span id="current-secteur">Sécurité événementielle</span></div>
       <p class="flow-intro" id="flow-intro"></p>
       <div class="alert-flow" id="flow-steps">
         <div class="alert-step"><span class="num">01</span><h4 class="s-title"></h4><p class="s-desc"></p></div>
@@ -585,9 +593,9 @@
       <div class="section-head reveal">
         <div class="eyebrow">Dashboard Manager · by Malary</div>
         <h2>Le centre de contrôle de votre organisation.</h2>
-        <p>Vos équipes utilisent leur Flow sur le terrain. Vous supervisez l’ensemble depuis un cockpit unique : incidents, activité, utilisateurs, licences et traçabilité.</p>
+        <p>Vos équipes utilisent leur application sur le terrain. Vous supervisez l’ensemble depuis un cockpit unique : incidents, activité, utilisateurs, licences et traçabilité.</p>
       </div>
-      <div class="dm-v3-statement reveal"><strong>Un même niveau d’exigence que la Suite Flow.</strong> Le Dashboard Manager n’est plus un simple écran d’administration : il devient la couche de pilotage de Malary, conçue pour donner une lecture immédiate de l’activité et garder la maîtrise côté client.</div>
+      <div class="dm-v3-statement reveal"><strong>Un même niveau d’exigence que MALARY Suite.</strong> Le Dashboard Manager n’est plus un simple écran d’administration : il devient la couche de pilotage de Malary, conçue pour donner une lecture immédiate de l’activité et garder la maîtrise côté client.</div>
     </div>
 
     <div class="dm-premium-scroll reveal">
@@ -653,7 +661,7 @@
                 </section>
                 <section class="dm-panel dm-license">
                   <div class="dm-license-top"><div><div class="dm-license-num">47<span> / 60</span></div><div class="dm-row-meta">Licences attribuées</div></div><div class="dm-mini-btn">Gérer</div></div>
-                  <div class="dm-license-bar"><i></i></div><div class="dm-license-foot">13 licences disponibles · répartition multi-Flow</div>
+                  <div class="dm-license-bar"><i></i></div><div class="dm-license-foot">13 licences disponibles · répartition multi-applications</div>
                 </section>
               </div>
             </div>
@@ -665,7 +673,7 @@
             <div class="dm-feed">
               <div class="dm-feed-item"><div class="dm-feed-icon">✓</div><div class="dm-feed-text"><strong>Incident pris en charge</strong>Marie L. a accepté l’intervention.<span>Il y a 2 min</span></div></div>
               <div class="dm-feed-item"><div class="dm-feed-icon">↗</div><div class="dm-feed-text"><strong>Nouvelle alerte terrain</strong>Zone technique · priorité élevée.<span>Il y a 4 min</span></div></div>
-              <div class="dm-feed-item"><div class="dm-feed-icon">＋</div><div class="dm-feed-text"><strong>Utilisateur ajouté</strong>Profil Agent · FlowSite.<span>Il y a 18 min</span></div></div>
+              <div class="dm-feed-item"><div class="dm-feed-icon">＋</div><div class="dm-feed-text"><strong>Utilisateur ajouté</strong>Profil Agent · MALARY Site.<span>Il y a 18 min</span></div></div>
               <div class="dm-feed-item"><div class="dm-feed-icon">◎</div><div class="dm-feed-text"><strong>Rapport exporté</strong>Synthèse opérationnelle hebdo.<span>Il y a 41 min</span></div></div>
             </div>
             <div class="dm-audit"><strong>Sécurité &amp; traçabilité</strong><p>Accès par rôle, journalisation des actions utiles et paramètres de conservation regroupés dans le même espace.</p><div class="dm-audit-line"><i></i>Journal d’audit actif</div></div>
@@ -676,7 +684,7 @@
 
     <div class="dm-v3-points reveal">
       <article class="dm-v3-point"><span>01 / SUPERVISER</span><h4>Une lecture immédiate</h4><p>Incidents, équipes, sites et activité sont visibles dans un seul espace, sans naviguer entre plusieurs outils.</p></article>
-      <article class="dm-v3-point"><span>02 / ORGANISER</span><h4>Accès &amp; licences</h4><p>Le client garde la main sur ses utilisateurs, ses rôles et la répartition de ses licences entre les différents Flow.</p></article>
+      <article class="dm-v3-point"><span>02 / ORGANISER</span><h4>Accès &amp; licences</h4><p>Le client garde la main sur ses utilisateurs, ses rôles et la répartition de ses licences entre les différentes applications.</p></article>
       <article class="dm-v3-point"><span>03 / ANALYSER</span><h4>Décider avec des faits</h4><p>Indicateurs, historiques et exports transforment l’activité terrain en informations exploitables pour le management.</p></article>
       <article class="dm-v3-point"><span>04 / TRACER</span><h4>Confiance intégrée</h4><p>Journal d’audit, habilitations et paramètres de conservation donnent une base plus claire à la gouvernance des données.</p></article>
     </div>
@@ -688,7 +696,7 @@
         <div class="rgpd-kicker">Confiance · RGPD · Données</div>
         <h2 class="rgpd-title">Vos données ne sont pas<br><em>un produit.</em></h2>
         <p>La confiance ne se résume pas à une case « conforme ». Elle repose sur des choix concrets : limiter les données collectées, maîtriser les accès, garder une trace des opérations utiles et documenter clairement où et pourquoi les données sont traitées.</p>
-        <div class="rgpd-statement">La Suite Flow est pensée pour aider ses clients à déployer des usages terrain avec une approche de <strong>protection des données dès la conception</strong>, sans exploitation publicitaire des données métiers.</div>
+        <div class="rgpd-statement">MALARY Suite est pensée pour aider ses clients à déployer des usages terrain avec une approche de <strong>protection des données dès la conception</strong>, sans exploitation publicitaire des données métiers.</div>
       </div>
       <div class="rgpd-grid reveal">
         <article class="rgpd-card">
@@ -726,7 +734,7 @@
     <div class="section-head reveal">
       <div class="eyebrow">Tarifs</div>
       <h2>Un prix, quel que soit votre métier.</h2>
-      <p>Une licence donne accès à une application de la Suite Flow. Le prix dépend du nombre de licences, pas de l'application choisie : la grille est la même pour les six. Les modalités de déploiement sont définies avec vous ; aucune commande ni aucun paiement ne sont proposés sur ce site.</p>
+      <p>Une licence donne accès à une application MALARY Suite. Le prix dépend du nombre de licences, pas de l'application choisie : la grille est la même pour les six. Les modalités de déploiement sont définies avec vous ; aucune commande ni aucun paiement ne sont proposés sur ce site.</p>
     </div>
     <div class="pricing-grid reveal">
       <div class="price-card">
@@ -762,11 +770,11 @@
     <div class="section-head reveal">
       <div class="eyebrow">Malary</div>
       <h2>Une vision. Des solutions. De multiples horizons.</h2>
-      <p>MALARY part des besoins du terrain pour imaginer et développer des solutions adaptées. SuiteFlow incarne cette démarche dans six métiers, sans limiter les futurs domaines d’activité de MALARY.</p>
+      <p>MALARY part des besoins du terrain pour imaginer et développer des solutions adaptées. MALARY Suite incarne cette démarche dans six métiers, sans limiter les futurs domaines d’activité de MALARY.</p>
     </div>
     <div class="about-grid reveal">
       <article class="about-card"><span class="about-number">01</span><h3>La vision</h3><p>Remplacer les informations dispersées par une vision opérationnelle commune : terrain, management et traçabilité réunis dans un même écosystème.</p><p><strong>Un seul standard technique, six métiers.</strong></p></article>
-      <article class="about-card"><span class="about-number">02</span><h3>Le projet MALARY</h3><p><strong>Malary</strong> est un projet français de conception et développement de solutions, porté depuis la Haute‑Savoie. La société est en cours de constitution. Nous développons SuiteFlow et son Dashboard Manager comme une famille de solutions cohérente, pas comme une collection d’applications isolées.</p></article>
+      <article class="about-card"><span class="about-number">02</span><h3>Le projet MALARY</h3><p><strong>Malary</strong> est un projet français de conception et développement de solutions, porté depuis la Haute‑Savoie. La société est en cours de constitution. Nous développons MALARY Suite et son Dashboard Manager comme une famille de solutions cohérente, pas comme une collection d’applications isolées.</p></article>
       <article class="about-card"><span class="about-number">03</span><h3>L’engagement</h3><p>Des outils compréhensibles, une relation directe et une attention portée à la sécurité, à la protection des données et à la maîtrise côté client.</p><p>Pas de fonctionnalités superflues. Pas de dépendance inutile.</p></article>
     </div>
   </section>
@@ -775,9 +783,9 @@
     <div class="reveal">
       <div class="eyebrow" style="justify-content:center;">Parlons-en</div>
       <h2>Parlons de votre terrain, pas d’un logiciel générique.</h2>
-      <p>Une présentation de la Suite Flow, du Dashboard Manager et de notre approche de protection des données, adaptée à votre activité.</p>
+      <p>Une présentation de MALARY Suite, du Dashboard Manager et de notre approche de protection des données, adaptée à votre activité.</p>
       <div class="contact-actions">
-        <a href="mailto:contact@malary.eu?subject=Demande%20de%20d%C3%A9monstration%20Suite%20Flow" class="btn btn-primary">Demander une démonstration</a>
+        <a href="mailto:contact@malary.eu?subject=Demande%20de%20d%C3%A9monstration%20MALARY%20Suite" class="btn btn-primary">Demander une démonstration</a>
         <a href="mailto:contact@malary.eu" class="contact-email">contact@malary.eu</a>
       </div>
       <p class="contact-privacy">Ces liens ouvrent votre messagerie. Vos coordonnées et votre message servent à répondre à votre demande. N’envoyez pas de données de santé, de mots de passe ni d’informations confidentielles sur vos équipes. <a href="legal.html#rgpd">Utilisation de vos données et exercice de vos droits</a>.</p>
@@ -787,7 +795,7 @@
 </main>
 
 <footer>
-  <a href="#top" class="logo"><img src="assets/image-01.png" alt="Malary"></a>
+  <a href="#top" class="logo"><img src="assets/malary-signature.png" alt="MALARY"></a>
   <div class="meta">© 2026 MALARY <nav class="legal-links" aria-label="Informations légales"><a href="legal.html#ml">Mentions légales</a><a href="legal.html#cgu">CGU</a><a href="legal.html#cgv">Conditions commerciales</a><a href="legal.html#rgpd">Confidentialité</a><a href="legal.html#cookies">Cookies</a><a href="#" class="legal-manage-consent" onclick="if(window.malaryConsent){window.malaryConsent.withdraw();}return false;">Gérer le consentement</a><a href="support.html">Assistance</a></nav></div>
 </footer>
 
@@ -820,7 +828,7 @@
     if(!canvas) return;
     const ctx = canvas.getContext('2d');
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const GOLD = '201,169,110';
+    const GOLD = '199,160,90';
     const LINK_DIST = 150;
     let w, h, dpr, nodes = [];
     function resize(){
@@ -844,27 +852,27 @@
   })();
 
   const flowData = {
-    alert:{name:'FlowAlert', secteur:'Sécurité événementielle', intro:"Pensé pour les prestataires de sécurité événementielle : chaque signalement remonte au poste de commandement pour faciliter la coordination des interventions.", steps:[
+    alert:{name:'MALARY Alert', secteur:'Sécurité événementielle', intro:"Pensé pour les prestataires de sécurité événementielle : chaque signalement remonte au poste de commandement pour faciliter la coordination des interventions.", steps:[
       {t:"L'agent signale", d:"Depuis l'application mobile, en quelques secondes : type d'incident (intrusion, malaise, objet suspect...), niveau de gravité, position si disponible et photo à l'appui."},
       {t:'Le responsable voit', d:"Le tableau de bord affiche l'incident en temps réel sur une carte du site, avec l'équipe déjà mobilisée à proximité et l'historique complet de la journée."},
       {t:"L'équipe coordonne", d:"Deux canaux séparés — Alertes pour l'urgent, Équipe pour le courant — évitent que les consignes se perdent dans un fil de discussion unique."}]},
-    city:{name:'FlowCity', secteur:'Villes et collectivités', intro:"Conçu pour les services techniques municipaux : chaque signalement d'agent arrive directement au bon interlocuteur, sans passer par un standard téléphonique.", steps:[
+    city:{name:'MALARY City', secteur:'Villes et collectivités', intro:"Conçu pour les services techniques municipaux : chaque signalement d'agent arrive directement au bon interlocuteur, sans passer par un standard téléphonique.", steps:[
       {t:"L'agent signale", d:"Voirie dégradée, dépôt sauvage, éclairage public défaillant, espace vert à entretenir : un signalement localisé par GPS et catégorisé en quelques secondes."},
       {t:'Le bon service reçoit', d:"Le responsable consulte les signalements municipaux et organise leur prise en charge par les services concernés."},
       {t:'Le suivi est visible', d:"Statut — ouvert, en cours, fermé — et historique consultables par site, sur un tableau de bord propre à chaque client de la collectivité."}]},
-    safe:{name:'FlowSafe', secteur:'Santé résidentielle', intro:"Pensé pour les EHPAD et établissements de santé : cinq catégories d'incident couvrent l'essentiel du quotidien soignant, sans formulaire générique à réinterpréter.", steps:[
+    safe:{name:'MALARY Safe', secteur:'Santé résidentielle', intro:"Pensé pour les EHPAD et établissements de santé : cinq catégories d'incident couvrent l'essentiel du quotidien soignant, sans formulaire générique à réinterpréter.", steps:[
       {t:'Le soignant signale', d:"Cinq catégories dédiées — chute, incident médicamenteux, trouble du comportement, incident matériel, non-conformité — chacune avec ses propres champs."},
       {t:'Localisé en un geste', d:"Un sélecteur à deux roues, étage puis chambre, remplace la recherche d'adresse : les équipes utilisent les repères de l’établissement."},
       {t:'Le suivi est tracé', d:"Les équipes suivent les incidents par chambre ou local, selon leurs habilitations. Les conditions d’un éventuel traitement de données de santé doivent être établies avant tout déploiement concerné."}]},
-    site:{name:'FlowSite', secteur:'Chantiers', intro:"Pensé pour le BTP : le client organise ses sites et ses zones depuis Dashboard Manager, puis les équipes y rattachent leurs signalements.", steps:[
+    site:{name:'MALARY Site', secteur:'Chantiers', intro:"Pensé pour le BTP : le client organise ses sites et ses zones depuis Dashboard Manager, puis les équipes y rattachent leurs signalements.", steps:[
       {t:"L'agent signale", d:"Cinq zones type : gros œuvre, second œuvre, stockage matériel, bureaux de chantier, parking et accès — adaptables au site réel."},
       {t:'Le site est structuré', d:"Le client crée et gère ses sites dans Dashboard Manager. Les signalements sont rattachés au site et à la zone concernés, sans cartographie."},
       {t:'Coordination inter-entreprises', d:"Un canal de discussion dédié au chantier réunit les équipes des différents corps de métier présents sur site."}]},
-    hotel:{name:'FlowHotel', secteur:'Hôtellerie', intro:"Pensé pour l'hôtellerie haut de gamme : interface entièrement en anglais, vocabulaire du métier plutôt que des libellés génériques traduits.", steps:[
+    hotel:{name:'MALARY Hotel', secteur:'Hôtellerie', intro:"Pensé pour l'hôtellerie haut de gamme : interface entièrement en anglais, vocabulaire du métier plutôt que des libellés génériques traduits.", steps:[
       {t:'Le personnel signale', d:"Interface entièrement en anglais — Room, Floor, Lobby, Front Desk — pour un personnel qui pense déjà dans ces termes."},
       {t:'Localisé instantanément', d:"Un sélecteur étage puis chambre, avec des raccourcis nommés pour le rez-de-chaussée : Lobby, Restaurant, Lounge, Front Desk."},
       {t:"L'équipe reste coordonnée", d:"Un canal Alerts dédié, séparé des échanges courants entre équipes de ménage, réception et maintenance."}]},
-    school:{name:'FlowSchool', secteur:'Établissements scolaires', intro:"Pensé pour les établissements scolaires : le personnel situe l'incident par une zone qu'il connaît déjà, sans avoir à la décrire.", steps:[
+    school:{name:'MALARY School', secteur:'Établissements scolaires', intro:"Pensé pour les établissements scolaires : le personnel situe l'incident par une zone qu'il connaît déjà, sans avoir à la décrire.", steps:[
       {t:'Le personnel signale', d:"Par zone : cour de récréation, cantine, gymnase, bâtiments A et B — un vocabulaire immédiatement reconnaissable par toute l'équipe."},
       {t:'Localisation immédiate', d:"La zone est choisie en un geste sur la liste des zones réelles de l'établissement, sans recherche ni ressaisie."},
       {t:"L'équipe de vie scolaire coordonne", d:"Un canal de discussion dédié à l'établissement relie la vie scolaire, la direction et les agents techniques."}]}
